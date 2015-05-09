@@ -1,0 +1,6 @@
+C:\Users\Douglas_Laptop\Documents\SourceTreeOficiNet\Site\bin\Site.dll.config
+C:\Users\Douglas_Laptop\Documents\SourceTreeOficiNet\Site\bin\Site.dll
+C:\Users\Douglas_Laptop\Documents\SourceTreeOficiNet\Site\bin\Site.pdb
+C:\Users\Douglas_Laptop\Documents\SourceTreeOficiNet\Site\obj\Debug\Site.csprojResolveAssemblyReference.cache
+C:\Users\Douglas_Laptop\Documents\SourceTreeOficiNet\Site\obj\Debug\Site.dll
+C:\Users\Douglas_Laptop\Documents\SourceTreeOficiNet\Site\obj\Debug\Site.pdb

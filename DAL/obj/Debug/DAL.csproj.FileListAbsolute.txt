@@ -3,3 +3,8 @@ c:\users\douglas_laptop\documents\visual studio 2013\Projects\OficiNet\DAL\bin\D
 c:\users\douglas_laptop\documents\visual studio 2013\Projects\OficiNet\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
 c:\users\douglas_laptop\documents\visual studio 2013\Projects\OficiNet\DAL\obj\Debug\DAL.dll
 c:\users\douglas_laptop\documents\visual studio 2013\Projects\OficiNet\DAL\obj\Debug\DAL.pdb
+C:\Users\Douglas_Laptop\Documents\SourceTreeOficiNet\DAL\bin\Debug\DAL.dll
+C:\Users\Douglas_Laptop\Documents\SourceTreeOficiNet\DAL\bin\Debug\DAL.pdb
+C:\Users\Douglas_Laptop\Documents\SourceTreeOficiNet\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+C:\Users\Douglas_Laptop\Documents\SourceTreeOficiNet\DAL\obj\Debug\DAL.dll
+C:\Users\Douglas_Laptop\Documents\SourceTreeOficiNet\DAL\obj\Debug\DAL.pdb

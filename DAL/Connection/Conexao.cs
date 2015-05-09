@@ -19,7 +19,7 @@ namespace DAL.Connection
       {
           try
           {
-              Con = new SqlConnection("OficiNet");
+              Con = new SqlConnection(ConfigurationManager.ConnectionStrings["OficiNet"].ConnectionString);
               Con.Open();
           }
           catch (Exception)
