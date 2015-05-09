@@ -1,5 +1,0 @@
-c:\users\douglas_laptop\documents\visual studio 2013\Projects\OficiNet\DAL\bin\Debug\DAL.dll
-c:\users\douglas_laptop\documents\visual studio 2013\Projects\OficiNet\DAL\bin\Debug\DAL.pdb
-c:\users\douglas_laptop\documents\visual studio 2013\Projects\OficiNet\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
-c:\users\douglas_laptop\documents\visual studio 2013\Projects\OficiNet\DAL\obj\Debug\DAL.dll
-c:\users\douglas_laptop\documents\visual studio 2013\Projects\OficiNet\DAL\obj\Debug\DAL.pdb
