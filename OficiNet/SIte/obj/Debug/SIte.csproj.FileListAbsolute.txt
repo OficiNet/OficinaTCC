@@ -1,0 +1,12 @@
+c:\users\douglas_laptop\documents\visual studio 2013\Projects\OficiNet\SIte\bin\SIte.dll.config
+c:\users\douglas_laptop\documents\visual studio 2013\Projects\OficiNet\SIte\bin\SIte.dll
+c:\users\douglas_laptop\documents\visual studio 2013\Projects\OficiNet\SIte\bin\SIte.pdb
+c:\users\douglas_laptop\documents\visual studio 2013\Projects\OficiNet\SIte\obj\Debug\SIte.csprojResolveAssemblyReference.cache
+c:\users\douglas_laptop\documents\visual studio 2013\Projects\OficiNet\SIte\obj\Debug\SIte.dll
+c:\users\douglas_laptop\documents\visual studio 2013\Projects\OficiNet\SIte\obj\Debug\SIte.pdb
+C:\Users\Douglas_Laptop\Documents\SourceTreeOficiNet\OficiNet\OficiNet\SIte\bin\SIte.dll.config
+C:\Users\Douglas_Laptop\Documents\SourceTreeOficiNet\OficiNet\OficiNet\SIte\bin\SIte.dll
+C:\Users\Douglas_Laptop\Documents\SourceTreeOficiNet\OficiNet\OficiNet\SIte\bin\SIte.pdb
+C:\Users\Douglas_Laptop\Documents\SourceTreeOficiNet\OficiNet\OficiNet\SIte\obj\Debug\SIte.csprojResolveAssemblyReference.cache
+C:\Users\Douglas_Laptop\Documents\SourceTreeOficiNet\OficiNet\OficiNet\SIte\obj\Debug\SIte.dll
+C:\Users\Douglas_Laptop\Documents\SourceTreeOficiNet\OficiNet\OficiNet\SIte\obj\Debug\SIte.pdb
