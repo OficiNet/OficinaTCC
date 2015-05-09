@@ -6,19 +6,23 @@
 <head runat="server">
     <title>OficiNet</title>
 
-    <!-- Bootstrap -->
-    <script src="Layout/js/bootstrap.js"></script>
+    <!-- Bootstrap - CSS -->
+    <link href="Layout/css/bootstrap.css" rel="stylesheet" />
 
 </head>
 <body>
-    <form id="form1" runat="server">
-    <div>
-        <h1>Teste de Merge!</h1>
-        <h1>Teste de Merge!</h1>
-        <h1>Teste de Merge!</h1>
-        <h1>Teste de Merge!</h1>
-        <h1>Teste de Merge!</h1>
+    <div class="container-fluid">
+        <div id="Topo">
+
+        </div>
     </div>
+
+    <form id="form1" runat="server">
     </form>
+
+
+    <!-- Bootstrap/JQuery - JS  -->
+    <script src="Layout/js/jquery-1.11.2.min.js"></script>
+    <script src="Layout/js/bootstrap.min.js"></script>
 </body>
 </html>
