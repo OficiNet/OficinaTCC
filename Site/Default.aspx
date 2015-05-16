@@ -19,7 +19,7 @@
                 <span>Acesso ao sistema</span>
                 <br>
                 <br>
-                <a class="button" href="#" accesskey="1" title="">Administrador</a>
+                <a class="button" href="/Pages/Login.aspx" accesskey="1" title="">Administrador</a>
                 <br>
                 <br>
                 <a class="button" href="pesq_OsCli.html" accesskey="2" title="">Cliente</a>

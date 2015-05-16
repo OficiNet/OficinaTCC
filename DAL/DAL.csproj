@@ -46,11 +46,11 @@
     <Compile Include="Entity\OrdemServico.cs" />
     <Compile Include="Entity\Usuario.cs" />
     <Compile Include="Entity\Veiculo.cs" />
+    <Compile Include="Persistence\UsuarioDal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilidades\Criptografia.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Persistence\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
