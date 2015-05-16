@@ -4,32 +4,28 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>OficiNet</title>
-
-    <!-- Bootstrap - CSS -->
     <link href="Layout/css/bootstrap.css" rel="stylesheet" />
-
+    <link href="Layout/fonts/estilo.css" rel="stylesheet" />
+    <link href="Layout/fonts/fontes.css" rel="stylesheet" />
 </head>
 <body>
-<<<<<<< HEAD
-    <form id="form1" runat="server">
-    <div>
-        <h1>Teste de Merge!</h1>
-        
-=======
-    <div class="container-fluid">
-        <div id="Topo">
-
+    <div id="header-wrapper">
+        <div id="header" class="container">
+            <div id="logo">
+                <!-- <span class="icon icon-group"></span> -->
+                <!-- <span class="icon icon-cogs"></span> -->
+                <span class="icon icon-cog"></span>
+                <h1><a href="#">OficiNet</a></h1>
+                <span>Acesso ao sistema</span>
+                <br>
+                <br>
+                <a class="button" href="#" accesskey="1" title="">Administrador</a>
+                <br>
+                <br>
+                <a class="button" href="pesq_OsCli.html" accesskey="2" title="">Cliente</a>
+            </div>
+            <div id="triangle-up"></div>
         </div>
->>>>>>> c7995d8af1e130353a2df47cf4b75de6d9e73574
-    </div>
-
-    <form id="form1" runat="server">
-    </form>
-
-
-    <!-- Bootstrap/JQuery - JS  -->
-    <script src="Layout/js/jquery-1.11.2.min.js"></script>
-    <script src="Layout/js/bootstrap.min.js"></script>
+    </div>  
 </body>
 </html>

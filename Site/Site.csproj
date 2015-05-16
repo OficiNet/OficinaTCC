@@ -58,14 +58,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Default.aspx" />
-    <Content Include="Layout\css\bootstrap-theme.css" />
-    <Content Include="Layout\css\bootstrap-theme.min.css" />
     <Content Include="Layout\css\bootstrap.css" />
-    <Content Include="Layout\css\bootstrap.min.css" />
-    <Content Include="Layout\js\bootstrap.js" />
-    <Content Include="Layout\js\bootstrap.min.js" />
-    <Content Include="Layout\js\jquery-1.11.2.min.js" />
-    <Content Include="Layout\js\npm.js" />
+    <Content Include="Layout\fonts\estilo.css" />
+    <Content Include="Layout\fonts\Fontes.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -79,13 +74,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Layout\css\bootstrap-theme.css.map" />
-    <Content Include="Layout\css\bootstrap.css.map" />
-    <Content Include="Layout\fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Layout\fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="Layout\fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="Layout\fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="Layout\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Layout\fonts\fontawesome-social-webfont.eot" />
+    <Content Include="Layout\fonts\fontawesome-social-webfont.svg" />
+    <Content Include="Layout\fonts\fontawesome-social-webfont.ttf" />
+    <Content Include="Layout\fonts\fontawesome-social-webfont.woff" />
+    <Content Include="Layout\fonts\fontawesome-webfont.eot" />
+    <Content Include="Layout\fonts\fontawesome-webfont.svg" />
+    <Content Include="Layout\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Layout\fonts\fontawesome-webfont.woff" />
+    <Content Include="Layout\fonts\FontAwesome.otf" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -93,7 +90,15 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{c1782848-c5be-47f7-9d3a-7f312ce020c1}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Template\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

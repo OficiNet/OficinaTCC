@@ -41,10 +41,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Connection\Conexao.cs" />
+    <Compile Include="Entity\Cliente.cs" />
+    <Compile Include="Entity\Endereco.cs" />
+    <Compile Include="Entity\OrdemServico.cs" />
+    <Compile Include="Entity\Usuario.cs" />
+    <Compile Include="Entity\Veiculo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Entity\" />
     <Folder Include="Persistence\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
