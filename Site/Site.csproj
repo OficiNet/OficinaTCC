@@ -59,10 +59,16 @@
   <ItemGroup>
     <Content Include="Administrador\Home.aspx" />
     <Content Include="Default.aspx" />
+    <Content Include="Layout\css\bootstrap-theme.css" />
+    <Content Include="Layout\css\bootstrap-theme.min.css" />
     <Content Include="Layout\css\bootstrap.css" />
-    <Content Include="Layout\fonts\estilo.css" />
-    <Content Include="Layout\fonts\Fontes.css" />
+    <Content Include="Layout\css\bootstrap.min.css" />
+    <Content Include="Layout\css\default.css" />
+    <Content Include="Layout\css\fonts.css" />
+    <Content Include="Layout\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Layout\jquery-1.8.1.min.js" />
+    <Content Include="Layout\js\bootstrap.js" />
+    <Content Include="Layout\js\bootstrap.min.js" />
     <Content Include="Pages\Login.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -101,6 +107,11 @@
     <Content Include="Layout\fonts\fontawesome-webfont.woff" />
     <Content Include="Layout\fonts\FontAwesome.otf" />
     <Content Include="Administrador\Web.config" />
+    <Content Include="Layout\css\bootstrap-theme.css.map" />
+    <Content Include="Layout\css\bootstrap.css.map" />
+    <Content Include="Layout\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Layout\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Layout\fonts\glyphicons-halflings-regular.woff" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
