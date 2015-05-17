@@ -9,7 +9,6 @@
 <body>
     <form id="form1" runat="server">
     <div>
-
        <%-- Informe seu Login: <br />
         <asp:TextBox ID="txtLogin" runat="server" />
         <asp:RequiredFieldValidator
@@ -76,8 +75,10 @@
             ControlToCompare="txtSenha"
             ErrorMessage="Por favor, confirme sua senha corretamente."
         />--%>
-                <asp:Button ID="btnSair" runat="server" Text="Sair"  OnClick="btnSair_Click" />
-    
+        <a type="button" href="Principal.aspx">Acessar o sistema</a>
+        <br />
+        <br />
+        <asp:Button ID="btnSair" runat="server" Text="Sair"  OnClick="btnSair_Click" />
     </div>
     </form>
 </body>

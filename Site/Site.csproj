@@ -57,7 +57,13 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Administrador\Cad_Cliente.aspx" />
+    <Content Include="Administrador\Cad_Veiculo.aspx" />
     <Content Include="Administrador\Home.aspx" />
+    <Content Include="Administrador\Lista_Orcamento.aspx" />
+    <Content Include="Administrador\Lista_OrdemServico.aspx" />
+    <Content Include="Administrador\Perfil.aspx" />
+    <Content Include="Administrador\Principal.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Layout\css\bootstrap-theme.css" />
     <Content Include="Layout\css\bootstrap-theme.min.css" />
@@ -69,16 +75,98 @@
     <Content Include="Layout\jquery-1.8.1.min.js" />
     <Content Include="Layout\js\bootstrap.js" />
     <Content Include="Layout\js\bootstrap.min.js" />
+    <Content Include="Layout\locawebstyle\images\banner-example.png" />
+    <Content Include="Layout\locawebstyle\images\docs\bg-highlight.jpg" />
+    <Content Include="Layout\locawebstyle\images\docs\bg-highlight2.jpg" />
+    <Content Include="Layout\locawebstyle\images\docs\buttons-color-scheme.png" />
+    <Content Include="Layout\locawebstyle\images\docs\color-scheme.png" />
+    <Content Include="Layout\locawebstyle\images\docs\hexa.png" />
+    <Content Include="Layout\locawebstyle\images\docs\intro-1.png" />
+    <Content Include="Layout\locawebstyle\images\docs\intro-2.png" />
+    <Content Include="Layout\locawebstyle\images\docs\intro-3.png" />
+    <Content Include="Layout\locawebstyle\images\docs\locaweb-logo.png" />
+    <Content Include="Layout\locawebstyle\images\docs\shared.png" />
+    <Content Include="Layout\locawebstyle\images\docs\social-icons.png" />
+    <Content Include="Layout\locawebstyle\images\docs\thumb-boilerplate.jpg" />
+    <Content Include="Layout\locawebstyle\images\docs\thumb-erro404.jpg" />
+    <Content Include="Layout\locawebstyle\images\docs\thumb-login-screen.png" />
+    <Content Include="Layout\locawebstyle\images\docs\thumb-revenda-emailmkt.png" />
+    <Content Include="Layout\locawebstyle\images\docs\thumb-smtp.png" />
+    <Content Include="Layout\locawebstyle\images\footer\sprite.png" />
+    <Content Include="Layout\locawebstyle\images\ico-boilerplate.png" />
+    <Content Include="Layout\locawebstyle\images\ico-painel1.png" />
+    <Content Include="Layout\locawebstyle\images\ico-painel2.png" />
+    <Content Include="Layout\locawebstyle\images\ico-switch-on-off.png" />
+    <Content Include="Layout\locawebstyle\images\ico-switch.png" />
+    <Content Include="Layout\locawebstyle\images\locastyle\logo-locaweb.jpg" />
+    <Content Include="Layout\locawebstyle\images\ls-smile.gif" />
+    <Content Include="Layout\locawebstyle\javascripts\docs\panel-charts.js" />
+    <Content Include="Layout\locawebstyle\javascripts\docs\test.js" />
+    <Content Include="Layout\locawebstyle\javascripts\example.js" />
+    <Content Include="Layout\locawebstyle\javascripts\locastyle.js" />
+    <Content Include="Layout\locawebstyle\stylesheets\fonts\locastyle-docs.svg" />
+    <Content Include="Layout\locawebstyle\stylesheets\fonts\locastyle-panel-icons.svg" />
+    <Content Include="Layout\locawebstyle\stylesheets\fonts\locastyle.svg" />
+    <Content Include="Layout\locawebstyle\stylesheets\locastyle.css" />
     <Content Include="Pages\Login.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Administrador\Cad_Cliente.aspx.cs">
+      <DependentUpon>Cad_Cliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administrador\Cad_Cliente.aspx.designer.cs">
+      <DependentUpon>Cad_Cliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administrador\Cad_Veiculo.aspx.cs">
+      <DependentUpon>Cad_Veiculo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administrador\Cad_Veiculo.aspx.designer.cs">
+      <DependentUpon>Cad_Veiculo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Administrador\Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Administrador\Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administrador\Lista_Orcamento.aspx.cs">
+      <DependentUpon>Lista_Orcamento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administrador\Lista_Orcamento.aspx.designer.cs">
+      <DependentUpon>Lista_Orcamento.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administrador\Lista_OrdemServico.aspx.cs">
+      <DependentUpon>Lista_OrdemServico.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administrador\Lista_OrdemServico.aspx.designer.cs">
+      <DependentUpon>Lista_OrdemServico.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administrador\Perfil.aspx.cs">
+      <DependentUpon>Perfil.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administrador\Perfil.aspx.designer.cs">
+      <DependentUpon>Perfil.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administrador\Principal.aspx.cs">
+      <DependentUpon>Principal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administrador\Principal.aspx.designer.cs">
+      <DependentUpon>Principal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administrador\Sistema.Master.cs">
+      <DependentUpon>Sistema.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administrador\Sistema.Master.designer.cs">
+      <DependentUpon>Sistema.Master</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -112,6 +200,18 @@
     <Content Include="Layout\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Layout\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Layout\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Layout\locawebstyle\stylesheets\fonts\locastyle-docs.eot" />
+    <Content Include="Layout\locawebstyle\stylesheets\fonts\locastyle-docs.json" />
+    <Content Include="Layout\locawebstyle\stylesheets\fonts\locastyle-docs.ttf" />
+    <Content Include="Layout\locawebstyle\stylesheets\fonts\locastyle-docs.woff" />
+    <Content Include="Layout\locawebstyle\stylesheets\fonts\locastyle-panel-icons.eot" />
+    <Content Include="Layout\locawebstyle\stylesheets\fonts\locastyle-panel-icons.json" />
+    <Content Include="Layout\locawebstyle\stylesheets\fonts\locastyle-panel-icons.ttf" />
+    <Content Include="Layout\locawebstyle\stylesheets\fonts\locastyle-panel-icons.woff" />
+    <Content Include="Layout\locawebstyle\stylesheets\fonts\locastyle.eot" />
+    <Content Include="Layout\locawebstyle\stylesheets\fonts\locastyle.ttf" />
+    <Content Include="Layout\locawebstyle\stylesheets\fonts\locastyle.woff" />
+    <Content Include="Administrador\Sistema.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
