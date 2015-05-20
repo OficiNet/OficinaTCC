@@ -23,7 +23,7 @@
                 <a class="button" href="/Pages/Login.aspx" accesskey="1" title="">Administrador</a>
                 <br />
                 <br />
-                <a class="button" href="#" accesskey="2" title="">Cliente</a>
+                <a class="button" href="/Cliente/Acesso_Cliente.aspx" accesskey="2" title="">Cliente</a>
             </div>
             <div id="triangle-up"></div>
         </div>
