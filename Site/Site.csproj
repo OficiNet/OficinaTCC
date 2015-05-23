@@ -64,6 +64,8 @@
     <Content Include="Administrador\Lista_OrdemServico.aspx" />
     <Content Include="Administrador\Perfil.aspx" />
     <Content Include="Administrador\Principal.aspx" />
+    <Content Include="Cliente\Acesso_Cliente.aspx" />
+    <Content Include="Cliente\Lista_OS_Cliente.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Layout\css\bootstrap-theme.css" />
     <Content Include="Layout\css\bootstrap-theme.min.css" />
@@ -168,6 +170,27 @@
     <Compile Include="Administrador\Sistema.Master.designer.cs">
       <DependentUpon>Sistema.Master</DependentUpon>
     </Compile>
+    <Compile Include="Cliente\Acesso_Cliente.aspx.cs">
+      <DependentUpon>Acesso_Cliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cliente\Acesso_Cliente.aspx.designer.cs">
+      <DependentUpon>Acesso_Cliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Cliente\Cliente.Master.cs">
+      <DependentUpon>Cliente.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cliente\Cliente.Master.designer.cs">
+      <DependentUpon>Cliente.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Cliente\Lista_OS_Cliente.aspx.cs">
+      <DependentUpon>Lista_OS_Cliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cliente\Lista_OS_Cliente.aspx.designer.cs">
+      <DependentUpon>Lista_OS_Cliente.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -212,6 +235,7 @@
     <Content Include="Layout\locawebstyle\stylesheets\fonts\locastyle.ttf" />
     <Content Include="Layout\locawebstyle\stylesheets\fonts\locastyle.woff" />
     <Content Include="Administrador\Sistema.Master" />
+    <Content Include="Cliente\Cliente.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
