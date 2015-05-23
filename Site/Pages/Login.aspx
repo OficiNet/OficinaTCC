@@ -13,7 +13,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <asp:Login ID="txtLogin" runat="server" OnAuthenticate="txtLogin_Authenticate" TitleText="" UserNameLabelText="Login:" PasswordLabelText="Senha:" LoginButtonText="Entrar" FailureText="Acesso Negado!" RememberMeText="Lembrar Senha" DestinationPageUrl="~/Administrador/Home.aspx">
+        <asp:Login ID="txtLogin" runat="server" OnAuthenticate="txtLogin_Authenticate" TitleText="" UserNameLabelText="Login:" PasswordLabelText="Senha:" LoginButtonText="Entrar" FailureText="Acesso Negado!" RememberMeText="Lembrar Senha" DestinationPageUrl="~/Administrador/Principal.aspx">
             <LayoutTemplate>
                 <div class="col-md-6 col-md-offset-3">
                     <div class="text-center">

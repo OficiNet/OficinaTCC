@@ -28,7 +28,11 @@
                 <nav class="ls-dropdown-nav ls-user-menu">
                     <ul>
                         <li><a href="Perfil.aspx">Conta</a></li>
-                        <li><a href="Home.aspx">Sair</a></li>
+                        
+                <%--       <li><input type="button" id="teste" runat="server" text="sair"/></li>--%>
+
+                       
+
                     </ul>
                 </nav>
             </div>
