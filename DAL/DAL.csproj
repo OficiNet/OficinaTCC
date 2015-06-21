@@ -46,7 +46,10 @@
     <Compile Include="Entity\OrdemServico.cs" />
     <Compile Include="Entity\Usuario.cs" />
     <Compile Include="Entity\Veiculo.cs" />
+    <Compile Include="Persistence\ClienteDal.cs" />
+    <Compile Include="Persistence\EnderecoDal.cs" />
     <Compile Include="Persistence\UsuarioDal.cs" />
+    <Compile Include="Persistence\VeiculoDal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilidades\Criptografia.cs" />
   </ItemGroup>
