@@ -19,66 +19,62 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
-    <div class="ls-topbar">
-        <!-- Notification bar -->
-        <div class="ls-notification-topbar">
-            <!-- User details -->
-            <div data-ls-module="dropdown" class="ls-dropdown ls-user-account">
-                <a href="#" class="ls-ico-user">Bem Vindo <small>(Usuário)</small></a>
-                <nav class="ls-dropdown-nav ls-user-menu">
-                    <ul>
-                        <li><a href="Perfil.aspx">Conta</a></li>
-                        
-                <%--       <li><input type="button" id="teste" runat="server" text="sair"/></li>--%>
-
-                       
-
-                    </ul>
-                </nav>
+    <form id="form1" runat="server">
+        <div class="ls-topbar">
+            <!-- Notification bar -->
+            <div class="ls-notification-topbar">
+                <!-- User details -->
+                <div data-ls-module="dropdown" class="ls-dropdown ls-user-account">
+                    <a href="#" class="ls-ico-user">Bem Vindo <small><asp:Label ID="lblNomeUsuario" runat="server" /></small></a>
+                    <nav class="ls-dropdown-nav ls-user-menu">
+                        <ul>
+                            <li><a href="Perfil.aspx">Conta</a></li>
+                            <li><asp:LinkButton ID="btnSair" runat="server" Text="Sair" OnClick="Sair" /></li>
+                        </ul>
+                    </nav>
+                </div>
             </div>
+            <span class="ls-show-sidebar ls-ico-menu"></span>
+            <!-- Nome do produto/marca -->
+            <h1 class="ls-brand-name"><a class="ls-ico-cog" href="Principal.aspx">OficiNet</a></h1>
         </div>
-        <span class="ls-show-sidebar ls-ico-menu"></span>
-        <!-- Nome do produto/marca -->
-        <h1 class="ls-brand-name"><a class="ls-ico-cog" href="Principal.aspx">OficiNet</a></h1>
-    </div>
 
-    <main class="ls-main ">
-      <div class="container-fluid">
-            <form id="form1" runat="server">
+        <main class="ls-main ">
+            <div class="container-fluid">
                 <div>
                     <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                     </asp:ContentPlaceHolder>
                 </div>
-            </form>
-      </div>
-    </main>
+            </div>
+        </main>
 
-    <aside class="ls-sidebar">
-        <!-- Defails of user account -->
-        <div data-ls-module="dropdown" class="ls-dropdown ls-user-account">
-            <a href="#" class="ls-ico-user">Bem Vindo <small>(Usuário)</small></a>
-            <nav class="ls-dropdown-nav ls-user-menu">
+        <aside class="ls-sidebar">
+            <!-- Defails of user account -->
+            <div data-ls-module="dropdown" class="ls-dropdown ls-user-account">
+                <a href="#" class="ls-ico-user">Bem Vindo <small>(Usuário)</small></a>
+                <nav class="ls-dropdown-nav ls-user-menu">
+                    <ul>
+                        <li><a href="#">submenu</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <nav class="ls-menu">
                 <ul>
-                    <li><a href="#">submenu</a></li>
+                    <li><a href="Principal.aspx" class="ls-ico-home">Página inicial</a></li>
+                    <li class="ls-submenu">
+                        <a href="#" class="ls-ico-tree">Cadastro</a>
+                        <ul role="menu">
+                            <li><a class="ls-submenu-item" href="Cad_Cliente.aspx">Clientes</a></li>
+                            <li><a class="ls-submenu-item" href="Cad_Veiculo.aspx">Veículos</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="Lista_Orcamento.aspx" class="ls-ico-text">Orçamento</a></li>
+                    <li><a href="Lista_OrdemServico.aspx" class="ls-ico-windows">Ordem de Serviço</a></li>
                 </ul>
             </nav>
-        </div>
-        <nav class="ls-menu">
-            <ul>
-                <li><a href="Principal.aspx" class="ls-ico-home">Página inicial</a></li>
-                <li class="ls-submenu">
-                    <a href="#" class="ls-ico-tree">Cadastro</a>
-                    <ul role="menu">
-                        <li><a class="ls-submenu-item" href="Cad_Cliente.aspx">Clientes</a></li>
-                        <li><a class="ls-submenu-item" href="Cad_Veiculo.aspx">Veículos</a></li>
-                    </ul>
-                </li>
-                <li><a href="Lista_Orcamento.aspx" class="ls-ico-text">Orçamento</a></li>
-                <li><a href="Lista_OrdemServico.aspx" class="ls-ico-windows">Ordem de Serviço</a></li>
-            </ul>
-        </nav>
-    </aside>
+        </aside>
 
+    </form>
     <script src="../Layout/jquery-1.8.1.min.js"></script>
     <script src="../Layout/locawebstyle/javascripts/locastyle.js"></script>
 </body>

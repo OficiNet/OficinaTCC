@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.Security;
+using DAL.Entity;
 
 namespace Site.Administrador
 {
@@ -12,10 +13,10 @@ namespace Site.Administrador
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            lblNomeUsuario.Text = "HAHAHA";
         }
 
-        protected void btnSair_Click(object sender, EventArgs e)
+        protected void Sair(object sender, EventArgs e)
         {
             //Destruir a permissão de acesso concedida
             FormsAuthentication.SignOut(); //voltar a ser um Usuario Anônimo
