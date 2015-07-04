@@ -62,6 +62,8 @@
     <Content Include="Administrador\Home.aspx" />
     <Content Include="Administrador\Lista_Orcamento.aspx" />
     <Content Include="Administrador\Lista_OrdemServico.aspx" />
+    <Content Include="Administrador\Lst_Cliente.aspx" />
+    <Content Include="Administrador\Lst_Veiculo.aspx" />
     <Content Include="Administrador\Perfil.aspx" />
     <Content Include="Administrador\Principal.aspx" />
     <Content Include="Cliente\Acesso_Cliente.aspx" />
@@ -148,6 +150,20 @@
     </Compile>
     <Compile Include="Administrador\Lista_OrdemServico.aspx.designer.cs">
       <DependentUpon>Lista_OrdemServico.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administrador\Lst_Cliente.aspx.cs">
+      <DependentUpon>Lst_Cliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administrador\Lst_Cliente.aspx.designer.cs">
+      <DependentUpon>Lst_Cliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administrador\Lst_Veiculo.aspx.cs">
+      <DependentUpon>Lst_Veiculo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administrador\Lst_Veiculo.aspx.designer.cs">
+      <DependentUpon>Lst_Veiculo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Administrador\Perfil.aspx.cs">
       <DependentUpon>Perfil.aspx</DependentUpon>

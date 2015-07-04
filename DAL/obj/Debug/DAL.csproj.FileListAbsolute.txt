@@ -8,3 +8,8 @@ C:\Users\Douglas_Laptop\Documents\SourceTreeOficiNet\DAL\bin\Debug\DAL.pdb
 C:\Users\Douglas_Laptop\Documents\SourceTreeOficiNet\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
 C:\Users\Douglas_Laptop\Documents\SourceTreeOficiNet\DAL\obj\Debug\DAL.dll
 C:\Users\Douglas_Laptop\Documents\SourceTreeOficiNet\DAL\obj\Debug\DAL.pdb
+C:\Users\EmersonAraujo\Documents\SourceTreeOficiNet\OficiNet\DAL\bin\Debug\DAL.dll
+C:\Users\EmersonAraujo\Documents\SourceTreeOficiNet\OficiNet\DAL\bin\Debug\DAL.pdb
+C:\Users\EmersonAraujo\Documents\SourceTreeOficiNet\OficiNet\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+C:\Users\EmersonAraujo\Documents\SourceTreeOficiNet\OficiNet\DAL\obj\Debug\DAL.dll
+C:\Users\EmersonAraujo\Documents\SourceTreeOficiNet\OficiNet\DAL\obj\Debug\DAL.pdb

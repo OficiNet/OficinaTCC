@@ -6,3 +6,11 @@ C:\Users\Douglas_Laptop\Documents\SourceTreeOficiNet\Site\obj\Debug\Site.dll
 C:\Users\Douglas_Laptop\Documents\SourceTreeOficiNet\Site\obj\Debug\Site.pdb
 C:\Users\Douglas_Laptop\Documents\SourceTreeOficiNet\Site\bin\DAL.dll
 C:\Users\Douglas_Laptop\Documents\SourceTreeOficiNet\Site\bin\DAL.pdb
+C:\Users\EmersonAraujo\Documents\SourceTreeOficiNet\OficiNet\Site\bin\Site.dll.config
+C:\Users\EmersonAraujo\Documents\SourceTreeOficiNet\OficiNet\Site\bin\Site.dll
+C:\Users\EmersonAraujo\Documents\SourceTreeOficiNet\OficiNet\Site\bin\Site.pdb
+C:\Users\EmersonAraujo\Documents\SourceTreeOficiNet\OficiNet\Site\bin\DAL.dll
+C:\Users\EmersonAraujo\Documents\SourceTreeOficiNet\OficiNet\Site\bin\DAL.pdb
+C:\Users\EmersonAraujo\Documents\SourceTreeOficiNet\OficiNet\Site\obj\Debug\Site.csprojResolveAssemblyReference.cache
+C:\Users\EmersonAraujo\Documents\SourceTreeOficiNet\OficiNet\Site\obj\Debug\Site.dll
+C:\Users\EmersonAraujo\Documents\SourceTreeOficiNet\OficiNet\Site\obj\Debug\Site.pdb

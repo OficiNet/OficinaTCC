@@ -36,12 +36,12 @@ namespace DAL.Persistence
            }
        }
 
-       public List<Cliente> ListarCliente()
+       public List<Cliente> ListarCliente(string strWhere)
        {
            try
            {
                AbrirConexao();
-               Cmd = new SqlCommand("select * from Tb_Cliente ", Con);
+               Cmd = new SqlCommand("select * from Tb_Cliente where " + strWhere, Con);
                Dr = Cmd.ExecuteReader();
                List<Cliente> listaCliente = new List<Cliente>();
                while (Dr.Read())
