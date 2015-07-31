@@ -21,7 +21,8 @@ namespace Site.Administrador
         {
             try
             {
-                string strWhere = "Nome like '%%'";
+                string strWhere = "Nome like '%{0}%'";
+                strWhere = String.Format(strWhere, txtPesquisa.Text.ToString().Trim());
                 ClienteDal d = new ClienteDal();
 
                 gridClientes.DataSource = d.ListarCliente(strWhere);
