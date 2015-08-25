@@ -7,6 +7,9 @@
     <div>
         <asp:Button ID="btnListarClientes" OnClick="ListarClientes" runat="server" Text="Pesquisar" CssClass="ls-btn-primary" />
         <br />
+
+
+
         <asp:GridView ID="gridClientes" runat="server" AutoGenerateColumns="false" OnRowCommand="gridClientes_RowCommand" CssClass="ls-table ls-table-striped">
             <Columns>
                 <asp:BoundField DataField="Nome" HeaderText="Nome do Cliente" />

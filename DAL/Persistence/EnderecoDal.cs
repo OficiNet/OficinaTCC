@@ -17,7 +17,7 @@ namespace DAL.Persistence
            try
            {
                AbrirConexao();
-               Cmd = new SqlCommand("INSERT INTO Tb_Endereco (Numero, Complemento, Bairro, Cidade, Estado) VALUES(@Numero, @Complemento, @Bairro, @Cidade, @Estado)", Con);
+               Cmd = new SqlCommand("INSERT INTO Tb_Endereco (Numero, Complemento, Bairro, Cidade, Estado) VALUES(@Numero, @Complemento, @Bairro, @Cidade, @Estado", Con);
                Cmd.Parameters.AddWithValue("@Numero", e.Numero);
                Cmd.Parameters.AddWithValue("@Complemento", e.Complemento);
                Cmd.Parameters.AddWithValue("@Bairro", e.Bairro);
