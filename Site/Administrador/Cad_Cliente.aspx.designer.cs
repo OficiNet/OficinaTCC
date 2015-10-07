@@ -49,15 +49,6 @@ namespace Site.Administrador {
         protected global::System.Web.UI.WebControls.Button btnListarClientes;
         
         /// <summary>
-        /// btnNovoCliente control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnNovoCliente;
-        
-        /// <summary>
         /// lblResp control.
         /// </summary>
         /// <remarks>
@@ -83,15 +74,6 @@ namespace Site.Administrador {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel painelCadastro;
-        
-        /// <summary>
-        /// btnVoltar control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnVoltar;
         
         /// <summary>
         /// txt_Nome control.
@@ -127,7 +109,7 @@ namespace Site.Administrador {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_Cpf_Cnpj;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txt_Cpf_Cnpj;
         
         /// <summary>
         /// txt_Complemento control.

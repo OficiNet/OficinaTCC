@@ -20,7 +20,7 @@
 </head>
 <body>
     <div class="container" style="padding-top: 20px">
-        <form id="form1" runat="server">
+        <form id="myForm" name="myForm" runat="server">
             <div>
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                 </asp:ContentPlaceHolder>

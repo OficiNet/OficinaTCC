@@ -43,11 +43,12 @@ declare
 	end 
 
 GO
+select * from Tb_Cliente as c inner join Tb_Endereco as e on c.Id_Cliente = e.FK_Id_Cliente order by DataCadastro desc
 
 
-
--- exec CadCliente  'Douglas','1212221','', 'j', '21212','323223','133','casa1','bangu', 'rio de janeiro', 'RJ'
+-- exec CadCliente  'douglas','1212221','', 'j', '21212','323223','133','casa1','bangu', 'rio de janeiro', 'RJ'
 
 -- select * from Tb_Cliente c inner join Tb_Endereco e on c.Id_Cliente = e.FK_Id_Cliente
 
 
+select * fr
