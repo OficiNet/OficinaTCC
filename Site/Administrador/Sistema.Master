@@ -68,7 +68,6 @@
                             <li><a class="ls-submenu-item" href="Cad_Veiculo.aspx">Veículos</a></li>
                         </ul>
                     </li>
-                    <li><a href="Lista_Orcamento.aspx" class="ls-ico-text">Orçamento</a></li>
                     <li><a href="Lista_OrdemServico.aspx" class="ls-ico-windows">Ordem de Serviço</a></li>
                 </ul>
             </nav>
