@@ -39,7 +39,7 @@
             <h1 class="ls-brand-name"><a class="ls-ico-cog" href="Principal.aspx">OficiNet</a></h1>
         </div>
 
-        <main class="ls-main ">
+        <main class="ls-main">
             <div class="container-fluid">
                 <div>
                     <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
@@ -68,7 +68,6 @@
                             <li><a class="ls-submenu-item" href="Cad_Veiculo.aspx">Veículos</a></li>
                         </ul>
                     </li>
-                    <li><a href="Lista_Orcamento.aspx" class="ls-ico-text">Orçamento</a></li>
                     <li><a href="Lista_OrdemServico.aspx" class="ls-ico-windows">Ordem de Serviço</a></li>
                 </ul>
             </nav>
