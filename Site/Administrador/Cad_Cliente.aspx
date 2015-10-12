@@ -80,6 +80,8 @@
             //alert('teste');
             document.getElementById('painelcadastro').style.display = 'none';
             document.getElementById('painelgrid').style.display = 'block';
+            document.getElementById('paineleditar').style.display = "none";
+           // document.getElementById('paineleditar').className = 'paineleditaroff';
             document.getElementById('ContentPlaceHolder1_txt_Nome').value = '';
             document.getElementById('ContentPlaceHolder1_txt_Telefone').value = '';
             document.getElementById('ContentPlaceHolder1_txt_Cpf_Cnpj').value = '';
@@ -88,6 +90,16 @@
             document.getElementById('ContentPlaceHolder1_txt_Bairro').value = '';
             document.getElementById('ContentPlaceHolder1_txt_Cidade').value = '';
             document.getElementById('ContentPlaceHolder1_txt_Estado').value = '';
+
+            document.getElementById('ContentPlaceHolder1_txt_Nome_Editar').value = '';
+            document.getElementById('ContentPlaceHolder1_txt_Telefone_Editar').value = '';
+            document.getElementById('ContentPlaceHolder1_txt_Cpf_Cnpj_Editar').value = '';
+            document.getElementById('ContentPlaceHolder1_txt_Complemento_Editar').value = '';
+            document.getElementById('ContentPlaceHolder1_txt_Numero_Editar').value = '';
+            document.getElementById('ContentPlaceHolder1_txt_Bairro_Editar').value = '';
+            document.getElementById('ContentPlaceHolder1_txt_Cidade_Editar').value = '';
+            document.getElementById('ContentPlaceHolder1_txt_Estado_Editar').value = '';
+            document.getElementById('ContentPlaceHolder1_lblResp').value = ' ';
 
         }
 
@@ -102,16 +114,25 @@
             document.getElementById('ContentPlaceHolder1_txt_Bairro').value = '';
             document.getElementById('ContentPlaceHolder1_txt_Cidade').value = '';
             document.getElementById('ContentPlaceHolder1_txt_Estado').value = '';
-            document.getElementById('painelgrid').style.display = 'none';
+            document.getElementById('ContentPlaceHolder1_lblResp').value = ' ';
             document.getElementById('painelcadastro').style.display = 'block';
+            document.getElementById('painelgrid').style.display = 'none';
+            document.getElementById('paineleditar').style.display = 'none';
         }
 
         function exibirpainelcadastro() {
             //var t = document.getElementById('ContentPlaceHolder1_txt_Id_Cliente').value;
             //alert(t);
+
+          //  document.getElementById('exibirpaineleditar').style.display = 'none';
             document.getElementById('painelgrid').style.display = 'none';
+
+
             document.getElementById('painelcadastro').style.display = 'block';
         }
+
+
+        
 
         function carregarform()
         {
@@ -123,66 +144,23 @@
             document.getElementById('ContentPlaceHolder1_txt_Bairro').value = ' ';
             document.getElementById('ContentPlaceHolder1_txt_Cidade').value = ' ';
             document.getElementById('ContentPlaceHolder1_txt_Estado').value = ' ';
-
-
-          //  ContentPlaceHolder1_btnListarClientes.click.sender;
-
-
-           // document.getElementById('ContentPlaceHolder1_btnListarClientes').click();
-
-
-            //var clickb = document.getElementById('ContentPlaceHolder1_btnListarClientes');
-          //  clickb.click();
-
-
             return true;
-
-        //    alert('teste');
         }
+
+       
+
+        function excluir()
+        {
+            carregarform();
+            return confirm ('Deseja realmente excluir ?');
+        }
+
+                                
         
 
-
-        //window.onload = function () {
-        //    // alert('flag');
-
-        //    var t = document.getElementById('ContentPlaceHolder1_txt_Id_Cliente').value;
-        //}
-           // alert(t);
-
-            //var btn = document.getElementById("btn_Cadastrar_Cliente1").click;
-
-            //alert(btn);
-
-            //btn.addEventListener("click", exibirMensagem());
-
-            //if ($('#btn_Cadastrar_Cliente1').click) {
-            //    alert('foi clicado');
-            //}
-            //else {
-            //    alert('nao foi clicado');
-            //}
-
-            //if (btn_Cadastrar_Cliente1.click) {
-            //    alert('foi clicado');
-            //}
-            //else
-            //{
-            //    alert('nao foi clicado');
-            //}
-
-            //if (btn_Cadastrar_Cliente1.addEventListener('click', displayDialog(), false)) {
-            //    alert('foi clicado');
-            //}
-            //else
-            //{
-            //    alert('nao foi clicado');
-            //}
-
-          //  document.getElementById('painelcadastro').style.display = 'none';
+       
         
-        //document.getElementById("btn_Cadastrar_Cliente1").onclick = function () {
-        //    alert('teste....');
-        //}
+
 
     </script>
    
@@ -210,7 +188,7 @@
                 <asp:Button ID="btnListarClientes" OnClientClick="return carregarform();" OnClick="ListarClientes" runat="server" Text="Pesquisar" CssClass="ls-btn-primary" />
                    
                 
-
+                    
 
                <%-- <asp:Button ID="btnNovoCliente" runat="server" Text="Novo Cliente" CssClass="ls-btn-sucess" onclick"javascript: novocliente();" />--%>
                 <button id="btnNovoCliente"  class="ls-btn-sucess" onclick="javascript: newcliente();">Novo Cliente</button>
@@ -230,12 +208,26 @@
                         <asp:TemplateField HeaderText="">
                             <ItemTemplate>
 
-                                <center>
-                                    <asp:Button CssClass="ls-btn-danger ls-btn-xs" ID="btnExcuirCampo" runat="server" Text="Excluir" OnClientClick="return confirm ('Deseja realmente excluir ?');" OnClick="Excluir_Click" />
-                          
-                                    <asp:Button CssClass="ls-btn-default ls-btn-xs" ID="btnAtualizarCampo" runat="server" Text="Atualizar" OnClick="btnGridAtualizar_Click" />
 
-                                    <asp:Label ID="lblIdCliente" runat="server" Text='<%# Eval("Id_Cliente") %>' Visible="false" />
+                          
+
+
+
+                                <center>
+                                    <asp:Button CssClass="ls-btn-danger ls-btn-xs" ID="btnExcuirCampo" runat="server" Text="Excluir" OnClientClick="excluir();" OnClick="Excluir_Click" />
+                          
+                                    <%--<asp:Button  ID="btnAtualizarCampo" OnClientClick="return exibirpaineleditar(this);"  OnClick="btnGridAtualizar_Click" runat="server" Text="Atualizar" CssClass="ls-btn-default ls-btn-xs" />--%>
+
+                                    <asp:Button CssClass="ls-btn-default ls-btn-xs" ID="btnAtualizar" runat="server" Text="Atualizar" OnClientClick="carregarform();" OnClick="btnGridAtualizar_Click" />
+
+
+
+
+
+<%--                                   <button runat="server" id="btninput" onclick="return exibirpaineleditar();" onserverclick="btnGridAtualizar_Click" >Atualizar Input</button>--%>
+                                    
+
+                                    <asp:Label ID="lblIdCliente"  runat="server" Text='<%# Eval("Id_Cliente") %>' Visible="false" />
                                     <asp:Label ID="lblNome" runat="server" Text='<%# Eval("Nome") %>' Visible="false" />
                                     <asp:Label ID="lblTelefone" runat="server" Text='<%# Eval("Telefone") %>' Visible="false" />
                                     <asp:Label ID="lblTipo_Pessoa" runat="server" Text='<%# Eval("Tipo_Pessoa") %>' Visible="false" />
@@ -252,11 +244,10 @@
                         </asp:TemplateField>
                     </Columns>
                 </asp:GridView>
-
             </asp:Panel>
         </div>
-        
-               
+
+
         <div id="painelcadastro" style="display:none;" >
             <%--########################### PAINEL DE CADASTRO ##########################################################--%>
             <asp:Panel ID="painelCadastro" runat="server" Visible="true">
@@ -325,9 +316,36 @@
                 <br />
                 <br />
 
+                <%--<asp:Button ID="btn_Cadastrar_Cliente" Text="Cadastrar" runat="server"  OnClientClick="return alerta();" OnClick="btn_Cadastrar_Cliente_Click" />--%>
+
                 <asp:Button ID="btn_Cadastrar_Cliente" Text="Cadastrar" runat="server" OnClick="btn_Cadastrar_Cliente_Click" />
 
-             <%--   <button id="btn_Cadastrar_Cliente1" onclick="btn_Cadastrar_Cliente_Click">Cadastrar1</button>--%>
+
+                <%--<script type="text/javascript">
+                    function alerta() {
+
+
+                        var nome = document.getElementById('ContentPlaceHolder1_txt_Nome').value;
+                        var telefone = document.getElementById('ContentPlaceHolder1_txt_Telefone').value;
+                        var cpf_cnpj = document.getElementById('ContentPlaceHolder1_txt_Cpf_Cnpj').value;
+                        var complemento = document.getElementById('ContentPlaceHolder1_txt_Complemento').value;
+                        var numero = document.getElementById('ContentPlaceHolder1_txt_Numero').value;
+                        var bairro = document.getElementById('ContentPlaceHolder1_txt_Bairro').value;
+                        var cidade = document.getElementById('ContentPlaceHolder1_txt_Cidade').value;
+                        var estado = document.getElementById('ContentPlaceHolder1_txt_Estado').value;
+                      //  alert(nome);
+                        if (nome == '' || telefone == '' || cpf_cnpj == '' || complemento == '' || numero == '' || bairro == '' || cidade == '' || cpf_cnpj == '') {
+                            return true;
+                        }
+                        else {
+                            alert('Cliente ' + nome + ' Atualizado Com Sucesso.');
+                            return true;
+                        }
+                    }
+
+                </script>--%>
+            
+
 
             </asp:Panel>
 
@@ -335,65 +353,7 @@
         
 
 
-        <%--############################# PAINEL EDITAR #############################################################--%>
-        <asp:Panel ID="painelEditar" runat="server" Visible="false">
-
-            <asp:Button ID="btnVoltar_Editar" runat="server" Text="Voltar" CssClass="ls-btn-sucess" OnClick="btnVoltar_Click" />
-            <br />
-            <br />
-
-            <asp:TextBox ID="txt_Id_Cliente_Editar" runat="server" Visible="false" />
-            <br />
-            <br />
-
-            Nome:<br />
-            <asp:TextBox ID="txt_Nome_Editar" runat="server" />
-            <br />
-            <br />
-
-            Telefone:<br />
-            <asp:TextBox ID="txt_Telefone_Editar" runat="server" />
-            <br />
-            <br />
-
-            <%-- <asp:RadioButtonList  ID="RadioButtonList1" runat="server"  RepeatDirection="Horizontal">
-                    <asp:ListItem Text="CPF" Value="cpf" Selected="True"></asp:ListItem>
-                    <asp:ListItem Text="CNPJ" Value="cnpj"></asp:ListItem>
-                </asp:RadioButtonList>--%>
-
-            <asp:TextBox ID="txt_Cpf_Cnpj_Editar" runat="server" />
-            <br />
-            <br />
-
-            Complemento:<br />
-            <asp:TextBox ID="txt_Complemento_Editar" runat="server" />
-            <br />
-            <br />
-
-            Numero:<br />
-            <asp:TextBox ID="txt_Numero_Editar" runat="server" />
-            <br />
-            <br />
-
-            Bairro:<br />
-            <asp:TextBox ID="txt_Bairro_Editar" runat="server" />
-            <br />
-            <br />
-
-            Cidade:<br />
-            <asp:TextBox ID="txt_Cidade_Editar" runat="server" />
-            <br />
-            <br />
-
-            Estado:<br />
-            <asp:TextBox ID="txt_Estado_Editar" runat="server" />
-            <br />
-            <br />
-
-            <asp:Button ID="btn_Editar_Cliente" Text="Editar" runat="server" OnClick="Atualizar_Click" />
-
-        </asp:Panel>
-
+                    
     </div>
 
 

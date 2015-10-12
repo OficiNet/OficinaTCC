@@ -59,7 +59,9 @@
   <ItemGroup>
     <Content Include="Administrador\Cad_Cliente.aspx" />
     <Content Include="Administrador\Cad_Veiculo.aspx" />
+    <Content Include="Administrador\Editar_Cliente.aspx" />
     <Content Include="Administrador\Home.aspx" />
+    <Content Include="Administrador\Lista_Orcamento.aspx" />
     <Content Include="Administrador\Lista_OrdemServico.aspx" />
     <Content Include="Administrador\Lst_Cliente.aspx" />
     <Content Include="Administrador\Lst_Veiculo.aspx" />
@@ -129,12 +131,26 @@
     <Compile Include="Administrador\Cad_Veiculo.aspx.designer.cs">
       <DependentUpon>Cad_Veiculo.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Administrador\Editar_Cliente.aspx.cs">
+      <DependentUpon>Editar_Cliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administrador\Editar_Cliente.aspx.designer.cs">
+      <DependentUpon>Editar_Cliente.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Administrador\Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Administrador\Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administrador\Lista_Orcamento.aspx.cs">
+      <DependentUpon>Lista_Orcamento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administrador\Lista_Orcamento.aspx.designer.cs">
+      <DependentUpon>Lista_Orcamento.aspx</DependentUpon>
     </Compile>
     <Compile Include="Administrador\Lista_OrdemServico.aspx.cs">
       <DependentUpon>Lista_OrdemServico.aspx</DependentUpon>

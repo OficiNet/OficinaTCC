@@ -92,52 +92,71 @@ namespace Site.Administrador
 
 
 
-
-
         protected void btnGridAtualizar_Click(object sender, EventArgs e)
         {
 
             try
             {
-                painelEditar.Visible = true;
-                painelGrid.Visible = false;
-                painelCadastro.Visible = false;
+                //painelEditar.Visible = true;
+                //painelGrid.Visible = false;
+                //painelCadastro.Visible = false;
+
+                ////if (btnAtualizar.Equals(sender))
+                ////{
+                ////    int id = Convert.ToInt32(lblIdTarefa.Text);
+                ////    ClienteDal d = new ClienteDal();
+                ////    d.Excluir(id);
+                ////}
 
                 foreach (GridViewRow linha in gridClientes.Rows)
                 {
-
-                    Button btnAtualizarCampo = linha.FindControl("btnAtualizarCampo") as Button;
-
-                    if (btnAtualizarCampo.Equals(sender))
+                    Button btnAtualizar = linha.FindControl("btnAtualizar") as Button;
+                    Label lblIdCliente = linha.FindControl("lblIdCliente") as Label;
+                    if (btnAtualizar.Equals(sender))
                     {
-                        Label lblIdCliente = linha.FindControl("lblIdCliente") as Label;
-                        Label lblNome = linha.FindControl("lblNome") as Label;
-                        Label lblTelefone = linha.FindControl("lblTelefone") as Label;
-                        Label lblTipo_Pessoa = linha.FindControl("lblTipo_Pessoa") as Label;
-                        Label lbl_CPF = linha.FindControl("lbl_CPF") as Label;
-                        Label lbl_CNPJ = linha.FindControl("lbl_CNPJ") as Label;
-                        Label lblNumero = linha.FindControl("lblNumero") as Label;
-                        Label lblComplemento = linha.FindControl("lblComplemento") as Label;
-                        Label lblBairro = linha.FindControl("lblBairro") as Label;
-                        Label lblCidade = linha.FindControl("lblCidade") as Label;
-                        Label lblEstado = linha.FindControl("lblEstado") as Label;
-
-                        txt_Id_Cliente_Editar.Text = lblIdCliente.Text;
-                        txt_Nome_Editar.Text = lblNome.Text;
-                        txt_Telefone_Editar.Text = lblTelefone.Text;
-                        //txt_tipoPessoa.Text = lblDataEntrega.Text;
-                        //txt_Cpf_Cnpj.Text = lblDescricao.Text;
-                        txt_Numero_Editar.Text = lblNumero.Text;
-                        txt_Complemento_Editar.Text = lblComplemento.Text;
-                        txt_Bairro_Editar.Text = lblBairro.Text;
-                        txt_Cidade_Editar.Text = lblCidade.Text;
-                        txt_Estado_Editar.Text = lblEstado.Text;
-
-
-                        CarregarClientes();
+                        int id = Convert.ToInt32(lblIdCliente.Text);
+                        Response.Redirect("Editar_Cliente.aspx?id=" + id.ToString());
                     }
                 }
+                //CarregarClientes();
+                //lblResp.Text = " Excluido Com Sucesso ";
 
+
+                //foreach (GridViewRow linha in gridClientes.Rows)
+                //{
+
+                //    Button btnAtualizarCampo = linha.FindControl("btnAtualizarCampo") as Button;
+
+                //    if (btnAtualizarCampo.Equals(sender))
+                //    {
+                //        Label lblIdCliente = linha.FindControl("lblIdCliente") as Label;
+                //        Label lblNome = linha.FindControl("lblNome") as Label;
+                //        Label lblTelefone = linha.FindControl("lblTelefone") as Label;
+                //        Label lblTipo_Pessoa = linha.FindControl("lblTipo_Pessoa") as Label;
+                //        Label lbl_CPF = linha.FindControl("lbl_CPF") as Label;
+                //        Label lbl_CNPJ = linha.FindControl("lbl_CNPJ") as Label;
+                //        Label lblNumero = linha.FindControl("lblNumero") as Label;
+                //        Label lblComplemento = linha.FindControl("lblComplemento") as Label;
+                //        Label lblBairro = linha.FindControl("lblBairro") as Label;
+                //        Label lblCidade = linha.FindControl("lblCidade") as Label;
+                //        Label lblEstado = linha.FindControl("lblEstado") as Label;
+
+                //        txt_Id_Cliente_Editar.Text = lblIdCliente.Text;
+                //        txt_Nome_Editar.Text = lblNome.Text;
+                //        txt_Telefone_Editar.Text = lblTelefone.Text;
+                //        //txt_tipoPessoa.Text = lblDataEntrega.Text;
+                //        //txt_Cpf_Cnpj.Text = lblDescricao.Text;
+                //        txt_Numero_Editar.Text = lblNumero.Text;
+                //        txt_Complemento_Editar.Text = lblComplemento.Text;
+                //        txt_Bairro_Editar.Text = lblBairro.Text;
+                //        txt_Cidade_Editar.Text = lblCidade.Text;
+                //        txt_Estado_Editar.Text = lblEstado.Text;
+
+                //        CarregarClientes();
+                //    }
+                //}
+
+               
             }
             catch (Exception ex)
             {
@@ -146,8 +165,6 @@ namespace Site.Administrador
             }
         }
 
-
-
         protected void Excluir_Click(object sender, EventArgs e)
         {
 
@@ -155,16 +172,14 @@ namespace Site.Administrador
             {
                 foreach (GridViewRow linha in gridClientes.Rows)
                 {
-
                     Button btnExcluirCampo = linha.FindControl("btnExcuirCampo") as Button;
-                    Label lblIdTarefa = linha.FindControl("lblIdCliente") as Label;
+                    Label lblIdCliente = linha.FindControl("lblIdCliente") as Label;
                     if (btnExcluirCampo.Equals(sender))
                     {
-                        int id = Convert.ToInt32(lblIdTarefa.Text);
+                        int id = Convert.ToInt32(lblIdCliente.Text);
                         ClienteDal d = new ClienteDal();
                         d.Excluir(id);
                     }
-
                 }
                 CarregarClientes();
                 lblResp.Text = " Excluido Com Sucesso ";
@@ -176,33 +191,10 @@ namespace Site.Administrador
             }
         }
 
-        protected void Atualizar_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                DAL.Entity.Cliente cliente = new DAL.Entity.Cliente();
-                ClienteDal d = new ClienteDal();
 
-                int id = Convert.ToInt32(txt_Id_Cliente_Editar.Text);
-                cliente.Id_Cliente = id;
-                cliente.Nome = txt_Nome_Editar.Text;
-                cliente.DataCadastro = DateTime.Now;
+        
 
-                d.EditarCliente(cliente);
-                CarregarClientes();
-                painelGrid.Visible = true;
-                painelEditar.Visible = false;
-                painelCadastro.Visible = false;
-                lblResp.Text = "Cliente " + cliente.Nome + " Atualizado Com Sucesso.";
-            }
-            catch (Exception ex)
-            {
-
-                lblResp.Text = ex.Message;
-            }
-        }
-
-        //validar cpf
+        //valida cpf
         public static bool validaCpf(string CPF)
         {
             int[] mt1 = new int[9] { 10, 9, 8, 7, 6, 5, 4, 3, 2 };
@@ -289,11 +281,12 @@ namespace Site.Administrador
         {
             try
             {
-
+                //string script;
                 DAL.Entity.Cliente cliente = new DAL.Entity.Cliente();
                 ClienteDal d = new ClienteDal();
-
                 cliente.Nome = txt_Nome.Text;
+
+
                 cliente.Telefone = txt_Telefone.Text;
                 cliente.DataCadastro = DateTime.Now;
 
@@ -327,10 +320,6 @@ namespace Site.Administrador
                     painelGrid.Visible = true;
 
                     //lblResp.Text = "Cliente " + cliente.Nome + " Salvo Com Sucesso";
-                   
-                    
-
-
                     txt_Numero.Text = string.Empty;
                     txt_Bairro.Text = string.Empty;
                     txt_Cidade.Text = string.Empty;
@@ -338,9 +327,17 @@ namespace Site.Administrador
                     txt_Nome.Text = string.Empty;
                     txt_Telefone.Text = string.Empty;
                     string message = "Cliente " + cliente.Nome + " Salvo Com Sucesso";
-                    Refresh(message);
+
                     message = "Cliente " + cliente.Nome + " Salvo Com Sucesso";
-                    
+
+
+
+                    //Response.Write("<script language='javascript'>alert('Manda a sua mensagem aqui ');</script>");
+
+
+                      Response.Redirect(Request.Url.ToString());
+                   //   Response.Redirect()
+
                 }
                 else
                 {
@@ -350,7 +347,9 @@ namespace Site.Administrador
                                     "window.onload=function(){" +
                                         "document.getElementById('ContentPlaceHolder1_txt_Cpf_Cnpj').value = '';" +
                                         "exibirpainelcadastro();" +
-                                         "document.getElementById('ContentPlaceHolder1_txt_Cpf_Cnpj').focus();" +
+                                        //"document.getElementById('exibirpaineleditar').style.display = 'none';"+
+                                       // "document.getElementById('painelgrid').style.display = 'none';"+
+                                        "document.getElementById('ContentPlaceHolder1_txt_Cpf_Cnpj').focus();" +
                                         "alert('" + message + "')" +
                                     "}" +
                                "</script>" +
@@ -369,20 +368,21 @@ namespace Site.Administrador
             {
                 throw;
             }
-
         }
 
-        public void Refresh(string msg)
+        public void Refresh(string msg, string script)
         {
             System.Text.StringBuilder sb = new System.Text.StringBuilder();
-                    sb.Append("<script type = 'text/javascript'>" +
-                                    "window.onload=function(){" +
-                                        "alert('teste');" +
-                                    "}" +
-                               "</script>");
-                    ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", sb.ToString());
-        
-            Response.Redirect(Request.Url.ToString());
+            sb.Append("<script type = 'text/javascript'>" +
+                            "window.onload=function(){" +
+                                "alert('teste');" +
+                //  "window.location.reload();"+
+
+                            "}" +
+                       "</script>");
+            ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", sb.ToString());
+
+
             lblResp.Text = msg;
         }
 
@@ -390,6 +390,7 @@ namespace Site.Administrador
         {
             try
             {
+                lblResp.Text = string.Empty;
                 painelCadastro.Visible = true;
                 painelGrid.Visible = false;
             }
@@ -403,9 +404,10 @@ namespace Site.Administrador
         {
             try
             {
+                lblResp.Text = string.Empty;
                 painelGrid.Visible = true;
                 painelCadastro.Visible = false;
-                painelEditar.Visible = false;
+               // painelEditar.Visible = false;
                 painelCadastro.Visible = false;
 
                 txt_Nome.Text = string.Empty;
@@ -416,15 +418,15 @@ namespace Site.Administrador
                 txt_Cidade.Text = string.Empty;
                 txt_Estado.Text = string.Empty;
 
-                txt_Nome_Editar.Text = string.Empty;
-                txt_Telefone_Editar.Text = string.Empty;
+               // txt_Nome_Editar.Text = string.Empty;
+              //  txt_Telefone_Editar.Text = string.Empty;
                 //txt_tipoPessoa.Text = string.Empty;
                 //txt_Cpf_Cnpj.Text = string.Empty;
-                txt_Numero_Editar.Text = string.Empty;
-                txt_Complemento_Editar.Text = string.Empty;
-                txt_Bairro_Editar.Text = string.Empty;
-                txt_Cidade_Editar.Text = string.Empty;
-                txt_Estado_Editar.Text = string.Empty;
+                //txt_Numero_Editar.Text = string.Empty;
+                //txt_Complemento_Editar.Text = string.Empty;
+                //txt_Bairro_Editar.Text = string.Empty;
+                //txt_Cidade_Editar.Text = string.Empty;
+                //txt_Estado_Editar.Text = string.Empty;
 
             }
             catch (Exception)
