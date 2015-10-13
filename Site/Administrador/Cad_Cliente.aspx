@@ -72,7 +72,7 @@
             //alert('teste');
             document.getElementById('painelcadastro').style.display = 'none';
             document.getElementById('painelgrid').style.display = 'block';
-            document.getElementById('paineleditar').style.display = "none";
+         //  document.getElementById('paineleditar').style.display = "none";
             // document.getElementById('paineleditar').className = 'paineleditaroff';
             document.getElementById('ContentPlaceHolder1_txt_Nome').value = '';
             document.getElementById('ContentPlaceHolder1_txt_Telefone').value = '';
@@ -82,15 +82,17 @@
             document.getElementById('ContentPlaceHolder1_txt_Bairro').value = '';
             document.getElementById('ContentPlaceHolder1_txt_Cidade').value = '';
             document.getElementById('ContentPlaceHolder1_txt_Estado').value = '';
+            document.getElementById('ContentPlaceHolder1_txt_logradouro').value = '';
+            document.getElementById('ContentPlaceHolder1_txtSexo').value = '';
 
-            document.getElementById('ContentPlaceHolder1_txt_Nome_Editar').value = '';
-            document.getElementById('ContentPlaceHolder1_txt_Telefone_Editar').value = '';
-            document.getElementById('ContentPlaceHolder1_txt_Cpf_Cnpj_Editar').value = '';
-            document.getElementById('ContentPlaceHolder1_txt_Complemento_Editar').value = '';
-            document.getElementById('ContentPlaceHolder1_txt_Numero_Editar').value = '';
-            document.getElementById('ContentPlaceHolder1_txt_Bairro_Editar').value = '';
-            document.getElementById('ContentPlaceHolder1_txt_Cidade_Editar').value = '';
-            document.getElementById('ContentPlaceHolder1_txt_Estado_Editar').value = '';
+            //document.getElementById('ContentPlaceHolder1_txt_Nome_Editar').value = '';
+            //document.getElementById('ContentPlaceHolder1_txt_Telefone_Editar').value = '';
+            //document.getElementById('ContentPlaceHolder1_txt_Cpf_Cnpj_Editar').value = '';
+            //document.getElementById('ContentPlaceHolder1_txt_Complemento_Editar').value = '';
+            //document.getElementById('ContentPlaceHolder1_txt_Numero_Editar').value = '';
+            //document.getElementById('ContentPlaceHolder1_txt_Bairro_Editar').value = '';
+            //document.getElementById('ContentPlaceHolder1_txt_Cidade_Editar').value = '';
+            //document.getElementById('ContentPlaceHolder1_txt_Estado_Editar').value = '';
             document.getElementById('ContentPlaceHolder1_lblResp').value = ' ';
         }
 
@@ -104,7 +106,9 @@
             document.getElementById('ContentPlaceHolder1_txt_Bairro').value = '';
             document.getElementById('ContentPlaceHolder1_txt_Cidade').value = '';
             document.getElementById('ContentPlaceHolder1_txt_Estado').value = '';
-            document.getElementById('ContentPlaceHolder1_lblResp').value = ' ';
+            document.getElementById('ContentPlaceHolder1_txt_logradouro').value = '';
+            document.getElementById('ContentPlaceHolder1_txtSexo').value = '';
+           // document.getElementById('ContentPlaceHolder1_lblResp').value = ' ';
             document.getElementById('painelcadastro').style.display = 'block';
             document.getElementById('painelgrid').style.display = 'none';
             document.getElementById('paineleditar').style.display = 'none';
@@ -127,12 +131,22 @@
             document.getElementById('ContentPlaceHolder1_txt_Bairro').value = ' ';
             document.getElementById('ContentPlaceHolder1_txt_Cidade').value = ' ';
             document.getElementById('ContentPlaceHolder1_txt_Estado').value = ' ';
+            document.getElementById('ContentPlaceHolder1_txt_logradouro').value = ' ';
+            document.getElementById('ContentPlaceHolder1_txtSexo').value = ' ';
             return true;
         }
 
         function excluir() {
             carregarform();
-            return confirm('Deseja realmente excluir ?');
+
+            var r = confirm('Deseja realmente excluir ?');
+            if (r == true) {
+                //alert('true');
+                return true;
+            } else {
+                //alert('false');
+                return false;
+            }
         }
     </script>
 
@@ -170,10 +184,10 @@
                         <asp:TemplateField HeaderText="">
                             <ItemTemplate>
                                 <center>
-                                    <asp:Button CssClass="ls-btn-danger ls-btn-xs" ID="btnExcuirCampo" runat="server" Text="Excluir" OnClientClick="excluir();" OnClick="Excluir_Click" />
-                                    <asp:Button CssClass="ls-btn-default ls-btn-xs" ID="btnAtualizar" runat="server" Text="Atualizar" OnClientClick="carregarform();" OnClick="btnGridAtualizar_Click" />
+                                    <asp:Button CssClass="ls-btn-danger ls-btn-xs" ID="btnExcuirCampo" runat="server" Text="Excluir" OnClientClick="return excluir();" OnClick="Excluir_Click" />
+                                    <asp:Button CssClass="ls-btn-default ls-btn-xs" ID="btnAtualizar" runat="server" Text="Atualizar" OnClientClick="return carregarform();" OnClick="btnGridAtualizar_Click" />
                                     <asp:Label ID="lblIdCliente"  runat="server" Text='<%# Eval("Id_Cliente") %>' Visible="false" />
-                                    <asp:Label ID="lblNome" runat="server" Text='<%# Eval("Nome") %>' Visible="false" />
+                             <%--       <asp:Label ID="lblNome" runat="server" Text='<%# Eval("Nome") %>' Visible="false" />
                                     <asp:Label ID="lblTelefone" runat="server" Text='<%# Eval("Telefone") %>' Visible="false" />
                                     <asp:Label ID="lblTipo_Pessoa" runat="server" Text='<%# Eval("Tipo_Pessoa") %>' Visible="false" />
                                     <asp:Label ID="lbl_CPF" runat="server" Text='<%# Eval("CPF") %>' Visible="false" />
@@ -182,7 +196,7 @@
                                     <asp:Label ID="lblComplemento" runat="server" Text='<%# Eval("Endereco.Complemento") %>' Visible="false" />
                                     <asp:Label ID="lblBairro" runat="server" Text='<%# Eval("Endereco.Bairro") %>' Visible="false" />
                                     <asp:Label ID="lblCidade" runat="server" Text='<%# Eval("Endereco.Cidade") %>' Visible="false" />
-                                    <asp:Label ID="lblEstado" runat="server" Text='<%# Eval("Endereco.Estado") %>' Visible="false" />
+                                    <asp:Label ID="lblEstado" runat="server" Text='<%# Eval("Endereco.Estado") %>' Visible="false" />--%>
                                 </center>
                             </ItemTemplate>
                         </asp:TemplateField>
@@ -210,6 +224,10 @@
                             <label class="ls-label col-xs-4">
                                 <asp:Label ID="lblCPFCNPJ" runat="server" meta:resourceKey="lblCPFCNPJ" Text="CPF/CNPJ:" CssClass="ls-label-text" />
                                 <input id="txt_Cpf_Cnpj" name='txt_Cpf_Cnpj' class="ls-label-text" runat="server" maxlength="18" onkeyup="mascaraMutuario(this,cpfCnpj);" onblur='clearTimeout();' onkeypress='' required="required" />
+                            </label>
+                            <label class="ls-label col-xs-4">
+                                <asp:Label ID="lblSexo" runat="server" meta:resourceKey="lblSexo" Text="Sexo" CssClass="ls-label-text" />
+                                <input id="txtSexo" name='txtSexo' class="ls-label-text"  runat="server" maxlength="18" required="required" />
                             </label>
                         </div>
                         <div class="row">

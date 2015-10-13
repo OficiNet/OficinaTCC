@@ -17,7 +17,6 @@ namespace DAL.Persistence
         {
             try
             {
-                
                 AbrirConexao();
                 Cmd = new SqlCommand("CadCliente", Con);
                 Cmd.CommandType = CommandType.StoredProcedure;
@@ -28,12 +27,14 @@ namespace DAL.Persistence
                 Cmd.Parameters.AddWithValue("@Tipo_Pessoa", c.Tipo_Pessoa);
                 Cmd.Parameters.AddWithValue("@CPF", c.CPF);
                 Cmd.Parameters.AddWithValue("@CNPJ", c.CNPJ);
+                Cmd.Parameters.AddWithValue("@Sexo", c.Sexo);
 
                 Cmd.Parameters.AddWithValue("@Numero", c.Endereco.Numero);
                 Cmd.Parameters.AddWithValue("@Complemento", c.Endereco.Complemento);
                 Cmd.Parameters.AddWithValue("@Bairro", c.Endereco.Bairro);
                 Cmd.Parameters.AddWithValue("@Cidade", c.Endereco.Cidade);
                 Cmd.Parameters.AddWithValue("@Estado", c.Endereco.Estado);
+                Cmd.Parameters.AddWithValue("@Logradouro", c.Endereco.Logradouro);
                 Cmd.ExecuteNonQuery();
 
 
@@ -60,15 +61,16 @@ namespace DAL.Persistence
                 Cmd.Parameters.AddWithValue("@Nome", c.Nome);
                 Cmd.Parameters.AddWithValue("@Telefone", c.Telefone);
                 Cmd.Parameters.AddWithValue("@DataCadastro", c.DataCadastro);
+                Cmd.Parameters.AddWithValue("@Sexo", c.Sexo);
                 //Cmd.Parameters.AddWithValue("@Tipo_Pessoa", c.Tipo_Pessoa);
                 //Cmd.Parameters.AddWithValue("@CPF", c.CPF);
                 //Cmd.Parameters.AddWithValue("@CNPJ", c.CNPJ);
-                
                 Cmd.Parameters.AddWithValue("@Numero", c.Endereco.Numero);
                 Cmd.Parameters.AddWithValue("@Complemento", c.Endereco.Complemento);
                 Cmd.Parameters.AddWithValue("@Bairro", c.Endereco.Bairro);
                 Cmd.Parameters.AddWithValue("@Cidade", c.Endereco.Cidade);
                 Cmd.Parameters.AddWithValue("@Estado", c.Endereco.Estado);
+                Cmd.Parameters.AddWithValue("@Logradouro", c.Endereco.Logradouro);
                 Cmd.Parameters.AddWithValue("@Id_Cliente", c.Id_Cliente);
 
                 Cmd.ExecuteNonQuery();
@@ -119,9 +121,6 @@ namespace DAL.Persistence
             }
         }
 
-
-
-
        public List<Cliente> ListarTodos()
        
        {
@@ -161,43 +160,6 @@ namespace DAL.Persistence
            }
        }
 
-
-
-        //public void EditarCliente(Cliente c )
-        //{
-        //    try
-        //    {
-        //        AbrirConexao();
-        //        Cmd = new SqlCommand("update Tb_Cliente set Nome = @Nome, Telefone= @Telefone, from Tb_Cliente c inner join  Tb_Endereco e on e.FK_Id_Cliente = c.Id_Cliente where  c.Id_Cliente=@Id_Cliente ",Con );
-        //        Cmd = new SqlCommand("update Tb_Endereco set Numero='douglas leonardo', Complemento=@Complemento, Bairro=@Bairro, Cidade=@Cidade, Estado=@Estado, Numero = @Numero where FK_Id_Cliente = Id_Cliente", Con);
-        //        Cmd.Parameters.AddWithValue("@Nome", c.Nome);
-        //        Cmd.Parameters.AddWithValue("@Telefone", c.Telefone);
-        //        Cmd.Parameters.AddWithValue("@DataCadastro", c.DataCadastro);
-        //        Cmd.Parameters.AddWithValue("@Tipo_Pessoa", c.Tipo_Pessoa);
-        //        Cmd.Parameters.AddWithValue("@CPF", c.CPF);
-        //        Cmd.Parameters.AddWithValue("@CNPJ", c.CNPJ);
-        //        Cmd.Parameters.AddWithValue("@Id_Cliente", c.Id_Cliente);
-
-        //        Cmd.Parameters.AddWithValue("@Complemento", c.Endereco.Complemento);
-        //        Cmd.Parameters.AddWithValue("@Bairro", c.Endereco.Bairro);
-        //        Cmd.Parameters.AddWithValue("@Cidade", c.Endereco.Cidade);
-        //        Cmd.Parameters.AddWithValue("@Estado", c.Endereco.Estado);
-        //        Cmd.Parameters.AddWithValue("@Numero", c.Endereco.Numero);
-
-
-        //        Cmd.ExecuteNonQuery();
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        throw new Exception("Erro: ClienteDal: EditarVeiculo(int id) => " + e.Message);
-        //    }
-        //    finally
-        //    {
-        //        FecharConexao();
-        //    }
-        //}
-
-
         public Cliente BuscarPorId(int id)
         {
             try
@@ -212,6 +174,7 @@ namespace DAL.Persistence
                 {
                     c.Id_Cliente = Convert.ToInt32(Dr["Id_Cliente"]);
                     c.Nome = Convert.ToString(Dr["Nome"]);
+                    c.Sexo = Convert.ToString(Dr["Sexo"]);
                     c.Telefone = Convert.ToString(Dr["Telefone"]);
                     c.DataCadastro = Convert.ToDateTime(Dr["DataCadastro"]);
                     c.Tipo_Pessoa = Convert.ToChar(Dr["Tipo_Pessoa"]);
@@ -223,6 +186,7 @@ namespace DAL.Persistence
                     c.Endereco.Bairro = Convert.ToString(Dr["Bairro"]);
                     c.Endereco.Cidade = Convert.ToString(Dr["Cidade"]);
                     c.Endereco.Estado = Convert.ToString(Dr["Estado"]);
+                    c.Endereco.Logradouro = Convert.ToString(Dr["Logradouro"]);
                 }
                 return c;
             }
@@ -235,9 +199,6 @@ namespace DAL.Persistence
                 FecharConexao();
             }
         }
-
-
-
 
         public void Excluir(int id)
         {

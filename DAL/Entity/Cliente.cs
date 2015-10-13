@@ -19,6 +19,7 @@ namespace DAL.Entity
         public char Tipo_Pessoa { get; set; }
         public string CPF { get; set; }
         public string CNPJ { get; set; }
+        public string Sexo { get; set; }
         public Endereco Endereco { get; set; }
         public List<Veiculo> Veiculos { get; set; }
     }

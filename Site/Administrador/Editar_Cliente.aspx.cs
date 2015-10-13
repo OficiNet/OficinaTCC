@@ -28,6 +28,7 @@ namespace Site.Administrador
 
             txt_Nome_Editar.Text = c.Nome.ToString();
             txt_Telefone_Editar.Text = c.Telefone.ToString();
+            txt_Sexo_Editar.Text = c.Sexo;
 
             if (c.CPF == null)
             {
@@ -43,6 +44,7 @@ namespace Site.Administrador
             txt_Bairro_Editar.Text = c.Endereco.Bairro; 
             txt_Cidade_Editar.Text = c.Endereco.Cidade;
             txt_Estado_Editar.Text = c.Endereco.Estado;
+            txt_Logradouro_Editar.Text = c.Endereco.Logradouro;
 
             
             
@@ -67,7 +69,8 @@ namespace Site.Administrador
                 int id = Convert.ToInt32(Request.QueryString["id"]);
                 cliente.Id_Cliente = id;
                 cliente.Nome = txt_Nome_Editar.Text;
-                cliente.Telefone = txt_Telefone_Editar.Text; 
+                cliente.Telefone = txt_Telefone_Editar.Text;
+                cliente.Sexo = txt_Sexo_Editar.Text;
                 cliente.DataCadastro = DateTime.Now;
 
                 cliente.Endereco = new Endereco();
@@ -77,6 +80,7 @@ namespace Site.Administrador
                 cliente.Endereco.Cidade = txt_Cidade_Editar.Text;
                 cliente.Endereco.Numero = txt_Numero_Editar.Text;
                 cliente.Endereco.Estado = txt_Estado_Editar.Text;
+                cliente.Endereco.Logradouro = txt_Logradouro_Editar.Text;
 
 
                 d.EditarCliente(cliente);

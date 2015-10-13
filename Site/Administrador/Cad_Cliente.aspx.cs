@@ -73,9 +73,6 @@ namespace Site.Administrador
         //    }
         //}
 
-
-
-
         protected void gridClientes_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             try
@@ -89,8 +86,6 @@ namespace Site.Administrador
                 throw;
             }
         }
-
-
 
         protected void btnGridAtualizar_Click(object sender, EventArgs e)
         {
@@ -118,45 +113,6 @@ namespace Site.Administrador
                         Response.Redirect("Editar_Cliente.aspx?id=" + id.ToString());
                     }
                 }
-                //CarregarClientes();
-                //lblResp.Text = " Excluido Com Sucesso ";
-
-
-                //foreach (GridViewRow linha in gridClientes.Rows)
-                //{
-
-                //    Button btnAtualizarCampo = linha.FindControl("btnAtualizarCampo") as Button;
-
-                //    if (btnAtualizarCampo.Equals(sender))
-                //    {
-                //        Label lblIdCliente = linha.FindControl("lblIdCliente") as Label;
-                //        Label lblNome = linha.FindControl("lblNome") as Label;
-                //        Label lblTelefone = linha.FindControl("lblTelefone") as Label;
-                //        Label lblTipo_Pessoa = linha.FindControl("lblTipo_Pessoa") as Label;
-                //        Label lbl_CPF = linha.FindControl("lbl_CPF") as Label;
-                //        Label lbl_CNPJ = linha.FindControl("lbl_CNPJ") as Label;
-                //        Label lblNumero = linha.FindControl("lblNumero") as Label;
-                //        Label lblComplemento = linha.FindControl("lblComplemento") as Label;
-                //        Label lblBairro = linha.FindControl("lblBairro") as Label;
-                //        Label lblCidade = linha.FindControl("lblCidade") as Label;
-                //        Label lblEstado = linha.FindControl("lblEstado") as Label;
-
-                //        txt_Id_Cliente_Editar.Text = lblIdCliente.Text;
-                //        txt_Nome_Editar.Text = lblNome.Text;
-                //        txt_Telefone_Editar.Text = lblTelefone.Text;
-                //        //txt_tipoPessoa.Text = lblDataEntrega.Text;
-                //        //txt_Cpf_Cnpj.Text = lblDescricao.Text;
-                //        txt_Numero_Editar.Text = lblNumero.Text;
-                //        txt_Complemento_Editar.Text = lblComplemento.Text;
-                //        txt_Bairro_Editar.Text = lblBairro.Text;
-                //        txt_Cidade_Editar.Text = lblCidade.Text;
-                //        txt_Estado_Editar.Text = lblEstado.Text;
-
-                //        CarregarClientes();
-                //    }
-                //}
-
-               
             }
             catch (Exception ex)
             {
@@ -190,9 +146,6 @@ namespace Site.Administrador
                 lblResp.Text = " Erro ao Excluir Tarefa " + ex.Message;
             }
         }
-
-
-        
 
         //valida cpf
         public static bool validaCpf(string CPF)
@@ -275,8 +228,6 @@ namespace Site.Administrador
             return cnpj.EndsWith(digito);
         }
 
-
-
         protected void btn_Cadastrar_Cliente_Click(object sender, EventArgs e)
         {
             try
@@ -289,6 +240,7 @@ namespace Site.Administrador
 
                 cliente.Telefone = txt_Telefone.Text;
                 cliente.DataCadastro = DateTime.Now;
+                cliente.Sexo = txtSexo.Value;
 
                 //validar cnpj ou cpf
                 if (validaCpf(txt_Cpf_Cnpj.Value) || validaCnpj(txt_Cpf_Cnpj.Value))
@@ -313,6 +265,7 @@ namespace Site.Administrador
                     cliente.Endereco.Bairro = txt_Bairro.Text;
                     cliente.Endereco.Cidade = txt_Cidade.Text;
                     cliente.Endereco.Estado = txt_Estado.Text;
+                    cliente.Endereco.Logradouro = txt_logradouro.Text;
 
                     d.SalvarCliente(cliente);
                     painelCadastro.Visible = false;
@@ -329,8 +282,6 @@ namespace Site.Administrador
                     string message = "Cliente " + cliente.Nome + " Salvo Com Sucesso";
 
                     message = "Cliente " + cliente.Nome + " Salvo Com Sucesso";
-
-
 
                     //Response.Write("<script language='javascript'>alert('Manda a sua mensagem aqui ');</script>");
 
@@ -417,9 +368,10 @@ namespace Site.Administrador
                 txt_Bairro.Text = string.Empty;
                 txt_Cidade.Text = string.Empty;
                 txt_Estado.Text = string.Empty;
+                txt_logradouro.Text = string.Empty;
 
-               // txt_Nome_Editar.Text = string.Empty;
-              //  txt_Telefone_Editar.Text = string.Empty;
+                //txt_Nome_Editar.Text = string.Empty;
+                //txt_Telefone_Editar.Text = string.Empty;
                 //txt_tipoPessoa.Text = string.Empty;
                 //txt_Cpf_Cnpj.Text = string.Empty;
                 //txt_Numero_Editar.Text = string.Empty;
