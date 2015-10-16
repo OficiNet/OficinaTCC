@@ -252,6 +252,7 @@
     <Content Include="Layout\locawebstyle\stylesheets\fonts\locastyle.woff" />
     <Content Include="Administrador\Sistema.Master" />
     <Content Include="Cliente\Cliente.Master" />
+    <None Include="Properties\PublishProfiles\File System.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

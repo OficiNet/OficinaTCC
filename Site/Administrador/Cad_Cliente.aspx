@@ -266,6 +266,11 @@
                             <asp:Button ID="btn_Cadastrar_Cliente" Text="Cadastrar" runat="server" OnClick="btn_Cadastrar_Cliente_Click" CssClass="ls-btn-primary" />
                             <button id="btnvoltar" class="ls-btn-sucess" onclick="javascript: voltar();">Voltar</button>
                         </div>
+                        <div class="ls-actions-btn">
+                            <br />
+                           
+                           
+                        </div>
                     </fieldset>
                 </div>
             </asp:Panel>

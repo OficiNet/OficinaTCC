@@ -22,13 +22,13 @@ namespace Site.Administrador {
         protected global::System.Web.UI.WebControls.Panel painelGrid;
         
         /// <summary>
-        /// lblPesqNomeVeiculos control.
+        /// lblPesqNomeCliente control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPesqNomeVeiculos;
+        protected global::System.Web.UI.WebControls.Label lblPesqNomeCliente;
         
         /// <summary>
         /// txtPesquisa control.
@@ -40,13 +40,13 @@ namespace Site.Administrador {
         protected global::System.Web.UI.WebControls.TextBox txtPesquisa;
         
         /// <summary>
-        /// btnListarVeiculo control.
+        /// btnListarClientes control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnListarVeiculo;
+        protected global::System.Web.UI.WebControls.Button btnListarClientes;
         
         /// <summary>
         /// btnNovoCliente control.
@@ -94,94 +94,76 @@ namespace Site.Administrador {
         protected global::System.Web.UI.WebControls.Button btnVoltar;
         
         /// <summary>
-        /// txt_Nome control.
+        /// ddlClientes control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_Nome;
+        protected global::System.Web.UI.WebControls.DropDownList ddlClientes;
         
         /// <summary>
-        /// txt_Telefone control.
+        /// txt_Id_Veiculo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_Telefone;
+        protected global::System.Web.UI.WebControls.TextBox txt_Id_Veiculo;
         
         /// <summary>
-        /// radioCpf_Cnpj control.
+        /// txt_Placa control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList radioCpf_Cnpj;
+        protected global::System.Web.UI.WebControls.TextBox txt_Placa;
         
         /// <summary>
-        /// txt_Cpf_Cnpj control.
+        /// txt_Modelo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_Cpf_Cnpj;
+        protected global::System.Web.UI.WebControls.TextBox txt_Modelo;
         
         /// <summary>
-        /// txt_Complemento control.
+        /// txt_Marca control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_Complemento;
+        protected global::System.Web.UI.WebControls.TextBox txt_Marca;
         
         /// <summary>
-        /// txt_Numero control.
+        /// txt_Ano control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_Numero;
+        protected global::System.Web.UI.WebControls.TextBox txt_Ano;
         
         /// <summary>
-        /// txt_Bairro control.
+        /// btn_Cadastrar_Veiculo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_Bairro;
+        protected global::System.Web.UI.WebControls.Button btn_Cadastrar_Veiculo;
         
         /// <summary>
-        /// txt_Cidade control.
+        /// btn_Editar_Veiculo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_Cidade;
-        
-        /// <summary>
-        /// txt_Estado control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_Estado;
-        
-        /// <summary>
-        /// btn_Cadastrar_Cliente control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_Cadastrar_Cliente;
+        protected global::System.Web.UI.WebControls.Button btn_Editar_Veiculo;
         
         /// <summary>
         /// painelEditar control.

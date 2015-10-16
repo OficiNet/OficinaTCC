@@ -15,6 +15,6 @@ C:\Users\EmersonAraujo\Documents\SourceTreeOficiNet\OficiNet\DAL\obj\Debug\DAL.d
 C:\Users\EmersonAraujo\Documents\SourceTreeOficiNet\OficiNet\DAL\obj\Debug\DAL.pdb
 C:\Users\Douglas_Laptop\Documents\SourceTreeOficiNet\OficiNet\OficinaTCC\DAL\bin\Debug\DAL.dll
 C:\Users\Douglas_Laptop\Documents\SourceTreeOficiNet\OficiNet\OficinaTCC\DAL\bin\Debug\DAL.pdb
-C:\Users\Douglas_Laptop\Documents\SourceTreeOficiNet\OficiNet\OficinaTCC\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
 C:\Users\Douglas_Laptop\Documents\SourceTreeOficiNet\OficiNet\OficinaTCC\DAL\obj\Debug\DAL.dll
 C:\Users\Douglas_Laptop\Documents\SourceTreeOficiNet\OficiNet\OficinaTCC\DAL\obj\Debug\DAL.pdb
+C:\Users\Douglas_Laptop\Documents\SourceTreeOficiNet\OficiNet\OficinaTCC\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache

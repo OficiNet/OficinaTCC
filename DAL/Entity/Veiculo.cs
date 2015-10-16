@@ -13,6 +13,8 @@ namespace DAL.Entity
         public string Modelo { get; set; }
         public string Ano { get; set; }
         public string Marca { get; set; }
+
+        public Cliente Cliente { get; set; }
        
     }
 }

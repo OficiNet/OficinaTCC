@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using DAL.Entity;
+using DAL.Persistence;
 
 namespace Site.Administrador
 {
@@ -11,7 +13,158 @@ namespace Site.Administrador
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                carregarClientes();
+                carregarVeiculos();
+            }
         }
+
+        private void carregarVeiculos()
+        {
+            try
+            {
+                VeiculoDal d = new VeiculoDal();
+                gridVeiculos.DataSource = d.ListarVeiculos();
+                gridVeiculos.DataBind();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        private void carregarClientes()
+        {
+            try
+            {
+                ClienteDal d = new ClienteDal();
+                ddlClientes.DataSource =  d.ListarTodos();
+                ddlClientes.DataTextField = "Nome"; //texto mostrado no campo
+                ddlClientes.DataValueField = "Id_Cliente"; //valor marcado no campo
+                ddlClientes.DataBind();
+                ddlClientes.Items.Insert(0, new ListItem("- Selecione -"));
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
+
+        protected void gridVeiculos_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            try
+            {
+                gridVeiculos.PageIndex = e.NewPageIndex;
+                carregarVeiculos();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        protected void Excluir_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                foreach (GridViewRow linha in gridVeiculos.Rows)
+                {
+                    Button btnExcluirCampo = linha.FindControl("btnExcuirCampo") as Button;
+                    Label lblIdVeiculo = linha.FindControl("lblIdVeiculo") as Label;
+                    if (btnExcluirCampo.Equals(sender))
+                    {
+                        int id = Convert.ToInt32(lblIdVeiculo.Text);
+                        VeiculoDal d = new VeiculoDal();
+                        d.Excluir(id);
+                    }
+                }
+                carregarVeiculos();
+                lblResp.Text = " Excluido Com Sucesso ";
+            }
+            catch (Exception ex)
+            {
+
+                lblResp.Text = " Erro ao Excluir Veiculo " + ex.Message;
+            }
+        }
+
+        protected void btn_Cadastrar_Veiculo_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DAL.Entity.Veiculo v = new DAL.Entity.Veiculo();
+                v.Marca = txt_Marca.Text;
+                v.Modelo = txt_Modelo.Text;
+                v.Placa = txt_Placa.Text;
+                v.Ano = txt_Ano.Text;
+                v.Cliente = new DAL.Entity.Cliente();
+                v.Cliente.Id_Cliente = Convert.ToInt32(ddlClientes.SelectedValue);
+
+                VeiculoDal d = new VeiculoDal();
+                d.SalvarVeiculo(v);
+
+                lblResp.Text = "Veiculo cadastrado com sucesso.";
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        protected void btn_Editar_Veiculo_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                VeiculoDal d = new VeiculoDal();
+                Veiculo v = new Veiculo();
+                v.Id_Veiculo = Convert.ToInt32(txt_Id_Veiculo.Text);
+                v.Marca = txt_Marca.Text;
+                v.Modelo = txt_Modelo.Text;
+                v.Placa = txt_Placa.Text;
+                v.Ano = txt_Ano.Text;
+                d.EditarVeiculo(v);
+                lblResp.Text = "editado com sucesso!!";
+            }
+            catch (Exception ex)
+            {
+
+                lblResp.Text = " Erro ao carregar tela de atualizar" + ex.Message;
+            }
+        }
+
+        protected void btnGridAtualizar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int id = 0;
+                foreach (GridViewRow linha in gridVeiculos.Rows)
+                {
+                    Button btnAtualizar = linha.FindControl("btnAtualizar") as Button;
+                    Label lblIdVeiculo = linha.FindControl("lblIdVeiculo") as Label;
+                    if (btnAtualizar.Equals(sender))
+                    {
+                        id = Convert.ToInt32(lblIdVeiculo.Text);
+                    }
+                }
+
+                VeiculoDal d = new VeiculoDal();
+                Veiculo v = d.BuscarPorId(id);
+                txt_Marca.Text = v.Marca;
+                txt_Modelo.Text = v.Modelo;
+                txt_Placa.Text = v.Placa  ;
+                txt_Ano.Text = v.Ano;
+                txt_Id_Veiculo.Text = Convert.ToString(id);
+            }
+            catch (Exception ex)
+            {
+
+                lblResp.Text = " Erro ao carregar tela de atualizar" + ex.Message;
+            }
+        }
+
+
     }
 }
