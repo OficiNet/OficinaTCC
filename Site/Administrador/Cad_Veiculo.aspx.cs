@@ -17,6 +17,7 @@ namespace Site.Administrador
             {
                 carregarClientes();
                 carregarVeiculos();
+                painelCadastro.Visible = false;
             }
         }
 
@@ -67,7 +68,6 @@ namespace Site.Administrador
 
         protected void Excluir_Click(object sender, EventArgs e)
         {
-
             try
             {
                 foreach (GridViewRow linha in gridVeiculos.Rows)
@@ -86,8 +86,7 @@ namespace Site.Administrador
             }
             catch (Exception ex)
             {
-
-                lblResp.Text = " Erro ao Excluir Veiculo " + ex.Message;
+                lblResp.Text = " Erro ao Excluir Veiculo " + ex.InnerException;
             }
         }
 
@@ -127,10 +126,12 @@ namespace Site.Administrador
                 v.Ano = txt_Ano.Text;
                 d.EditarVeiculo(v);
                 lblResp.Text = "editado com sucesso!!";
+
+                painelCadastro.Visible = false;
+                painelGrid.Visible = true;
             }
             catch (Exception ex)
             {
-
                 lblResp.Text = " Erro ao carregar tela de atualizar" + ex.Message;
             }
         }
@@ -139,6 +140,10 @@ namespace Site.Administrador
         {
             try
             {
+                painelCadastro.Visible = true;
+                painelGrid.Visible = false;
+                btn_Cadastrar_Veiculo.Visible = false;
+
                 int id = 0;
                 foreach (GridViewRow linha in gridVeiculos.Rows)
                 {

@@ -240,7 +240,7 @@ namespace Site.Administrador
 
                 cliente.Telefone = txt_Telefone.Text;
                 cliente.DataCadastro = DateTime.Now;
-                cliente.Sexo = txtSexo.Value;
+                cliente.Sexo = radioSexo.SelectedValue;
 
                 //validar cnpj ou cpf
                 if (validaCpf(txt_Cpf_Cnpj.Value) || validaCnpj(txt_Cpf_Cnpj.Value))

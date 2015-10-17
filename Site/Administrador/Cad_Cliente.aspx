@@ -72,7 +72,7 @@
             //alert('teste');
             document.getElementById('painelcadastro').style.display = 'none';
             document.getElementById('painelgrid').style.display = 'block';
-         //  document.getElementById('paineleditar').style.display = "none";
+            //  document.getElementById('paineleditar').style.display = "none";
             // document.getElementById('paineleditar').className = 'paineleditaroff';
             document.getElementById('ContentPlaceHolder1_txt_Nome').value = '';
             document.getElementById('ContentPlaceHolder1_txt_Telefone').value = '';
@@ -107,8 +107,8 @@
             document.getElementById('ContentPlaceHolder1_txt_Cidade').value = '';
             document.getElementById('ContentPlaceHolder1_txt_Estado').value = '';
             document.getElementById('ContentPlaceHolder1_txt_logradouro').value = '';
-            document.getElementById('ContentPlaceHolder1_txtSexo').value = '';
-           // document.getElementById('ContentPlaceHolder1_lblResp').value = ' ';
+            document.getElementById('ContentPlaceHolder1_radioSexo').value = 'F';
+            // document.getElementById('ContentPlaceHolder1_lblResp').value = ' ';
             document.getElementById('painelcadastro').style.display = 'block';
             document.getElementById('painelgrid').style.display = 'none';
             document.getElementById('paineleditar').style.display = 'none';
@@ -210,24 +210,29 @@
                 <div class="ls-form ls-form-horizontal row">
                     <fieldset>
                         <div class="row">
-                            <label class="ls-label col-xs-6">
+                            <label class="ls-label col-xs-12">
                                 <asp:Label ID="lblNomeCliente" runat="server" meta:resourceKey="lblNomeCliente" Text="Nome do Cliente:" CssClass="ls-label-text" />
                                 <asp:TextBox ID="txt_Nome" CssClass="ls-label-text" runat="server" required="required" />
                             </label>
-                            <label class="ls-label col-xs-2">
-                                <asp:Label ID="lblTipoPessoa" runat="server" meta:resourceKey="lblTipoPessoa" Text="Tipo Pessoa:" CssClass="ls-label-text" />
+                        </div>
+                        <div class="row">
+                            <label class="ls-label-text col-xs-3">
+                                <strong><asp:Label ID="lblSexo" runat="server" meta:resourceKey="lblSexo" Text="Sexo:" CssClass="ls-label-text" /></strong>
+                                <asp:RadioButtonList ID="radioSexo" runat="server" RepeatDirection="Horizontal" CellSpacing="15" CssClass="ls-field-radio">
+                                    <asp:ListItem Text="Masculino" Value="M" Selected="True"></asp:ListItem>
+                                    <asp:ListItem Text="Feminino" Value="F"></asp:ListItem>
+                                </asp:RadioButtonList>
+                            </label>
+                            <label class="ls-label-text col-xs-3">
+                                <strong><asp:Label ID="lblTipoPessoa" runat="server" meta:resourceKey="lblTipoPessoa" CellSpacing="15" Text="Tipo Pessoa:" CssClass="ls-label-text" /></strong>
                                 <asp:RadioButtonList ID="radioCpf_Cnpj" runat="server" RepeatDirection="Horizontal" CssClass="ls-field-radio">
                                     <asp:ListItem Text="CPF" Value="cpf" Selected="True"></asp:ListItem>
                                     <asp:ListItem Text="CNPJ" Value="cnpj"></asp:ListItem>
                                 </asp:RadioButtonList>
                             </label>
-                            <label class="ls-label col-xs-4">
+                            <label class="ls-label col-xs-3">
                                 <asp:Label ID="lblCPFCNPJ" runat="server" meta:resourceKey="lblCPFCNPJ" Text="CPF/CNPJ:" CssClass="ls-label-text" />
                                 <input id="txt_Cpf_Cnpj" name='txt_Cpf_Cnpj' class="ls-label-text" runat="server" maxlength="18" onkeyup="mascaraMutuario(this,cpfCnpj);" onblur='clearTimeout();' onkeypress='' required="required" />
-                            </label>
-                            <label class="ls-label col-xs-4">
-                                <asp:Label ID="lblSexo" runat="server" meta:resourceKey="lblSexo" Text="Sexo" CssClass="ls-label-text" />
-                                <input id="txtSexo" name='txtSexo' class="ls-label-text"  runat="server" maxlength="18" required="required" />
                             </label>
                         </div>
                         <div class="row">
@@ -265,11 +270,6 @@
                         <div class="ls-actions-btn">
                             <asp:Button ID="btn_Cadastrar_Cliente" Text="Cadastrar" runat="server" OnClick="btn_Cadastrar_Cliente_Click" CssClass="ls-btn-primary" />
                             <button id="btnvoltar" class="ls-btn-sucess" onclick="javascript: voltar();">Voltar</button>
-                        </div>
-                        <div class="ls-actions-btn">
-                            <br />
-                           
-                           
                         </div>
                     </fieldset>
                 </div>
