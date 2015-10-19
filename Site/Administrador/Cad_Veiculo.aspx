@@ -6,14 +6,12 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <script type="text/javascript">
         function excluir() {
-            // carregarform();
-
-            var r = confirm('Deseja realmente excluir ?');
-            if (r == true) {
-                //alert('true');
+            
+            document.getElementById('ContentPlaceHolder1_lblResp').innerHTML = '';
+            var r = confirm('Deseja realmente excluir esse veículo ?');
+            if (r == true) {                
                 return true;
             } else {
-                //alert('false');
                 return false;
             }
         }
@@ -34,8 +32,8 @@
             <br />
             <asp:TextBox ID="txtPesquisa" runat="server" meta:resourceKey="txtPesquisa" CssClass="col-md-6"></asp:TextBox>&nbsp;
             <asp:Button ID="btnListarClientes" runat="server" Text="Pesquisar" CssClass="ls-btn-primary" />
-            <asp:Button ID="btnNovoCliente" runat="server" Text="Novo Cliente" CssClass="ls-btn-sucess" />
-            <asp:Label ID="lblResp" runat="server" />
+            <asp:Button ID="btnNovoVeiculo" runat="server" Text="Novo Veiculo" CssClass="ls-btn-sucess" OnClick="btnNovoVeiculo_Click" />
+           <strong><asp:Label ID="lblResp" runat="server" /></strong>
             <br />
             <asp:GridView ID="gridVeiculos" runat="server" AllowPaging="True" EnableModelValidation="True" PageSize="10" OnPageIndexChanging="gridVeiculos_PageIndexChanging" CssClass="ls-table ls-table-striped" AutoGenerateColumns="false">
                 <Columns>
@@ -49,7 +47,7 @@
                             <center>
                                 <asp:Button CssClass="ls-btn-danger ls-btn-xs" ID="btnExcuirCampo" runat="server" Text="Excluir" OnClientClick="return excluir();" OnClick="Excluir_Click"   />
                                 <asp:Button CssClass="ls-btn-default ls-btn-xs" ID="btnAtualizar" runat="server" Text="Atualizar" OnClick="btnGridAtualizar_Click"  />
-                                <asp:Label ID="lblIdVeiculo"  runat="server" Text='<%# Eval("Id_Veiculo") %>' Visible="true" />
+                                <asp:Label ID="lblIdVeiculo"  runat="server" Text='<%# Eval("Id_Veiculo") %>' Visible="false" />
                                 <asp:Label ID="lblNome" runat="server" Text='<%# Eval("Cliente.Nome") %>' Visible="false" />
                                 <asp:Label ID="lblTelefone" runat="server" Text='<%# Eval("Marca") %>' Visible="false" />
                                 <asp:Label ID="lblTipo_Pessoa" runat="server" Text='<%# Eval("Modelo") %>' Visible="false" />
@@ -103,8 +101,27 @@
                 <br />
                 <asp:Button ID="btn_Cadastrar_Veiculo" CssClass="ls-btn-primary" Text="Cadastrar" runat="server" OnClick="btn_Cadastrar_Veiculo_Click" />
                 <asp:Button ID="btn_Editar_Veiculo" CssClass="ls-btn-primary" Text="Gravar" runat="server" OnClick="btn_Editar_Veiculo_Click" />
-                <asp:Button ID="btnVoltar" runat="server" Text="Voltar" CssClass="ls-btn-sucess" />
+                <asp:Button ID="btnVoltar" runat="server" Text="Voltar" CssClass="ls-btn-sucess" OnClientClick="return carregarform();" OnClick="btnVoltar_Click" />
             </div>
         </asp:Panel>
+
+
+        <script type="text/javascript">
+
+            function carregarform()
+            {
+                document.getElementById('ContentPlaceHolder1_txt_Placa').value = ' ';
+                document.getElementById('ContentPlaceHolder1_txt_Modelo').value = ' ';
+                document.getElementById('ContentPlaceHolder1_txt_Marca').value = ' ';
+                document.getElementById('ContentPlaceHolder1_txt_Ano').value = ' ';
+                alert(t);
+                return true;
+            }
+
+        </script>
+
+
+
+
     </div>
 </asp:Content>

@@ -105,6 +105,13 @@ namespace Site.Administrador
                 VeiculoDal d = new VeiculoDal();
                 d.SalvarVeiculo(v);
 
+                carregarVeiculos();
+
+
+                painelCadastro.Visible = false;
+                painelGrid.Visible = true;
+                
+
                 lblResp.Text = "Veiculo cadastrado com sucesso.";
             }
             catch (Exception)
@@ -125,10 +132,11 @@ namespace Site.Administrador
                 v.Placa = txt_Placa.Text;
                 v.Ano = txt_Ano.Text;
                 d.EditarVeiculo(v);
-                lblResp.Text = "editado com sucesso!!";
+                lblResp.Text = "Editado com sucesso";
 
                 painelCadastro.Visible = false;
                 painelGrid.Visible = true;
+                carregarVeiculos();
             }
             catch (Exception ex)
             {
@@ -143,6 +151,7 @@ namespace Site.Administrador
                 painelCadastro.Visible = true;
                 painelGrid.Visible = false;
                 btn_Cadastrar_Veiculo.Visible = false;
+                btn_Editar_Veiculo.Visible = true;
 
                 int id = 0;
                 foreach (GridViewRow linha in gridVeiculos.Rows)
@@ -170,6 +179,42 @@ namespace Site.Administrador
             }
         }
 
+        protected void btnVoltar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                lblResp.Text = string.Empty;
+                painelGrid.Visible = true;
+                painelCadastro.Visible = false;
+            }
+            catch (Exception)
+            { 
+                throw;
+            }
+        }
+
+        protected void btnNovoVeiculo_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                lblResp.Text = string.Empty;
+                txt_Ano.Text = string.Empty;
+                txt_Marca.Text = string.Empty;
+                txt_Placa.Text = string.Empty;
+                txt_Placa.Text = string.Empty;
+                txt_Modelo.Text = string.Empty;
+                btn_Cadastrar_Veiculo.Visible = true;
+                btn_Editar_Veiculo.Visible = false;
+
+                painelGrid.Visible = false;
+                painelCadastro.Visible = true;
+            }
+            catch (Exception ex)
+            {
+
+                lblResp.Text = ex.InnerException.ToString();
+            }
+        }
 
     }
 }

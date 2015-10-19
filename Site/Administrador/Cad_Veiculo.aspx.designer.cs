@@ -49,13 +49,13 @@ namespace Site.Administrador {
         protected global::System.Web.UI.WebControls.Button btnListarClientes;
         
         /// <summary>
-        /// btnNovoCliente control.
+        /// btnNovoVeiculo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnNovoCliente;
+        protected global::System.Web.UI.WebControls.Button btnNovoVeiculo;
         
         /// <summary>
         /// lblResp control.
