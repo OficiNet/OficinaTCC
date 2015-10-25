@@ -233,7 +233,7 @@
             <div class="ls-actions-btn">
                 <br />
                 <asp:Button ID="btn_Cadastrar_Veiculo" CssClass="ls-btn-primary" Text="Cadastrar" runat="server" OnClientClick="return validar();" OnClick="btn_Cadastrar_Veiculo_Click" />
-                <asp:Button ID="btn_Editar_Veiculo" CssClass="ls-btn-primary" Text="Gravar" runat="server" OnClick="btn_Editar_Veiculo_Click" />
+                <asp:Button ID="btn_Editar_Veiculo" CssClass="ls-btn-primary" Text="Editar" runat="server" OnClick="btn_Editar_Veiculo_Click" />
                 <asp:Button ID="btnVoltar" runat="server" Text="Voltar" CssClass="ls-btn-sucess" OnClientClick="return carregarform();" OnClick="btnVoltar_Click" />
             </div>
         </asp:Panel>

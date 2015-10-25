@@ -117,13 +117,15 @@ namespace DAL.Persistence
            try
            {
                AbrirConexao();
-               Cmd = new SqlCommand("select * from Tb_Veiculo  where  Id_Veiculo= @Id", Con);
+               Cmd = new SqlCommand("select c.Nome , * from Tb_Veiculo v inner join Tb_Cliente c on v.FK_Id_Cliente = c.Id_Cliente  where  Id_Veiculo= @Id", Con);
                Cmd.Parameters.AddWithValue("@Id", id);
                Dr = Cmd.ExecuteReader();
                Veiculo v = new Veiculo();
+               v.Cliente = new Cliente();
              
                while (Dr.Read())
                {
+                   v.Cliente.Nome = Convert.ToString(Dr["Nome"]);
                    v.Id_Veiculo = Convert.ToInt32(Dr["Id_Veiculo"]);
                    v.Placa = Convert.ToString(Dr["Placa"]);
                    v.Modelo = Convert.ToString(Dr["Modelo"]);

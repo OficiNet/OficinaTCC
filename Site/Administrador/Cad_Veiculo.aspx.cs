@@ -34,6 +34,7 @@ namespace Site.Administrador
                 throw;
             }
         }
+
         private void carregarClientes()
         {
             try
@@ -101,17 +102,11 @@ namespace Site.Administrador
                 v.Ano = txt_Ano.Text;
                 v.Cliente = new DAL.Entity.Cliente();
                 v.Cliente.Id_Cliente = Convert.ToInt32(ddlClientes.SelectedValue);
-
                 VeiculoDal d = new VeiculoDal();
                 d.SalvarVeiculo(v);
-
                 carregarVeiculos();
-
-
                 painelCadastro.Visible = false;
                 painelGrid.Visible = true;
-                
-
                 lblResp.Text = "Veiculo cadastrado com sucesso.";
             }
             catch (Exception)
@@ -133,7 +128,6 @@ namespace Site.Administrador
                 v.Ano = txt_Ano.Text;
                 d.EditarVeiculo(v);
                 lblResp.Text = "Editado com sucesso";
-
                 painelCadastro.Visible = false;
                 painelGrid.Visible = true;
                 carregarVeiculos();
@@ -166,11 +160,20 @@ namespace Site.Administrador
 
                 VeiculoDal d = new VeiculoDal();
                 Veiculo v = d.BuscarPorId(id);
+                string nome = v.Cliente.Nome;
                 txt_Marca.Text = v.Marca;
                 txt_Modelo.Text = v.Modelo;
                 txt_Placa.Text = v.Placa  ;
                 txt_Ano.Text = v.Ano;
                 txt_Id_Veiculo.Text = Convert.ToString(id);
+                ClienteDal cd = new ClienteDal();
+                v.Cliente = new DAL.Entity.Cliente();
+                ddlClientes.DataSource = cd.ListarClientesPossueVeiculo();
+                ddlClientes.DataTextField = "Nome"; //texto mostrado no campo
+                ddlClientes.DataValueField = "Id_Cliente"; //valor marcado no campo
+                ddlClientes.DataBind();
+                ddlClientes.Items.Insert(0, new ListItem(nome));
+                carregarVeiculos();
             }
             catch (Exception ex)
             {
@@ -186,6 +189,7 @@ namespace Site.Administrador
                 lblResp.Text = string.Empty;
                 painelGrid.Visible = true;
                 painelCadastro.Visible = false;
+                carregarClientes();
             }
             catch (Exception)
             { 
