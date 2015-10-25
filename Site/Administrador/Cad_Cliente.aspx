@@ -402,6 +402,7 @@
             else if (validar == 'invalido') {
                 newcliente();
                 document.getElementById('ContentPlaceHolder1_txtValidarCpfCnpj').focus();
+                alert('CPF ou CNPJ Inválido!');
             }
         }
 
@@ -458,7 +459,7 @@
                         <div class="row">
                             <label class="ls-label col-xs-12">
                                 <asp:Label ID="lblVerificarCpfCnpj" runat="server" meta:resourceKey="lblVerificarCpfCnpj" Text="CPF || CNPJ:" CssClass="ls-label-text" />
-                                <input id="txtValidarCpfCnpj" name='txtValidarCpfCnpj' class="ls-label-text" runat="server"  required="required" />
+                                <input id="txtValidarCpfCnpj" name='txtValidarCpfCnpj' class="ls-label-text" runat="server" maxlength="18" onkeyup="mascaraMutuario(this,cpfCnpj);" onblur='clearTimeout();' onkeypress=''  required="required" />
                                 <div style="display:none;">
                                     <asp:Label ID="lblValida_cpf_cnpj" runat="server" CssClass="ls-label-text" />
                                 </div>

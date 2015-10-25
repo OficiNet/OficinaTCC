@@ -283,16 +283,8 @@ namespace Site.Administrador
                     txt_Nome.Text = string.Empty;
                     txt_Telefone.Text = string.Empty;
                     string message = "Cliente " + cliente.Nome + " Salvo Com Sucesso";
-
                     message = "Cliente " + cliente.Nome + " Salvo Com Sucesso";
-
-                    //Response.Write("<script language='javascript'>alert('Manda a sua mensagem aqui ');</script>");
-
-                   // lblResp.Text = "1";
-
-                   Response.Redirect(Request.Url.ToString());
-                   //   Response.Redirect()
-
+                    Response.Redirect(Request.Url.ToString());
                 }
                 else
                 {
@@ -302,8 +294,8 @@ namespace Site.Administrador
                                     "window.onload=function(){" +
                                         "document.getElementById('ContentPlaceHolder1_txt_Cpf_Cnpj').value = '';" +
                                         "exibirpainelcadastro();" +
-                                        //"document.getElementById('exibirpaineleditar').style.display = 'none';"+
-                                       // "document.getElementById('painelgrid').style.display = 'none';"+
+                        //"document.getElementById('exibirpaineleditar').style.display = 'none';"+
+                        // "document.getElementById('painelgrid').style.display = 'none';"+
                                         "document.getElementById('ContentPlaceHolder1_txt_Cpf_Cnpj').focus();" +
                                         "alert('" + message + "')" +
                                     "}" +
@@ -355,34 +347,34 @@ namespace Site.Administrador
             }
         }
 
-       //protected void btnVoltar_Click(object sender, EventArgs e)
-       // {
-       //     try
-       //     {
-               // lblResp.Text = string.Empty;
-               // painelGrid.Visible = true;
-               // painelCadastro.Visible = false;
-               //// painelEditar.Visible = false;
-               // painelCadastro.Visible = false;
+        //protected void btnVoltar_Click(object sender, EventArgs e)
+        // {
+        //     try
+        //     {
+        // lblResp.Text = string.Empty;
+        // painelGrid.Visible = true;
+        // painelCadastro.Visible = false;
+        //// painelEditar.Visible = false;
+        // painelCadastro.Visible = false;
 
-               // txt_Nome.Text = string.Empty;
-               // txt_Telefone.Text = string.Empty;
-               // txt_Complemento.Text = string.Empty;
-               // txt_Numero.Text = string.Empty;
-               // txt_Bairro.Text = string.Empty;
-               // txt_Cidade.Text = string.Empty;
-               // txt_Estado.Text = string.Empty;
-               // txt_logradouro.Text = string.Empty;
+        // txt_Nome.Text = string.Empty;
+        // txt_Telefone.Text = string.Empty;
+        // txt_Complemento.Text = string.Empty;
+        // txt_Numero.Text = string.Empty;
+        // txt_Bairro.Text = string.Empty;
+        // txt_Cidade.Text = string.Empty;
+        // txt_Estado.Text = string.Empty;
+        // txt_logradouro.Text = string.Empty;
 
-               // //txt_Nome_Editar.Text = string.Empty;
-               // //txt_Telefone_Editar.Text = string.Empty;
-               // //txt_tipoPessoa.Text = string.Empty;
-               // //txt_Cpf_Cnpj.Text = string.Empty;
-               // //txt_Numero_Editar.Text = string.Empty;
-               // //txt_Complemento_Editar.Text = string.Empty;
-               // //txt_Bairro_Editar.Text = string.Empty;
-               // //txt_Cidade_Editar.Text = string.Empty;
-               // //txt_Estado_Editar.Text = string.Empty;
+        // //txt_Nome_Editar.Text = string.Empty;
+        // //txt_Telefone_Editar.Text = string.Empty;
+        // //txt_tipoPessoa.Text = string.Empty;
+        // //txt_Cpf_Cnpj.Text = string.Empty;
+        // //txt_Numero_Editar.Text = string.Empty;
+        // //txt_Complemento_Editar.Text = string.Empty;
+        // //txt_Bairro_Editar.Text = string.Empty;
+        // //txt_Cidade_Editar.Text = string.Empty;
+        // //txt_Estado_Editar.Text = string.Empty;
 
         //    }
         //    catch (Exception)
