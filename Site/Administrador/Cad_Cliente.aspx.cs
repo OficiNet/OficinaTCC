@@ -228,6 +228,9 @@ namespace Site.Administrador
             return cnpj.EndsWith(digito);
         }
 
+        protected void valida_Click(object sender, EventArgs e)
+        { Response.Redirect(Request.Url.ToString()); }
+
         protected void btn_Cadastrar_Cliente_Click(object sender, EventArgs e)
         {
             try
@@ -236,8 +239,6 @@ namespace Site.Administrador
                 DAL.Entity.Cliente cliente = new DAL.Entity.Cliente();
                 ClienteDal d = new ClienteDal();
                 cliente.Nome = txt_Nome.Text;
-
-
                 cliente.Telefone = txt_Telefone.Text;
                 cliente.DataCadastro = DateTime.Now;
                 cliente.Sexo = radioSexo.SelectedValue;
@@ -249,13 +250,15 @@ namespace Site.Administrador
                     if (radioCpf_Cnpj.SelectedValue.Equals("cnpj"))
                     {
                         cliente.CPF = "";
-                        cliente.CNPJ = txt_Cpf_Cnpj.Value;
+                        string cnpj = txt_Cpf_Cnpj.Value;
+                        cliente.CNPJ = cnpj; ;
                         cliente.Tipo_Pessoa = 'J';
                     }
                     else
                     {
                         cliente.CNPJ = "";
-                        cliente.CPF = txt_Cpf_Cnpj.Value;
+                        string cpf = txt_Cpf_Cnpj.Value;
+                        cliente.CPF = cpf;
                         cliente.Tipo_Pessoa = 'F';
                     }
 
@@ -285,8 +288,9 @@ namespace Site.Administrador
 
                     //Response.Write("<script language='javascript'>alert('Manda a sua mensagem aqui ');</script>");
 
+                   // lblResp.Text = "1";
 
-                      Response.Redirect(Request.Url.ToString());
+                   Response.Redirect(Request.Url.ToString());
                    //   Response.Redirect()
 
                 }
@@ -351,35 +355,78 @@ namespace Site.Administrador
             }
         }
 
+       //protected void btnVoltar_Click(object sender, EventArgs e)
+       // {
+       //     try
+       //     {
+               // lblResp.Text = string.Empty;
+               // painelGrid.Visible = true;
+               // painelCadastro.Visible = false;
+               //// painelEditar.Visible = false;
+               // painelCadastro.Visible = false;
+
+               // txt_Nome.Text = string.Empty;
+               // txt_Telefone.Text = string.Empty;
+               // txt_Complemento.Text = string.Empty;
+               // txt_Numero.Text = string.Empty;
+               // txt_Bairro.Text = string.Empty;
+               // txt_Cidade.Text = string.Empty;
+               // txt_Estado.Text = string.Empty;
+               // txt_logradouro.Text = string.Empty;
+
+               // //txt_Nome_Editar.Text = string.Empty;
+               // //txt_Telefone_Editar.Text = string.Empty;
+               // //txt_tipoPessoa.Text = string.Empty;
+               // //txt_Cpf_Cnpj.Text = string.Empty;
+               // //txt_Numero_Editar.Text = string.Empty;
+               // //txt_Complemento_Editar.Text = string.Empty;
+               // //txt_Bairro_Editar.Text = string.Empty;
+               // //txt_Cidade_Editar.Text = string.Empty;
+               // //txt_Estado_Editar.Text = string.Empty;
+
+        //    }
+        //    catch (Exception)
+        //    {
+        //        throw;
+        //    }
+        //}
+
+        protected void btnValidar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ClienteDal d = new ClienteDal();
+
+
+                if (validaCpf(txtValidarCpfCnpj.Value) || validaCnpj(txtValidarCpfCnpj.Value))
+                {
+
+                    if (!d.Verificar_Cpf_Cnpj(txtValidarCpfCnpj.Value))
+                    {
+                        lblValida_cpf_cnpj.Text = "true";
+                    }
+                    else
+                    {
+                        lblValida_cpf_cnpj.Text = "false";
+                    }
+                }
+                else
+                {
+                    lblValida_cpf_cnpj.Text = "invalido";
+                }
+            }
+            catch (Exception ex)
+            {
+                lblResp.Text = ex.InnerException.ToString();
+            }
+        }
+
         protected void btnVoltar_Click(object sender, EventArgs e)
         {
             try
             {
-                lblResp.Text = string.Empty;
-                painelGrid.Visible = true;
-                painelCadastro.Visible = false;
-               // painelEditar.Visible = false;
-                painelCadastro.Visible = false;
-
-                txt_Nome.Text = string.Empty;
-                txt_Telefone.Text = string.Empty;
-                txt_Complemento.Text = string.Empty;
-                txt_Numero.Text = string.Empty;
-                txt_Bairro.Text = string.Empty;
-                txt_Cidade.Text = string.Empty;
-                txt_Estado.Text = string.Empty;
-                txt_logradouro.Text = string.Empty;
-
-                //txt_Nome_Editar.Text = string.Empty;
-                //txt_Telefone_Editar.Text = string.Empty;
-                //txt_tipoPessoa.Text = string.Empty;
-                //txt_Cpf_Cnpj.Text = string.Empty;
-                //txt_Numero_Editar.Text = string.Empty;
-                //txt_Complemento_Editar.Text = string.Empty;
-                //txt_Bairro_Editar.Text = string.Empty;
-                //txt_Cidade_Editar.Text = string.Empty;
-                //txt_Estado_Editar.Text = string.Empty;
-
+                lblVerificarCpfCnpj.Text = "";
+                Response.Redirect(Request.Url.ToString());
             }
             catch (Exception)
             {

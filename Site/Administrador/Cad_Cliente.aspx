@@ -4,6 +4,7 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
     <script type="text/javascript">
         /* -----  INICIO VALIDA TELEFONE ----- */
         function mascara(o, f) {
@@ -69,8 +70,27 @@
         /* -----  FIM VALIDA CPF CNPJ ----- */
 
         function voltar() {
+            document.getElementById('ContentPlaceHolder1_txt_Nome').value = 'a';
+            document.getElementById('ContentPlaceHolder1_txt_Telefone').value = '(22)23234-3435';
+            document.getElementById('ContentPlaceHolder1_txt_Cpf_Cnpj').value = '85.419.246/0001-55';
+            document.getElementById('ContentPlaceHolder1_txt_Complemento').value = 'a';
+            document.getElementById('ContentPlaceHolder1_txt_Numero').value = 'a';
+            document.getElementById('ContentPlaceHolder1_txt_Bairro').value = 'a';
+            document.getElementById('ContentPlaceHolder1_txt_Cidade').value = 'a';
+            document.getElementById('ContentPlaceHolder1_txt_Estado').value = 'a';
+            document.getElementById('ContentPlaceHolder1_txt_logradouro').value = 'a';
+            document.getElementById('ContentPlaceHolder1_txtValidarCpfCnpj').value = '85.419.246/0001-55';
+            document.getElementById('ContentPlaceHolder1_lblValida_cpf_cnpj').innerHTML = '';
+            r = document.getElementById('ContentPlaceHolder1_lblValida_cpf_cnpj').innerHTML;
             document.getElementById('painelcadastro').style.display = 'none';
+            document.getElementById('painelcpfcnpj').style.display = 'none';
             document.getElementById('painelgrid').style.display = 'block';
+            return true;
+            
+        }
+
+        function newcliente() {
+            document.getElementById('painelcpfcnpj').style.display = 'block';
             document.getElementById('ContentPlaceHolder1_txt_Nome').value = '';
             document.getElementById('ContentPlaceHolder1_txt_Telefone').value = '';
             document.getElementById('ContentPlaceHolder1_txt_Cpf_Cnpj').value = '';
@@ -80,11 +100,13 @@
             document.getElementById('ContentPlaceHolder1_txt_Cidade').value = '';
             document.getElementById('ContentPlaceHolder1_txt_Estado').value = '';
             document.getElementById('ContentPlaceHolder1_txt_logradouro').value = '';
-            document.getElementById('ContentPlaceHolder1_txtSexo').value = '';
-            document.getElementById('ContentPlaceHolder1_lblResp').value = ' ';
+            document.getElementById('ContentPlaceHolder1_radioSexo').value = 'F';
+            document.getElementById('ContentPlaceHolder1_txtValidarCpfCnpj').value = '';
+            document.getElementById('painelcadastro').style.display = 'none';
+            document.getElementById('painelgrid').style.display = 'none';
         }
 
-        function newcliente() {
+        function validacpfcnpj() {
             document.getElementById('ContentPlaceHolder1_txt_Nome').value = '';
             document.getElementById('ContentPlaceHolder1_txt_Telefone').value = '';
             document.getElementById('ContentPlaceHolder1_txt_Cpf_Cnpj').value = '';
@@ -106,6 +128,21 @@
         }
 
         function carregarform() {
+            document.getElementById('ContentPlaceHolder1_txt_Nome').value = 'a';
+            document.getElementById('ContentPlaceHolder1_txt_Telefone').value = 'a';
+            document.getElementById('ContentPlaceHolder1_txt_Cpf_Cnpj').value = 'a';
+            document.getElementById('ContentPlaceHolder1_txt_Complemento').value = 'a';
+            document.getElementById('ContentPlaceHolder1_txt_Numero').value = 'a';
+            document.getElementById('ContentPlaceHolder1_txt_Bairro').value = 'a';
+            document.getElementById('ContentPlaceHolder1_txt_Cidade').value = 'a';
+            document.getElementById('ContentPlaceHolder1_txt_Estado').value = 'a';
+            document.getElementById('ContentPlaceHolder1_txt_logradouro').value = 'a';
+            document.getElementById('ContentPlaceHolder1_txtValidarCpfCnpj').value = '85.419.246/0001-55';
+            return true;
+        }
+
+        function carregarformpesq() {
+            document.getElementById('ContentPlaceHolder1_txt_Nome').value = ' ';
             document.getElementById('ContentPlaceHolder1_txt_Nome').value = ' ';
             document.getElementById('ContentPlaceHolder1_txt_Telefone').value = ' ';
             document.getElementById('ContentPlaceHolder1_txt_Cpf_Cnpj').value = ' ';
@@ -115,12 +152,30 @@
             document.getElementById('ContentPlaceHolder1_txt_Cidade').value = ' ';
             document.getElementById('ContentPlaceHolder1_txt_Estado').value = ' ';
             document.getElementById('ContentPlaceHolder1_txt_logradouro').value = ' ';
-            document.getElementById('ContentPlaceHolder1_txtSexo').value = ' ';
+            document.getElementById('ContentPlaceHolder1_txtValidarCpfCnpj').value = '85.419.246/0001-55';
+            document.getElementById('painelgrid').style.display = 'block';
+            document.getElementById('painelcadastro').style.display = 'none';
+            document.getElementById('painelcpfcnpj').style.display = 'none';
+            return true;
+        }
+
+        function carregarformv() {
+            document.getElementById('ContentPlaceHolder1_txt_Nome').value = ' ';
+            document.getElementById('ContentPlaceHolder1_txt_Telefone').value = ' ';
+            document.getElementById('ContentPlaceHolder1_txt_Cpf_Cnpj').value = ' ';
+            document.getElementById('ContentPlaceHolder1_txt_Complemento').value = ' ';
+            document.getElementById('ContentPlaceHolder1_txt_Numero').value = ' ';
+            document.getElementById('ContentPlaceHolder1_txt_Bairro').value = ' ';
+            document.getElementById('ContentPlaceHolder1_txt_Cidade').value = ' ';
+            document.getElementById('ContentPlaceHolder1_txt_Estado').value = ' ';
+            document.getElementById('ContentPlaceHolder1_txt_logradouro').value = ' ';
+            document.getElementById('ContentPlaceHolder1_lblValida_cpf_cnpj').innerHTML = '';
             return true;
         }
 
         function excluir() {
             carregarform();
+            document.getElementById('ContentPlaceHolder1_lblResp').innerHTML = ''
             var r = confirm('Deseja realmente excluir ?');
             if (r == true) {
                 return true;
@@ -131,16 +186,30 @@
 
         function validacadastro() {
             var msg = "";
+            document.getElementById('ContentPlaceHolder1_txtValidarCpfCnpj').value = ' ';
+
+            var cpf = document.getElementById('ContentPlaceHolder1_txt_Cpf_Cnpj').value;
+               cpf = cpf.replace('.', '').replace('.','').replace('-','').replace('/','');
+               if (cpf.length == 11) {
+                   document.getElementById('ContentPlaceHolder1_radioCpf_Cnpj_0').value = 'cpf';
+               }
+               else if (cpf.length == 14) {
+                   document.getElementById('ContentPlaceHolder1_radioCpf_Cnpj_0').value = 'cnpj';
+               }
 
             // VALIDA CAMPO NOME
             var nome = document.getElementById('ContentPlaceHolder1_txt_Nome').value;
             if (nome.search(/^\s+/) != -1) {//verifica espaço lado esquerdo
-                msg += "Não é permitido espaços em branco no início da frase\n";
+                //msg += "Não é permitido espaços em branco no início da frase\n";
                 nome = nome.replace(/^\s+/, "");
                 nome = nome.replace(/\s+$/, "");
+                if (nome.length == 0) {
+                    document.getElementById('ContentPlaceHolder1_txt_Nome').value = '';
+                    return true;
+                }
             }
             else if (nome.search(/\s+$/) != -1) {//verifica espaço lado direito
-                msg += "Não é permitido espaços em branco no final da frase\n";
+               // msg += "Não é permitido espaços em branco no final da frase\n";
                 nome = nome.replace(/^\s+/, "");
                 nome = nome.replace(/\s+$/, "");
             }
@@ -158,12 +227,16 @@
             // VALIDA CAMPO ENDEREÇO
             var logradouro = document.getElementById('ContentPlaceHolder1_txt_logradouro').value;
             if (logradouro.search(/^\s+/) != -1) {//verifica espaço lado esquerdo
-                msg += "Não é permitido espaços em branco no início da frase\n";
+                //msg += "Não é permitido espaços em branco no início da frase\n";
                 logradouro = logradouro.replace(/^\s+/, "");
                 logradouro = logradouro.replace(/\s+$/, "");
+                if (logradouro.length == 0) {
+                    document.getElementById('ContentPlaceHolder1_txt_logradouro').value = '';
+                    return true;
+                }
             }
             else if (logradouro.search(/\s+$/) != -1) {//verifica espaço lado direito
-                msg += "Não é permitido espaços em branco no final da frase\n";
+                //msg += "Não é permitido espaços em branco no final da frase\n";
                 logradouro = logradouro.replace(/^\s+/, "");
                 logradouro = logradouro.replace(/\s+$/, "");
             }
@@ -177,12 +250,16 @@
             // VALIDA CAMPO COMPLEMENTO
             var complemento = document.getElementById('ContentPlaceHolder1_txt_Complemento').value;
             if (complemento.search(/^\s+/) != -1) {//verifica espaço lado esquerdo
-                msg += "Não é permitido espaços em branco no início da frase\n";
+                //msg += "Não é permitido espaços em branco no início da frase\n";
                 complemento = complemento.replace(/^\s+/, "");
                 complemento = complemento.replace(/\s+$/, "");
+                if (complemento.length == 0) {
+                    document.getElementById('ContentPlaceHolder1_txt_Complemento').value = '';
+                    return true;
+                }
             }
             else if (complemento.search(/\s+$/) != -1) {//verifica espaço lado direito
-                msg += "Não é permitido espaços em branco no final da frase\n";
+                //msg += "Não é permitido espaços em branco no final da frase\n";
                 complemento = complemento.replace(/^\s+/, "");
                 complemento = complemento.replace(/\s+$/, "");
             }
@@ -196,13 +273,17 @@
             // VALIDA CAMPO NÚMERO
             var numero = document.getElementById('ContentPlaceHolder1_txt_Numero').value;
             if (numero.search(/^\s+/) != -1) {//verifica espaço lado esquerdo
-                msg += "Não é permitido espaços em branco no início da frase\n";
+               // msg += "Não é permitido espaços em branco no início da frase\n";
                 //alert(msg);
                 numero = numero.replace(/^\s+/, "");
                 numero = numero.replace(/\s+$/, "");
+                if (numero.length == 0) {
+                    document.getElementById('ContentPlaceHolder1_txt_Numero').value = '';
+                    return true;
+                }
             }
             else if (numero.search(/\s+$/) != -1) {//verifica espaço lado direito
-                msg += "Não é permitido espaços em branco no final da frase\n";
+               // msg += "Não é permitido espaços em branco no final da frase\n";
                 numero = numero.replace(/^\s+/, "");
                 numero = numero.replace(/\s+$/, "");
             }
@@ -216,12 +297,16 @@
             // VALIDA CAMPO BAIRRO
             var bairro = document.getElementById('ContentPlaceHolder1_txt_Bairro').value;
             if (bairro.search(/^\s+/) != -1) {//verifica espaço lado esquerdo
-                msg += "Não é permitido espaços em branco no início da frase\n";
+               // msg += "Não é permitido espaços em branco no início da frase\n";
                 bairro = bairro.replace(/^\s+/, "");
                 bairro = bairro.replace(/\s+$/, "");
+                if (bairro.length == 0) {
+                    document.getElementById('ContentPlaceHolder1_txt_Bairro').value = '';
+                    return true;
+                }
             }
             else if (bairro.search(/\s+$/) != -1) {//verifica espaço lado direito
-                msg += "Não é permitido espaços em branco no final da frase\n";
+               // msg += "Não é permitido espaços em branco no final da frase\n";
                 bairro = bairro.replace(/^\s+/, "");
                 bairro = bairro.replace(/\s+$/, "");
             }
@@ -235,12 +320,16 @@
             // VALIDA CAMPO CIDADE
             var cidade = document.getElementById('ContentPlaceHolder1_txt_Cidade').value;
             if (cidade.search(/^\s+/) != -1) {//verifica espaço lado esquerdo
-                msg += "Não é permitido espaços em branco no início da frase\n";
+               // msg += "Não é permitido espaços em branco no início da frase\n";
                 cidade = cidade.replace(/^\s+/, "");
                 cidade = cidade.replace(/\s+$/, "");
+                if (cidade.length == 0) {
+                    document.getElementById('ContentPlaceHolder1_txt_Cidade').value = '';
+                    return true;
+                }
             }
             else if (cidade.search(/\s+$/) != -1) {//verifica espaço lado direito
-                msg += "Não é permitido espaços em branco no final da frase\n";
+               // msg += "Não é permitido espaços em branco no final da frase\n";
                 cidade = cidade.replace(/^\s+/, "");
                 cidade = cidade.replace(/\s+$/, "");
             }
@@ -254,12 +343,16 @@
             // VALIDA CAMPO ESTADO
             var estado = document.getElementById('ContentPlaceHolder1_txt_Estado').value;
             if (estado.search(/^\s+/) != -1) {//verifica espaço lado esquerdo
-                msg += "Não é permitido espaços em branco no início da frase\n";
+               // msg += "Não é permitido espaços em branco no início da frase\n";
                 estado = estado.replace(/^\s+/, "");
                 estado = estado.replace(/\s+$/, "");
+                if (estado.length == 0) {
+                    document.getElementById('ContentPlaceHolder1_txt_Estado').value = '';
+                    return true;
+                }
             }
             else if (estado.search(/\s+$/) != -1) {//verifica espaço lado direito
-                msg += "Não é permitido espaços em branco no final da frase\n";
+               // msg += "Não é permitido espaços em branco no final da frase\n";
                 estado = estado.replace(/^\s+/, "");
                 estado = estado.replace(/\s+$/, "");
             }
@@ -273,18 +366,46 @@
             // VALIDA CAMPO TELEFONE
             var telefone = document.getElementById('ContentPlaceHolder1_txt_Telefone').value;
             telefone = telefone.replace(/[^a-zA-Z0-9\\s]/gi, "");
-            if (telefone.length == 10 || telefone.length == 11) {
-            } else {
-                msg += "Canpo telefone possui minimo 10 digitos maximo 11 digitos\n";
+            if (telefone.length == 0) {
+                document.getElementById('ContentPlaceHolder1_txt_Nome').focus();
+                return true;
             }
-            if (msg) {
-                document.getElementById('ContentPlaceHolder1_txt_Telefone').focus();
-                alert(msg);
-                estado.value = estado;
-                return false;
+            else {
+                if (telefone.length == 10 || telefone.length == 11) {
+                } else {
+                    msg += "Campo telefone possui minimo 10 digitos maximo 11 digitos\n";
+                }
+                if (msg) {
+                    document.getElementById('ContentPlaceHolder1_txt_Telefone').focus();
+                    alert(msg);
+                    estado.value = estado;
+                    return false;
+                }
             }
+            alert('Cliente '+nome+ ' Cadstrado Com Sucesso.' );
             return true;
         }
+
+        function validarcnpjcpf() {
+            var validar = document.getElementById('ContentPlaceHolder1_lblValida_cpf_cnpj').textContent;
+            if (validar == 'true') {
+
+                alert('CPF || CNPJ já Existe!');
+            }
+            else if (validar == 'false') {
+                carregarformv();
+                exibirpainelcadastro();
+                var c = document.getElementById('ContentPlaceHolder1_txtValidarCpfCnpj').value;
+                var t = cpfCnpj(c);
+                document.getElementById('ContentPlaceHolder1_txt_Cpf_Cnpj').value = t;
+            }
+            else if (validar == 'invalido') {
+                newcliente();
+                document.getElementById('ContentPlaceHolder1_txtValidarCpfCnpj').focus();
+            }
+        }
+
+        window.setTimeout('validarcnpjcpf()', 1);
 
     </script>
 
@@ -303,7 +424,7 @@
                             <asp:TextBox ID="txtPesquisa" runat="server" meta:resourceKey="txtPesquisa" placeholder="Digite aqui sua pesquisa..." CssClass="ls-label-text ls-no-spin"></asp:TextBox>
                         </label>
                         <div class="ls-actions-btn">
-                            <asp:Button ID="btnListarClientes" OnClientClick="return carregarform();" OnClick="ListarClientes" runat="server" Text="Pesquisar" CssClass="ls-btn-primary" />
+                            <asp:Button ID="btnListarClientes" OnClientClick="return carregarformpesq();" OnClick="ListarClientes" runat="server" Text="Pesquisar" CssClass="ls-btn-primary" />
                             <button id="btnNovoCliente" class="ls-btn-sucess" onclick="javascript: newcliente();">Novo Cliente</button>
                         </div>
                     </fieldset>
@@ -325,22 +446,27 @@
                                     <asp:Button CssClass="ls-btn-danger ls-btn-xs" ID="btnExcuirCampo" runat="server" Text="Excluir" OnClientClick="return excluir();" OnClick="Excluir_Click" />
                                     <asp:Button CssClass="ls-btn-default ls-btn-xs" ID="btnAtualizar" runat="server" Text="Atualizar" OnClientClick="return carregarform();" OnClick="btnGridAtualizar_Click" />
                                     <asp:Label ID="lblIdCliente"  runat="server" Text='<%# Eval("Id_Cliente") %>' Visible="false" />
-                             <%--       <asp:Label ID="lblNome" runat="server" Text='<%# Eval("Nome") %>' Visible="false" />
-                                    <asp:Label ID="lblTelefone" runat="server" Text='<%# Eval("Telefone") %>' Visible="false" />
-                                    <asp:Label ID="lblTipo_Pessoa" runat="server" Text='<%# Eval("Tipo_Pessoa") %>' Visible="false" />
-                                    <asp:Label ID="lbl_CPF" runat="server" Text='<%# Eval("CPF") %>' Visible="false" />
-                                    <asp:Label ID="lbl_CNPJ" runat="server" Text='<%# Eval("CNPJ") %>' Visible="false" />
-                                    <asp:Label ID="lblNumero" runat="server" Text='<%# Eval("Endereco.Numero") %>' Visible="false" />
-                                    <asp:Label ID="lblComplemento" runat="server" Text='<%# Eval("Endereco.Complemento") %>' Visible="false" />
-                                    <asp:Label ID="lblBairro" runat="server" Text='<%# Eval("Endereco.Bairro") %>' Visible="false" />
-                                    <asp:Label ID="lblCidade" runat="server" Text='<%# Eval("Endereco.Cidade") %>' Visible="false" />
-                                    <asp:Label ID="lblEstado" runat="server" Text='<%# Eval("Endereco.Estado") %>' Visible="false" />--%>
                                 </center>
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>
                 </asp:GridView>
             </asp:Panel>
+        </div>
+        <div id="painelcpfcnpj" style="display: none;">
+            <fieldset>
+                        <div class="row">
+                            <label class="ls-label col-xs-12">
+                                <asp:Label ID="lblVerificarCpfCnpj" runat="server" meta:resourceKey="lblVerificarCpfCnpj" Text="CPF || CNPJ:" CssClass="ls-label-text" />
+                                <input id="txtValidarCpfCnpj" name='txtValidarCpfCnpj' class="ls-label-text" runat="server"  required="required" />
+                                <div style="display:none;">
+                                    <asp:Label ID="lblValida_cpf_cnpj" runat="server" CssClass="ls-label-text" />
+                                </div>
+                                <asp:Button ID="btnValidar" Text="Validar" runat="server"  OnClientClick="return carregarformv();" OnClick="btnValidar_Click" CssClass="ls-btn-primary" />
+                                <asp:Button ID="btnVoltar"  CssClass="ls-btn-logout"  Text="Voltar" runat="server" OnClientClick="return voltar();" OnClick="btnVoltar_Click" />  
+                            </label>
+                        </div>
+            </fieldset>
         </div>
         <div id="painelcadastro" style="display: none;">
             <%-- PAINEL DE CADASTRO --%>
@@ -370,7 +496,7 @@
                             </label>
                             <label class="ls-label col-xs-3">
                                 <asp:Label ID="lblCPFCNPJ" runat="server" meta:resourceKey="lblCPFCNPJ" Text="CPF/CNPJ:" CssClass="ls-label-text" />
-                                <input id="txt_Cpf_Cnpj" name='txt_Cpf_Cnpj' class="ls-label-text" runat="server" maxlength="18" onkeyup="mascaraMutuario(this,cpfCnpj);" onblur='clearTimeout();' onkeypress='' required="required" />
+                                <input id="txt_Cpf_Cnpj" name='txt_Cpf_Cnpj' class="ls-label-text" runat="server" readonly="false" maxlength="18" onkeyup="mascaraMutuario(this,cpfCnpj);" onblur='clearTimeout();' onkeypress='' required="required" />
                             </label>
                         </div>
                         <div class="row">
@@ -407,7 +533,7 @@
                         </div>
                         <div class="ls-actions-btn">
                             <asp:Button ID="btn_Cadastrar_Cliente" Text="Cadastrar" runat="server"  OnClientClick="return validacadastro();" OnClick="btn_Cadastrar_Cliente_Click" CssClass="ls-btn-primary" />
-                            <button id="btnvoltar" class="ls-btn-sucess" onclick="javascript: voltar();">Voltar</button>
+                               <asp:Button ID="Button1" CssClass="ls-btn-logout" Text="Voltar" runat="server" OnClientClick="return voltar();" OnClick="btnVoltar_Click" />
                         </div>
                     </fieldset>
                 </div>

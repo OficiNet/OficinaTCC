@@ -197,6 +197,7 @@ namespace Site.Administrador
         {
             try
             {
+                carregarClientes();
                 lblResp.Text = string.Empty;
                 txt_Ano.Text = string.Empty;
                 txt_Marca.Text = string.Empty;
@@ -205,7 +206,6 @@ namespace Site.Administrador
                 txt_Modelo.Text = string.Empty;
                 btn_Cadastrar_Veiculo.Visible = true;
                 btn_Editar_Veiculo.Visible = false;
-
                 painelGrid.Visible = false;
                 painelCadastro.Visible = true;
             }

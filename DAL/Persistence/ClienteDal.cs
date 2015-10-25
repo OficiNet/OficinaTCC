@@ -28,7 +28,6 @@ namespace DAL.Persistence
                 Cmd.Parameters.AddWithValue("@CPF", c.CPF);
                 Cmd.Parameters.AddWithValue("@CNPJ", c.CNPJ);
                 Cmd.Parameters.AddWithValue("@Sexo", c.Sexo);
-
                 Cmd.Parameters.AddWithValue("@Numero", c.Endereco.Numero);
                 Cmd.Parameters.AddWithValue("@Complemento", c.Endereco.Complemento);
                 Cmd.Parameters.AddWithValue("@Bairro", c.Endereco.Bairro);
@@ -36,8 +35,6 @@ namespace DAL.Persistence
                 Cmd.Parameters.AddWithValue("@Estado", c.Endereco.Estado);
                 Cmd.Parameters.AddWithValue("@Logradouro", c.Endereco.Logradouro);
                 Cmd.ExecuteNonQuery();
-
-
             }
             catch (Exception e)
             {
@@ -88,12 +85,11 @@ namespace DAL.Persistence
         }
 
        public List<Cliente> ListarCliente(string strWhere)
-        //public List<Cliente> ListarCliente()
         {
             try
             {
                 AbrirConexao();
-                Cmd = new SqlCommand("select * from Tb_Cliente where " + strWhere, Con);
+                Cmd = new SqlCommand("select * from Tb_Cliente as c inner join Tb_Endereco as e on c.Id_Cliente = e.FK_Id_Cliente  where " + strWhere, Con);
                 //Cmd = new SqlCommand("select * from Tb_Cliente where ", Con);
                 Dr = Cmd.ExecuteReader();
                 List<Cliente> listaCliente = new List<Cliente>();
@@ -107,6 +103,12 @@ namespace DAL.Persistence
                     c.Tipo_Pessoa = Convert.ToChar(Dr["Tipo_Pessoa"]);
                     c.CPF = Convert.ToString(Dr["CPF"]);
                     c.CNPJ = Convert.ToString(Dr["CNPJ"]);
+                    c.Endereco = new Endereco();
+                    c.Endereco.Bairro = Convert.ToString(Dr["Bairro"]);
+                    c.Endereco.Cidade = Convert.ToString(Dr["Cidade"]);
+                    c.Endereco.Estado = Convert.ToString(Dr["Estado"]);
+                    c.Endereco.Complemento = Convert.ToString(Dr["Complemento"]);
+                    c.Endereco.Numero = Convert.ToString(Dr["Numero"]);
                     listaCliente.Add(c);
                 }
                 return listaCliente;
@@ -205,9 +207,47 @@ namespace DAL.Persistence
             try
             {
                 AbrirConexao();
-                Cmd = new SqlCommand("delete from Tb_Cliente where Id_Cliente=@Id_Cliente", Con);
-                Cmd.Parameters.AddWithValue("@Id_Cliente", id);
+                Cmd = new SqlCommand("Deletar", Con);
+                Cmd.CommandType = CommandType.StoredProcedure;
+                //indico que será executado uma procedure
+                Cmd.Parameters.AddWithValue("@IdCliente", id);
                 Cmd.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                FecharConexao();
+            }
+        }
+
+        public bool Verificar_Cpf_Cnpj(string cpf_cnpj)
+        {
+            try
+            {
+                AbrirConexao();
+                Cmd = new SqlCommand("select c.CNPJ, c.CPF from Tb_Cliente c where c.CNPJ = @cpf_cnpj or c.CPF = @cpf_cnpj", Con);
+                //Cmd.CommandType = CommandType.StoredProcedure;
+                Cmd.Parameters.AddWithValue("@cpf_cnpj", cpf_cnpj);
+                Dr = Cmd.ExecuteReader();
+                List<Cliente> lista = new List<Cliente>();
+                 while (Dr.Read())
+                 {
+                     Cliente c = new Cliente();
+                     c.CPF = Convert.ToString(Dr["CPF"]);
+                     c.CNPJ = Convert.ToString(Dr["CNPJ"]);
+                     lista.Add(c);
+                 }
+                 if (lista.Count == 0)
+                 {
+                     return true;
+                 }
+                else
+                 {
+                     return false;
+                 }
             }
             catch (Exception)
             {
