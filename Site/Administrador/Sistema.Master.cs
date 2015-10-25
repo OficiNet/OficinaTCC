@@ -14,7 +14,7 @@ namespace Site.Administrador
         protected void Page_Load(object sender, EventArgs e)
         {
             
-            lblNomeUsuario.Text = "HAHAHA";
+            lblNomeUsuario.Text = String.Empty;
         }
 
         protected void Sair(object sender, EventArgs e)
