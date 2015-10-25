@@ -10,7 +10,7 @@
 namespace Site.Pages {
     
     
-    public partial class Login {
+    public partial class Recuperar_Senha {
         
         /// <summary>
         /// form1 control.
@@ -22,21 +22,12 @@ namespace Site.Pages {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// pnlLogin control.
+        /// btn_Recuperar_Senha control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlLogin;
-        
-        /// <summary>
-        /// txtLogin control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Login txtLogin;
+        protected global::System.Web.UI.WebControls.Button btn_Recuperar_Senha;
     }
 }

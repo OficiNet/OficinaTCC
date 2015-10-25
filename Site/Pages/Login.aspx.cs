@@ -7,6 +7,8 @@ using System.Web.UI.WebControls;
 using DAL.Entity;
 using DAL.Utilidades;
 using DAL.Persistence;
+using System.Net.Mail;
+
 namespace Site.Pages
 {
     public partial class Login : System.Web.UI.Page
@@ -32,6 +34,13 @@ namespace Site.Pages
                 //imprimir o erro na página sem label
                 Response.Write(ex.Message);
             }
+        }
+
+        protected void RecuperarSenha()
+        {
+            string myScript = @"function AlertHello() { alert('Hello ASP.NET'); }";
+            Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "MyScript", myScript, true);
+
         }
     }
 }
