@@ -186,6 +186,7 @@
 
         function validacadastro() {
             var msg = "";
+            var flag = 'true';
             document.getElementById('ContentPlaceHolder1_txtValidarCpfCnpj').value = ' ';
 
             var cpf = document.getElementById('ContentPlaceHolder1_txt_Cpf_Cnpj').value;
@@ -198,15 +199,20 @@
                }
 
             // VALIDA CAMPO NOME
-            var nome = document.getElementById('ContentPlaceHolder1_txt_Nome').value;
+               var nome = document.getElementById('ContentPlaceHolder1_txt_Nome').value;
+               nome = nome.replace(/^\s+/, "");
+               nome = nome.replace(/\s+$/, "");
+             //  alert(nome.length);
+               if (nome.length == 0) {
+                   document.getElementById('ContentPlaceHolder1_txt_Nome').value = '';
+                   alert('Campo Inválido!');
+                   flag = 'false';
+                   return true;
+               }
             if (nome.search(/^\s+/) != -1) {//verifica espaço lado esquerdo
                 //msg += "Não é permitido espaços em branco no início da frase\n";
                 nome = nome.replace(/^\s+/, "");
                 nome = nome.replace(/\s+$/, "");
-                if (nome.length == 0) {
-                    document.getElementById('ContentPlaceHolder1_txt_Nome').value = '';
-                    return true;
-                }
             }
             else if (nome.search(/\s+$/) != -1) {//verifica espaço lado direito
                // msg += "Não é permitido espaços em branco no final da frase\n";
@@ -222,18 +228,23 @@
                 alert(msg);
                 nome.value = nome;
                 return false;
+                
             }
 
             // VALIDA CAMPO ENDEREÇO
             var logradouro = document.getElementById('ContentPlaceHolder1_txt_logradouro').value;
+            logradouro = logradouro.replace(/^\s+/, "");
+            logradouro = logradouro.replace(/\s+$/, "");
+
+            if (logradouro.length == 0) {
+                document.getElementById('ContentPlaceHolder1_txt_logradouro').value = '';
+                flag = 'false';
+                return true;
+            }
             if (logradouro.search(/^\s+/) != -1) {//verifica espaço lado esquerdo
                 //msg += "Não é permitido espaços em branco no início da frase\n";
                 logradouro = logradouro.replace(/^\s+/, "");
                 logradouro = logradouro.replace(/\s+$/, "");
-                if (logradouro.length == 0) {
-                    document.getElementById('ContentPlaceHolder1_txt_logradouro').value = '';
-                    return true;
-                }
             }
             else if (logradouro.search(/\s+$/) != -1) {//verifica espaço lado direito
                 //msg += "Não é permitido espaços em branco no final da frase\n";
@@ -249,14 +260,17 @@
 
             // VALIDA CAMPO COMPLEMENTO
             var complemento = document.getElementById('ContentPlaceHolder1_txt_Complemento').value;
+            complemento = complemento.replace(/^\s+/, "");
+            complemento = complemento.replace(/\s+$/, "");
+            if (complemento.length == 0) {
+                document.getElementById('ContentPlaceHolder1_txt_Complemento').value = '';
+                flag = 'false';
+                return true;
+            }
             if (complemento.search(/^\s+/) != -1) {//verifica espaço lado esquerdo
                 //msg += "Não é permitido espaços em branco no início da frase\n";
                 complemento = complemento.replace(/^\s+/, "");
                 complemento = complemento.replace(/\s+$/, "");
-                if (complemento.length == 0) {
-                    document.getElementById('ContentPlaceHolder1_txt_Complemento').value = '';
-                    return true;
-                }
             }
             else if (complemento.search(/\s+$/) != -1) {//verifica espaço lado direito
                 //msg += "Não é permitido espaços em branco no final da frase\n";
@@ -272,15 +286,18 @@
 
             // VALIDA CAMPO NÚMERO
             var numero = document.getElementById('ContentPlaceHolder1_txt_Numero').value;
+            numero = numero.replace(/^\s+/, "");
+            numero = numero.replace(/\s+$/, "");
+            if (numero.length == 0) {
+                document.getElementById('ContentPlaceHolder1_txt_Numero').value = '';
+                flag = 'false';
+                return true;
+            }
             if (numero.search(/^\s+/) != -1) {//verifica espaço lado esquerdo
                // msg += "Não é permitido espaços em branco no início da frase\n";
                 //alert(msg);
                 numero = numero.replace(/^\s+/, "");
                 numero = numero.replace(/\s+$/, "");
-                if (numero.length == 0) {
-                    document.getElementById('ContentPlaceHolder1_txt_Numero').value = '';
-                    return true;
-                }
             }
             else if (numero.search(/\s+$/) != -1) {//verifica espaço lado direito
                // msg += "Não é permitido espaços em branco no final da frase\n";
@@ -296,14 +313,17 @@
 
             // VALIDA CAMPO BAIRRO
             var bairro = document.getElementById('ContentPlaceHolder1_txt_Bairro').value;
+            bairro = bairro.replace(/^\s+/, "");
+            bairro = bairro.replace(/\s+$/, "");
+            if (bairro.length == 0) {
+                document.getElementById('ContentPlaceHolder1_txt_Bairro').value = '';
+                flag = 'false';
+                return true;
+            }
             if (bairro.search(/^\s+/) != -1) {//verifica espaço lado esquerdo
                // msg += "Não é permitido espaços em branco no início da frase\n";
                 bairro = bairro.replace(/^\s+/, "");
                 bairro = bairro.replace(/\s+$/, "");
-                if (bairro.length == 0) {
-                    document.getElementById('ContentPlaceHolder1_txt_Bairro').value = '';
-                    return true;
-                }
             }
             else if (bairro.search(/\s+$/) != -1) {//verifica espaço lado direito
                // msg += "Não é permitido espaços em branco no final da frase\n";
@@ -319,14 +339,17 @@
 
             // VALIDA CAMPO CIDADE
             var cidade = document.getElementById('ContentPlaceHolder1_txt_Cidade').value;
+            cidade = cidade.replace(/^\s+/, "");
+            cidade = cidade.replace(/\s+$/, "");
+            if (cidade.length == 0) {
+                document.getElementById('ContentPlaceHolder1_txt_Cidade').value = '';
+                flag = 'false';
+                return true;
+            }
             if (cidade.search(/^\s+/) != -1) {//verifica espaço lado esquerdo
                // msg += "Não é permitido espaços em branco no início da frase\n";
                 cidade = cidade.replace(/^\s+/, "");
                 cidade = cidade.replace(/\s+$/, "");
-                if (cidade.length == 0) {
-                    document.getElementById('ContentPlaceHolder1_txt_Cidade').value = '';
-                    return true;
-                }
             }
             else if (cidade.search(/\s+$/) != -1) {//verifica espaço lado direito
                // msg += "Não é permitido espaços em branco no final da frase\n";
@@ -342,12 +365,20 @@
 
             // VALIDA CAMPO ESTADO
             var estado = document.getElementById('ContentPlaceHolder1_txt_Estado').value;
+            estado = estado.replace(/^\s+/, "");
+            estado = estado.replace(/\s+$/, "");
+            if (estado.length == 0) {
+                document.getElementById('ContentPlaceHolder1_txt_Estado').value = '';
+                flag = 'false';
+                return true;
+            }
             if (estado.search(/^\s+/) != -1) {//verifica espaço lado esquerdo
                // msg += "Não é permitido espaços em branco no início da frase\n";
                 estado = estado.replace(/^\s+/, "");
                 estado = estado.replace(/\s+$/, "");
                 if (estado.length == 0) {
                     document.getElementById('ContentPlaceHolder1_txt_Estado').value = '';
+                    flag = 'false';
                     return true;
                 }
             }
@@ -367,8 +398,10 @@
             var telefone = document.getElementById('ContentPlaceHolder1_txt_Telefone').value;
             telefone = telefone.replace(/[^a-zA-Z0-9\\s]/gi, "");
             if (telefone.length == 0) {
-                document.getElementById('ContentPlaceHolder1_txt_Nome').focus();
-                return true;
+                alert('Campo Telefone Invalido!');
+                document.getElementById('ContentPlaceHolder1_txt_Telefone').focus();
+                flag = 'false';
+                return false;
             }
             else {
                 if (telefone.length == 10 || telefone.length == 11) {
@@ -378,11 +411,13 @@
                 if (msg) {
                     document.getElementById('ContentPlaceHolder1_txt_Telefone').focus();
                     alert(msg);
-                    estado.value = estado;
+                    telefone.value = telefone;
                     return false;
                 }
             }
-            alert('Cliente '+nome+ ' Cadstrado Com Sucesso.' );
+            if (flag == 'true') {
+                alert('Cliente ' + nome + ' Cadstrado Com Sucesso.');
+            } 
             return true;
         }
 
@@ -517,7 +552,7 @@
                         <div class="row">
                             <label class="ls-label col-xs-3">
                                 <asp:Label ID="lblBairro" runat="server" meta:resourceKey="lblBairro" Text="Bairro:" CssClass="ls-label-text" />
-                                <asp:TextBox ID="txt_Bairro" CssClass="ls-label-text" runat="server" required="required" />
+                                <asp:TextBox ID="txt_Bairro" CssClass="ls-label-text" runat="server" required="required"  />
                             </label>
                             <label class="ls-label col-xs-3">
                                 <asp:Label ID="lblCidade" runat="server" meta:resourceKey="lblCidade" Text="Cidade:" CssClass="ls-label-text" />

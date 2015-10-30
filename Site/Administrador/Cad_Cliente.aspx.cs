@@ -238,8 +238,8 @@ namespace Site.Administrador
                 //string script;
                 DAL.Entity.Cliente cliente = new DAL.Entity.Cliente();
                 ClienteDal d = new ClienteDal();
-                cliente.Nome = txt_Nome.Text;
-                cliente.Telefone = txt_Telefone.Text;
+                cliente.Nome = txt_Nome.Text.Trim();
+                cliente.Telefone = txt_Telefone.Text.Trim();
                 cliente.DataCadastro = DateTime.Now;
                 cliente.Sexo = radioSexo.SelectedValue;
 
@@ -263,27 +263,24 @@ namespace Site.Administrador
                     }
 
                     cliente.Endereco = new Endereco();
-                    cliente.Endereco.Complemento = txt_Complemento.Text;
-                    cliente.Endereco.Numero = txt_Numero.Text;
-                    cliente.Endereco.Bairro = txt_Bairro.Text;
-                    cliente.Endereco.Cidade = txt_Cidade.Text;
-                    cliente.Endereco.Estado = txt_Estado.Text;
-                    cliente.Endereco.Logradouro = txt_logradouro.Text;
+                    cliente.Endereco.Complemento = txt_Complemento.Text.Trim();
+                    cliente.Endereco.Numero = txt_Numero.Text.Trim();
+                    cliente.Endereco.Bairro = txt_Bairro.Text.Trim();
+                    cliente.Endereco.Cidade = txt_Cidade.Text.Trim();
+                    cliente.Endereco.Estado = txt_Estado.Text.Trim();
+                    cliente.Endereco.Logradouro = txt_logradouro.Text.Trim();
 
                     d.SalvarCliente(cliente);
                     painelCadastro.Visible = false;
                     CarregarClientes();
                     painelGrid.Visible = true;
 
-                    //lblResp.Text = "Cliente " + cliente.Nome + " Salvo Com Sucesso";
                     txt_Numero.Text = string.Empty;
                     txt_Bairro.Text = string.Empty;
                     txt_Cidade.Text = string.Empty;
                     txt_Estado.Text = string.Empty;
                     txt_Nome.Text = string.Empty;
                     txt_Telefone.Text = string.Empty;
-                    string message = "Cliente " + cliente.Nome + " Salvo Com Sucesso";
-                    message = "Cliente " + cliente.Nome + " Salvo Com Sucesso";
                     Response.Redirect(Request.Url.ToString());
                 }
                 else
