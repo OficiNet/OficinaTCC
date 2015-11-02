@@ -332,11 +332,6 @@
             }
             return true;
         }
-
-
-
-
-        
     </script>
 
     
@@ -361,10 +356,6 @@
                 <br />
                 <br />
 
-                Sexo:<br />
-                <asp:TextBox ID="txt_Sexo_Editar" runat="server" required="required" />
-                <br />
-                <br />
 
 
                 <label class="ls-label-text col-xs-3">

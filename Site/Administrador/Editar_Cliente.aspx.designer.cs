@@ -40,15 +40,6 @@ namespace Site.Administrador {
         protected global::System.Web.UI.WebControls.TextBox txt_Nome_Editar;
         
         /// <summary>
-        /// txt_Sexo_Editar control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_Sexo_Editar;
-        
-        /// <summary>
         /// lblSexo control.
         /// </summary>
         /// <remarks>

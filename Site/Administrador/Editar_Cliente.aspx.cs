@@ -34,8 +34,6 @@ namespace Site.Administrador
                 radioSexo.SelectedIndex = 1;
             
             }
-            txt_Sexo_Editar.Text = c.Sexo;
-
             if (c.CPF == null)
             {
                 txt_Cpf_Cnpj_Editar.Text = c.CNPJ;

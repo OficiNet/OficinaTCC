@@ -95,6 +95,7 @@ namespace Site.Administrador
         {
             try
             {
+                lblResposta.Text = string.Empty;
                 DAL.Entity.Veiculo v = new DAL.Entity.Veiculo();
                 v.Marca = txt_Marca.Text;
                 v.Modelo = txt_Modelo.Text;
@@ -103,11 +104,21 @@ namespace Site.Administrador
                 v.Cliente = new DAL.Entity.Cliente();
                 v.Cliente.Id_Cliente = Convert.ToInt32(ddlClientes.SelectedValue);
                 VeiculoDal d = new VeiculoDal();
-                d.SalvarVeiculo(v);
-                carregarVeiculos();
-                painelCadastro.Visible = false;
-                painelGrid.Visible = true;
-                lblResp.Text = "Veiculo cadastrado com sucesso.";
+                string placa = txt_Placa.Text;;
+                if (d.BuscarPelaPlaca(txt_Placa.Text))
+                {
+                    lblResposta.Text = "Placa "+ placa +" já existe.";
+                    txt_Placa.Text = string.Empty; 
+                    txt_Placa.Focus();
+                }
+                else
+                {
+                    d.SalvarVeiculo(v);
+                    carregarVeiculos();
+                    painelCadastro.Visible = false;
+                    painelGrid.Visible = true;
+                    lblResp.Text = "Veiculo cadastrado com sucesso.";
+                } 
             }
             catch (Exception)
             {
@@ -186,6 +197,7 @@ namespace Site.Administrador
         {
             try
             {
+                lblResposta.Text = string.Empty;
                 lblResp.Text = string.Empty;
                 painelGrid.Visible = true;
                 painelCadastro.Visible = false;

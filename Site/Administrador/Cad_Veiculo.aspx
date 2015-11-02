@@ -156,6 +156,7 @@
         <span class="ls-ico-info"></span>Você está na àrea de <strong>Cadastro de Clientes</strong>, aqui você pode Cadastrar, Editar e Excluir seus clientes.
     </div>
     <div class="container">
+        <strong><asp:Label ID="lblResposta" runat="server" ForeColor="Red" /></strong>
         <asp:Panel ID="painelGrid" runat="server">
             <%--<asp:Button ID="btnListarClientes" OnClick="ListarClientes" runat="server" Text="Pesquisar" CssClass="ls-btn-primary" />--%>
             <br />
