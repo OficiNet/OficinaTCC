@@ -27,11 +27,14 @@
                     <br />
                     <div class="input-group">
                         <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-                        <input type="text" class="form-control" placeholder="Digite seu nome de Usuário" aria-describedby="basic-addon1" autofocus>
+                        <input type="text" class="form-control" placeholder="Digite seu nome de Usuário" aria-describedby="basic-addon1" autofocus />
                     </div>
                 </div>
                 <div>
-                    <asp:Button ID="btn_Recuperar_Senha" class="btn btn-success" runat="server" OnClick="btn_Recuperar_Senha_Click" Text="Continuar" />
+                    <asp:Button ID="btn_Recuperar_Senha" class="btn btn-success btn-block" runat="server" OnClick="btn_Recuperar_Senha_Click" Text="Continuar" />
+                    <br />
+                    <br />
+                    <asp:label id="lblMensagem" runat="server" Text=""></asp:label>
                 </div>
             </div>
         </div>

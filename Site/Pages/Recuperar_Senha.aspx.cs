@@ -15,13 +15,10 @@ namespace Site.Pages
 
         }
 
-        protected void NovaSenha()
-        { 
-            
-        }
-
         protected void btn_Recuperar_Senha_Click(object sender, EventArgs e)
         {
+            string NovaSenha = GerarNovaSenha();
+
             //Define os dados do e-mail
             string nomeRemetente = "OficiNet";
             string emailRemetente = "mmsr_luis@hotmail.com";
@@ -29,7 +26,7 @@ namespace Site.Pages
             string SMTP = "smtp.live.com";
             string emailDestinatario = "mmsr_luis@hotmail.com";
             string assuntoMensagem = "OficiNet - Recuperação de Senha";
-            string conteudoMensagem = "<h4>OficiNet<h4> <br /> Sua nova senha de acesso ao sistema é: ******** <br /> Ao acessar o sistema faça a alteração da senha no seu Perfil de Usuário. <br /> Atenção. Este é um e-mail automático, não responda a esta mensagem. <br /> Caso não tenha solicitado a alteração da senha ignore este e-mail.";
+            string conteudoMensagem = "<h4>OficiNet<h4> <br /> Sua nova senha de acesso ao sistema é: " + NovaSenha.ToString() + " <br /> Ao acessar o sistema faça a alteração da senha no seu Perfil de Usuário. <br /> Atenção. Este é um e-mail automático, não responda a esta mensagem. <br /> Caso não tenha solicitado a alteração da senha ignore este e-mail.";
 
             MailMessage objEmail = new MailMessage();
 
@@ -61,17 +58,28 @@ namespace Site.Pages
             try
             {
                 objSmtp.Send(objEmail);
-                Response.Write("E-mail enviado com sucesso !");
+                lblMensagem.Text = "E-mail enviado com sucesso!";
+                lblMensagem.CssClass = "text-success";
             }
             catch (Exception ex)
             {
-                Response.Write("Ocorreram problemas no envio do e-mail. Erro = " + ex.Message);
+                lblMensagem.Text = "Ocorreram problemas no envio do e-mail. Tente novamente mais tarde.";
+                lblMensagem.CssClass = "text-danger";
             }
             finally
             {
                 //excluímos o objeto de e-mail da memória
                 objEmail.Dispose();
             }
+        }
+
+        private string GerarNovaSenha()
+        {
+            // Aqui você vai gerar uma nova senha, salvar ela no banco de dados na tabela de usuário 
+            //e depois retornar uma string para o conteúdo da mensagem que será enviada por e-mail.
+            string NovaSenha;
+
+            return NovaSenha;
         }
     }
 }

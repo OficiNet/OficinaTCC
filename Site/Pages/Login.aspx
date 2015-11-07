@@ -21,7 +21,7 @@
         <asp:Panel ID="pnlLogin" runat="server">
             <asp:Login ID="txtLogin" runat="server" OnAuthenticate="txtLogin_Authenticate" TitleText="" UserNameLabelText="Login:" PasswordLabelText="Senha:" LoginButtonText="Entrar" FailureText="Acesso Negado!" RememberMeText="Lembrar Senha" DestinationPageUrl="~/Administrador/Principal.aspx">
                 <LayoutTemplate>
-                    <div class="col-md-6 col-md-offset-3">
+                    <div class="col-md-4 col-md-offset-4">
                         <div class="text-center">
                             <h2>Acesso ao sistema</h2>
                         </div>

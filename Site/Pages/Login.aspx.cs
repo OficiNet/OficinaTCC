@@ -35,12 +35,5 @@ namespace Site.Pages
                 Response.Write(ex.Message);
             }
         }
-
-        protected void RecuperarSenha()
-        {
-            string myScript = @"function AlertHello() { alert('Hello ASP.NET'); }";
-            Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "MyScript", myScript, true);
-
-        }
     }
 }
