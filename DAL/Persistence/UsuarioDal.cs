@@ -33,12 +33,13 @@ namespace DAL.Persistence
             }
         }
 
-        public Usuario BuscarPorId(int id)
+        public Usuario BuscarPeloLogin(string login)
         {
             try
             {
-                Cmd = new SqlCommand("SELECT Id_Usuario, Nome_Usuario, Email, _Login, Senha FROM Tb_Usuario WHERE Id_Usuario=@Id ", Con);
-                Cmd.Parameters.AddWithValue("@Id", id);
+                AbrirConexao();
+                Cmd = new SqlCommand("SELECT Id_Usuario, Nome_Usuario, Email, _Login, Senha FROM [OficiNet].[dbo].[Tb_Usuario] WHERE _Login=@Login", Con);
+                Cmd.Parameters.AddWithValue("@Login", login);
                 Dr = Cmd.ExecuteReader();
                 Usuario u = new Usuario();
                 if (Dr.Read())
@@ -129,5 +130,6 @@ namespace DAL.Persistence
                 FecharConexao();
             }
         }
+
     }
 }

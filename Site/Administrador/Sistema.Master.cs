@@ -13,16 +13,21 @@ namespace Site.Administrador
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                lblNomeUsuario.Text = (((Usuario)Session["UsuarioSessao"]).Nome_Usuario).ToString();    
+            }
             
-            lblNomeUsuario.Text = String.Empty;
         }
 
         protected void Sair(object sender, EventArgs e)
         {
+            //encerrar a sessão
+            Session.Remove("UsuarioSessao");
             //Destruir a permissão de acesso concedida
             FormsAuthentication.SignOut(); //voltar a ser um Usuario Anônimo
             //Redicionamento de volta para a página de Login
-            FormsAuthentication.RedirectToLoginPage();
+            FormsAuthentication.RedirectToLoginPage();   
         }
     }
 }

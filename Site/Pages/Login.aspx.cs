@@ -26,6 +26,13 @@ namespace Site.Pages
                 u.Login = txtLogin.UserName;
                 u.Senha = Criptografia.Encriptar(txtLogin.Password);
                 UsuarioDal d = new UsuarioDal();
+                if (d.Autenticar(u))
+                {
+                    Usuario usuario = d.BuscarPeloLogin(u.Login);
+                    //Session["UsuarioSessao"] = usuario;
+                    Session.Add("UsuarioSessao", usuario);
+
+                }
                 e.Authenticated = d.Autenticar(u);
             }
             catch (Exception ex)

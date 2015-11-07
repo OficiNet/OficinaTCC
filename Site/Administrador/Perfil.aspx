@@ -26,15 +26,15 @@
                         <div class="ls-list-content">
                             <label class="ls-label col-xs-12">
                                 <h2 class="ls-color-success">Nome do Usuário</h2>
-                                <asp:Label ID="lblNomeUsuario" runat="server" meta:resourceKey="lblNomeUsuario" Text="Douglas Leonardo" CssClass="ls-label-text"></asp:Label>
+                                <asp:Label ID="lblNomeUsuario" runat="server" meta:resourceKey="lblNomeUsuario" CssClass="ls-label-text"></asp:Label>
                             </label>
                             <label class="ls-label col-xs-12">
                                 <h2 class="ls-color-success">E-mail</h2>
-                                <asp:Label ID="lblEmail" runat="server" meta:resourceKey="lblEmail" Text="douglas.loc@hotmail.com" CssClass="ls-label-text"></asp:Label>
+                                <asp:Label ID="lblEmail" runat="server" meta:resourceKey="lblEmail" CssClass="ls-label-text"></asp:Label>
                             </label>
                             <label class="ls-label col-xs-12">
                                 <h2 class="ls-color-success">Login</h2>
-                                <asp:Label ID="lblLogin" runat="server" meta:resourceKey="lblLogin" Text="admin" CssClass="ls-label-text"></asp:Label>
+                                <asp:Label ID="lblLogin" runat="server" meta:resourceKey="lblLogin" CssClass="ls-label-text"></asp:Label>
                             </label>
                         </div>
                     </div>
