@@ -22,14 +22,13 @@ namespace Site.Pages
             //Define os dados do e-mail
             string nomeRemetente = "OficiNet";
             string emailRemetente = "mmsr_luis@hotmail.com";
-            string senha = "senha2014";
+            string senha = "";
             string SMTP = "smtp.live.com";
             string emailDestinatario = "mmsr_luis@hotmail.com";
             string assuntoMensagem = "OficiNet - Recuperação de Senha";
             string conteudoMensagem = "<h4>OficiNet<h4> <br /> Sua nova senha de acesso ao sistema é: " + NovaSenha.ToString() + " <br /> Ao acessar o sistema faça a alteração da senha no seu Perfil de Usuário. <br /> Atenção. Este é um e-mail automático, não responda a esta mensagem. <br /> Caso não tenha solicitado a alteração da senha ignore este e-mail.";
 
             MailMessage objEmail = new MailMessage();
-
             //Define o Campo From e ReplyTo do e-mail.
             objEmail.From = new System.Net.Mail.MailAddress(nomeRemetente + "<" + emailRemetente + ">");
 
