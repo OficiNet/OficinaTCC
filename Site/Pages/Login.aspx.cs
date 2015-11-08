@@ -29,9 +29,7 @@ namespace Site.Pages
                 if (d.Autenticar(u))
                 {
                     Usuario usuario = d.BuscarPeloLogin(u.Login);
-                    //Session["UsuarioSessao"] = usuario;
-                    Session.Add("UsuarioSessao", usuario);
-
+                    Session.Add("UsuarioSessao", usuario);  
                 }
                 e.Authenticated = d.Autenticar(u);
             }
