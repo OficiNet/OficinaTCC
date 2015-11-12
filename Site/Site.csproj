@@ -113,6 +113,7 @@
     <Content Include="Layout\locawebstyle\stylesheets\fonts\locastyle.svg" />
     <Content Include="Layout\locawebstyle\stylesheets\locastyle.css" />
     <Content Include="Pages\Login.aspx" />
+    <Content Include="Pages\Recuperar_Senha.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -220,6 +221,13 @@
     </Compile>
     <Compile Include="Pages\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Recuperar_Senha.aspx.cs">
+      <DependentUpon>Recuperar_Senha.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Recuperar_Senha.aspx.designer.cs">
+      <DependentUpon>Recuperar_Senha.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -62,6 +62,64 @@ namespace DAL.Persistence
             }
         }
 
+
+
+        public Usuario BuscarPeloEmail(string email)
+        {
+            try
+            {
+                AbrirConexao();
+                Cmd = new SqlCommand("select * from [OficiNet].[dbo].[Tb_Usuario] where Email = @Email", Con);
+                Cmd.Parameters.AddWithValue("@Email", email);
+                Dr = Cmd.ExecuteReader();
+                Usuario u = new Usuario();
+                if (Dr.Read())
+                {
+                    u.Id_Usuario = Convert.ToInt32(Dr["Id_Usuario"]);
+                    u.Nome_Usuario = Convert.ToString(Dr["Nome_Usuario"]);
+                    u.Email = Convert.ToString(Dr["Email"]);
+                    u.Login = Convert.ToString(Dr["_Login"]);
+                    u.Senha = Convert.ToString(Dr["Senha"]);
+                }
+                return u;
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Erro: UsuarioDal: BuscarPeloEmail =>" + e.Message);
+            }
+            finally
+            {
+                FecharConexao();
+            }
+        }
+
+
+        public void Editar(Usuario usuario)
+        {
+            try
+            {
+                AbrirConexao();
+                Cmd = new SqlCommand("update [OficiNet].[dbo].[Tb_Usuario] set Nome_Usuario = @Nome, Email = @Email, _Login = @Login, Senha = @Senha  where Id_Usuario = @Id", Con);
+                Cmd.Parameters.AddWithValue("@Id", usuario.Id_Usuario);
+                Cmd.Parameters.AddWithValue("@Nome", usuario.Nome_Usuario);
+                Cmd.Parameters.AddWithValue("@Email", usuario.Email);
+                Cmd.Parameters.AddWithValue("@Login", usuario.Login);
+                Cmd.Parameters.AddWithValue("@Senha", usuario.Senha);
+                Cmd.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Erro: UsuarioDal: Editar =>" + e.Message);
+            }
+            finally
+            {
+                FecharConexao();
+            }
+        }
+
+
+
+
         public bool ExisteLogin(string login)
         {
             try

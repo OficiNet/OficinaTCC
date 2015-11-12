@@ -15,9 +15,12 @@ namespace Site.Administrador
         {
             if (!IsPostBack)
             {
-                lblNomeUsuario.Text = (((Usuario)Session["UsuarioSessao"]).Nome_Usuario).ToString();    
+                Usuario u = ((Usuario)Session["UsuarioSessao"]);
+                if (u != null)
+                {
+                    lblNomeUsuario.Text = u.Nome_Usuario;    
+                }  
             }
-            
         }
 
         protected void Sair(object sender, EventArgs e)
