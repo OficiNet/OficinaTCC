@@ -53,10 +53,11 @@
             <div data-ls-module="dropdown" class="ls-dropdown ls-user-account">
                 <a href="#" class="ls-ico-user">Bem Vindo <small>(Usuário)</small></a>
                 <nav class="ls-dropdown-nav ls-user-menu">
-                    <ul>
-                        <li><a href="#">submenu</a></li>
-                    </ul>
-                </nav>
+                        <ul>
+                            <li><a href="Perfil.aspx">Conta</a></li>
+                            <li><asp:LinkButton ID="btnSairBar" runat="server" Text="Sair" OnClick="Sair" /></li>
+                        </ul>
+                    </nav>
             </div>
             <nav class="ls-menu">
                 <ul>

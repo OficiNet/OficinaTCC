@@ -16,11 +16,12 @@
                     <div class="ls-list">
                         <header class="ls-list-header">
                             <div class="ls-list-title col-md-9">
-                                <strong><label class="ls-color-success">Perfil da conta</label></strong>
+                                <strong>
+                                    <label class="ls-color-success">Perfil da conta</label></strong>
                                 <small>Administrador</small>
                             </div>
                             <div class="col-md-3 ls-txt-right">
-                                <label class="ls-btn-primary">Atualizar Dados</label>
+                                <asp:Button ID="btn_Editar" CssClass="ls-btn-primary" Text="Atualizar Dados" runat="server" OnClick="btn_Editar_Click" />
                             </div>
                         </header>
                         <div class="ls-list-content">
@@ -39,6 +40,42 @@
                         </div>
                     </div>
                 </fieldset>
+            </div>
+        </asp:Panel>
+        <asp:Panel ID="pnlEdicao" runat="server">
+            <div class="ls-form ls-form-horizontal row">
+                <fieldset>
+                    <div class="row">
+                        <label class="ls-label col-md-2">
+                            <asp:TextBox ID="txt_Id_Veiculo" CssClass="ls-label-text" runat="server" Visible="false" />
+                        </label>
+                    </div>
+                    <div class="row">
+                        <label class="ls-label col-md-4">
+                            <asp:Label ID="lblNome_Usuario_Editar" runat="server" meta:resourceKey="lblNome_Usuario_Editar" Text="Nome Usuario:" CssClass="ls-label-text" />
+                            <asp:TextBox ID="txt_Nome_Usuario_Editar" CssClass="ls-label-text" runat="server" required="required" />
+                        </label>
+                        <label class="ls-label col-md-4">
+                            <asp:Label ID="lblEmail_Editar" runat="server" meta:resourceKey="lblEmail_Editar" Text="E-mail:" CssClass="ls-label-text" />
+                            <asp:TextBox ID="txt_Email_Editar" CssClass="ls-label-text" runat="server" required="required" />
+                        </label>
+                        <label class="ls-label col-md-4">
+                            <asp:Label ID="lblLogin_Editar" runat="server" meta:resourceKey="lblLogin_Editar" Text="Login:" CssClass="ls-label-text" />
+                            <asp:TextBox ID="txt_Login_Editar" CssClass="ls-label-text" runat="server" required="required" />
+                        </label>
+                    </div>
+                    <div class="row">
+                        <label class="ls-label col-md-2">
+                            <asp:Label ID="lblSenha_Editar" runat="server" meta:resourceKey="lblSenha_Editar" Text="Senha:" CssClass="ls-label-text" />
+                            <asp:TextBox ID="txt_Senha_Editar" Type="password" CssClass="ls-label-text" runat="server" required="required" />
+                        </label>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="ls-actions-btn">
+                <br />
+                <asp:Button ID="btn_Gravar_Perfil" CssClass="ls-btn-primary" Text="Gravar" runat="server" OnClick="btn_Gravar_Perfil_Click" />
+                <asp:Button ID="btnVoltar_Perfil" runat="server" Text="Voltar" CssClass="ls-btn-sucess" OnClick="btnVoltar_Perfil_Click" />
             </div>
         </asp:Panel>
     </div>

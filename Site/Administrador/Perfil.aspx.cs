@@ -14,6 +14,8 @@ namespace Site.Administrador
         {
             if (!IsPostBack)
             {
+                pnlDados.Visible = true;
+                pnlEdicao.Visible = false;
                 carregarUsuario();
             }
         }
@@ -24,6 +26,27 @@ namespace Site.Administrador
            lblNomeUsuario.Text = u.Nome_Usuario.ToString();
            lblEmail.Text = u.Email.ToString();
            lblLogin.Text = u.Login;
+           txt_Nome_Usuario_Editar.Text = u.Nome_Usuario.ToString();
+           txt_Email_Editar.Text = u.Email.ToString();
+           txt_Login_Editar.Text = u.Login;
+           txt_Senha_Editar.Text = u.Senha;
+        }
+
+        protected void btn_Gravar_Perfil_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        protected void btnVoltar_Perfil_Click(object sender, EventArgs e)
+        {
+            pnlDados.Visible = true;
+            pnlEdicao.Visible = false;
+        }
+
+        protected void btn_Editar_Click(object sender, EventArgs e)
+        {
+            pnlDados.Visible = false;
+            pnlEdicao.Visible = true;
         }
     }
 }
