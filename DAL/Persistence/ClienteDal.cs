@@ -124,7 +124,6 @@ namespace DAL.Persistence
         }
 
        public List<Cliente> ListarTodos()
-       
        {
            try
            {
@@ -161,6 +160,45 @@ namespace DAL.Persistence
                FecharConexao();
            }
        }
+
+
+       //public List<Cliente> ListarClientesVeiculoCad()
+       //{
+       //    try
+       //    {
+       //        AbrirConexao();
+       //        Cmd = new SqlCommand("select * from Tb_Cliente as c inner join Tb_Endereco as e on c.Id_Cliente = e.FK_Id_Cliente order by DataCadastro desc", Con);
+       //        Dr = Cmd.ExecuteReader();
+       //        List<Cliente> listaCliente = new List<Cliente>();
+       //        while (Dr.Read())
+       //        {
+       //            Cliente c = new Cliente();
+       //            c.Id_Cliente = Convert.ToInt32(Dr["Id_Cliente"]);
+       //            c.Nome = Convert.ToString(Dr["Nome"]);
+       //            c.Telefone = Convert.ToString(Dr["Telefone"]);
+       //            c.DataCadastro = Convert.ToDateTime(Dr["DataCadastro"]);
+       //            c.Tipo_Pessoa = Convert.ToChar(Dr["Tipo_Pessoa"]);
+       //            c.CPF = Convert.ToString(Dr["CPF"]);
+       //            c.CNPJ = Convert.ToString(Dr["CNPJ"]);
+       //            c.Endereco = new Endereco();
+       //            c.Endereco.Bairro = Convert.ToString(Dr["Bairro"]);
+       //            c.Endereco.Cidade = Convert.ToString(Dr["Cidade"]);
+       //            c.Endereco.Estado = Convert.ToString(Dr["Estado"]);
+       //            c.Endereco.Complemento = Convert.ToString(Dr["Complemento"]);
+       //            c.Endereco.Numero = Convert.ToString(Dr["Numero"]);
+       //            listaCliente.Add(c);
+       //        }
+       //        return listaCliente;
+       //    }
+       //    catch (Exception e)
+       //    {
+       //        throw new Exception("Erro: ClienteDal: ListarCliente() => " + e.Message);
+       //    }
+       //    finally
+       //    {
+       //        FecharConexao();
+       //    }
+       //}
 
        public List<Cliente> ListarClientesPossueVeiculo()
        {

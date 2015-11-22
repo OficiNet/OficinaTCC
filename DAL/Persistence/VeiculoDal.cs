@@ -47,7 +47,6 @@ namespace DAL.Persistence
                 while (Dr.Read())
                 {
                     Veiculo v = new Veiculo();
-
                     v.Id_Veiculo = Convert.ToInt32(Dr["Id_Veiculo"]);
                     v.Cliente = new Cliente();
                     v.Cliente.Nome = Convert.ToString(Dr["Nome"]);
@@ -62,6 +61,37 @@ namespace DAL.Persistence
             catch (Exception e)
             {
                 throw new Exception("Erro: VeiculoDal: ListarVeiculo() => " + e.Message);
+            }
+            finally
+            {
+                FecharConexao();
+            }
+        }
+
+        public List<Veiculo> ListarVeiculosPorID(int idcliente)
+        {
+            try
+            {
+                AbrirConexao();
+                Cmd = new SqlCommand("select * from Tb_Veiculo where FK_Id_Cliente =@Id ", Con);
+                Cmd.Parameters.AddWithValue("@Id", idcliente);
+                Dr = Cmd.ExecuteReader();
+                List<Veiculo> listaVeiculo = new List<Veiculo>();
+                while (Dr.Read())
+                {
+                    Veiculo v = new Veiculo();
+                    v.Id_Veiculo = Convert.ToInt32(Dr["Id_Veiculo"]);
+                    v.Placa = Convert.ToString(Dr["Placa"]);
+                    v.Modelo = Convert.ToString(Dr["Modelo"]);
+                    v.Ano = Convert.ToString(Dr["Ano"]);
+                    v.Marca = Convert.ToString(Dr["Marca"]);
+                    listaVeiculo.Add(v);
+                }
+                return listaVeiculo;
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Erro: VeiculoDal: ListarVeiculosPorID(int idcliente) => " + e.Message);
             }
             finally
             {
@@ -122,7 +152,6 @@ namespace DAL.Persistence
                 Dr = Cmd.ExecuteReader();
                 Veiculo v = new Veiculo();
                 v.Cliente = new Cliente();
-
                 while (Dr.Read())
                 {
                     v.Cliente.Nome = Convert.ToString(Dr["Nome"]);
@@ -131,7 +160,6 @@ namespace DAL.Persistence
                     v.Modelo = Convert.ToString(Dr["Modelo"]);
                     v.Ano = Convert.ToString(Dr["Ano"]);
                     v.Marca = Convert.ToString(Dr["Marca"]);
-
                 }
                 return v;
             }
@@ -171,9 +199,5 @@ namespace DAL.Persistence
                 FecharConexao();
             }
         }
-
-
-
-
     }
 }

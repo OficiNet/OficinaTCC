@@ -76,6 +76,7 @@
     <Content Include="Layout\css\default.css" />
     <Content Include="Layout\css\fonts.css" />
     <Content Include="Layout\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Layout\Javascript_Paginas\JS_Lista_OrdemServico.js" />
     <Content Include="Layout\jquery-1.8.1.min.js" />
     <Content Include="Layout\js\bootstrap.js" />
     <Content Include="Layout\js\bootstrap.min.js" />

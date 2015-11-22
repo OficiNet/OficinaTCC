@@ -13,6 +13,51 @@ namespace Site.Administrador {
     public partial class Lista_OrdemServico {
         
         /// <summary>
+        /// btnNovaOrdemServico control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnNovaOrdemServico;
+        
+        /// <summary>
+        /// btnVoltar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnVoltar;
+        
+        /// <summary>
+        /// lblResp control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblResp;
+        
+        /// <summary>
+        /// painelGrid control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel painelGrid;
+        
+        /// <summary>
+        /// gridOrdemServico control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gridOrdemServico;
+        
+        /// <summary>
         /// painelCadastro control.
         /// </summary>
         /// <remarks>
@@ -58,6 +103,24 @@ namespace Site.Administrador {
         protected global::System.Web.UI.WebControls.TextBox txt_DataCadastro;
         
         /// <summary>
+        /// ScriptManager1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
+        
+        /// <summary>
+        /// updateClientes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel updateClientes;
+        
+        /// <summary>
         /// lblCliente control.
         /// </summary>
         /// <remarks>
@@ -74,6 +137,15 @@ namespace Site.Administrador {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlClientes;
+        
+        /// <summary>
+        /// painelVeiculos control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel painelVeiculos;
         
         /// <summary>
         /// lblVeiculo control.
@@ -94,6 +166,24 @@ namespace Site.Administrador {
         protected global::System.Web.UI.WebControls.DropDownList ddlVeiculo;
         
         /// <summary>
+        /// lblValor control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblValor;
+        
+        /// <summary>
+        /// txtValor control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtValor;
+        
+        /// <summary>
         /// lblObs control.
         /// </summary>
         /// <remarks>
@@ -110,5 +200,14 @@ namespace Site.Administrador {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_Obs;
+        
+        /// <summary>
+        /// btnCadastrarOrdemServico control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCadastrarOrdemServico;
     }
 }
