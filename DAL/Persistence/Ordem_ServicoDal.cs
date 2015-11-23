@@ -13,6 +13,7 @@ namespace DAL.Persistence
 {
    public class Ordem_ServicoDal : Conexao
     {
+       //Proc Cadastrar Ordem Serviço
        public void SalvarOrdem_Servico(Ordem_Servico os)
        {
            try
