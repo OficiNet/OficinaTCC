@@ -67,7 +67,7 @@ namespace DAL.Persistence
            try
            {
                AbrirConexao();
-               Cmd = new SqlCommand("select * from [OficiNet].[dbo].[Tb_Ordem_Servico]  as os inner join  Tb_Veiculo as v on os.FK_Id_Veiculo = v.Id_Veiculo inner join Tb_Cliente as c on os.FK_Id_Cliente = c.Id_Cliente", Con);
+               Cmd = new SqlCommand("select * from Tb_Ordem_Servico as os inner join  Tb_Veiculo as v on os.FK_Id_Veiculo = v.Id_Veiculo inner join Tb_Cliente as c on os.FK_Id_Cliente = c.Id_Cliente", Con);
                Dr = Cmd.ExecuteReader();
                List<Ordem_Servico> listaOrdemServico = new List<Ordem_Servico>();
                while (Dr.Read())

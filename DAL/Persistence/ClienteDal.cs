@@ -213,17 +213,6 @@ namespace DAL.Persistence
                    Cliente c = new Cliente();
                    c.Id_Cliente = Convert.ToInt32(Dr["Id_Cliente"]);
                    c.Nome = Convert.ToString(Dr["Nome"]);
-                   //c.Telefone = Convert.ToString(Dr["Telefone"]);
-                   //c.DataCadastro = Convert.ToDateTime(Dr["DataCadastro"]);
-                   //c.Tipo_Pessoa = Convert.ToChar(Dr["Tipo_Pessoa"]);
-                   //c.CPF = Convert.ToString(Dr["CPF"]);
-                   //c.CNPJ = Convert.ToString(Dr["CNPJ"]);
-                   //c.Endereco = new Endereco();
-                   //c.Endereco.Bairro = Convert.ToString(Dr["Bairro"]);
-                   //c.Endereco.Cidade = Convert.ToString(Dr["Cidade"]);
-                   //c.Endereco.Estado = Convert.ToString(Dr["Estado"]);
-                   //c.Endereco.Complemento = Convert.ToString(Dr["Complemento"]);
-                   //c.Endereco.Numero = Convert.ToString(Dr["Numero"]);
                    listaCliente.Add(c);
                }
                return listaCliente;

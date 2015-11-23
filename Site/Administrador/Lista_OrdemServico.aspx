@@ -47,9 +47,7 @@
                                         </strong>
                                         <br />
                                         <div class="ls-custom-select">
-                                    
                                             <asp:DropDownList ID="ddlClientes" runat="server" AutoPostBack="true" required="required" OnSelectedIndexChanged="ddlClientes_SelectedIndexChanged" ></asp:DropDownList>  
-                                    
                                         </div>
                                     </label>
                                 </div>

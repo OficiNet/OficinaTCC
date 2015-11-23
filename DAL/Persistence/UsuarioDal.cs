@@ -38,7 +38,7 @@ namespace DAL.Persistence
             try
             {
                 AbrirConexao();
-                Cmd = new SqlCommand("SELECT Id_Usuario, Nome_Usuario, Email, _Login, Senha FROM [OficiNet].[dbo].[Tb_Usuario] WHERE _Login=@Login", Con);
+                Cmd = new SqlCommand("SELECT Id_Usuario, Nome_Usuario, Email, _Login, Senha FROM Tb_Usuario WHERE _Login=@Login", Con);
                 Cmd.Parameters.AddWithValue("@Login", login);
                 Dr = Cmd.ExecuteReader();
                 Usuario u = new Usuario();
@@ -69,7 +69,7 @@ namespace DAL.Persistence
             try
             {
                 AbrirConexao();
-                Cmd = new SqlCommand("select * from [OficiNet].[dbo].[Tb_Usuario] where Email = @Email", Con);
+                Cmd = new SqlCommand("select * from Tb_Usuario where Email = @Email", Con);
                 Cmd.Parameters.AddWithValue("@Email", email);
                 Dr = Cmd.ExecuteReader();
                 Usuario u = new Usuario();
@@ -99,7 +99,7 @@ namespace DAL.Persistence
             try
             {
                 AbrirConexao();
-                Cmd = new SqlCommand("update [OficiNet].[dbo].[Tb_Usuario] set Nome_Usuario = @Nome, Email = @Email, _Login = @Login, Senha = @Senha  where Id_Usuario = @Id", Con);
+                Cmd = new SqlCommand("update Tb_Usuario set Nome_Usuario = @Nome, Email = @Email, _Login = @Login, Senha = @Senha  where Id_Usuario = @Id", Con);
                 Cmd.Parameters.AddWithValue("@Id", usuario.Id_Usuario);
                 Cmd.Parameters.AddWithValue("@Nome", usuario.Nome_Usuario);
                 Cmd.Parameters.AddWithValue("@Email", usuario.Email);
