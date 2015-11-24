@@ -62,8 +62,6 @@ namespace DAL.Persistence
             }
         }
 
-
-
         public Usuario BuscarPeloEmail(string email)
         {
             try
@@ -93,7 +91,6 @@ namespace DAL.Persistence
             }
         }
 
-
         public void Editar(Usuario usuario)
         {
             try
@@ -116,9 +113,6 @@ namespace DAL.Persistence
                 FecharConexao();
             }
         }
-
-
-
 
         public bool ExisteLogin(string login)
         {

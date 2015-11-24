@@ -4,12 +4,14 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <script src="../Layout/Javascript_Paginas/JS_Perfil.js"></script>
     <h1 class="ls-title-intro ls-ico-users">Perfil</h1>
     <div class="ls-alert-box-success ls-alert-success ls-dismissable ls-sm-space">
         <span data-ls-module="dismiss" class="ls-dismiss">&times;</span>
         <span class="ls-ico-info"></span>Você está no <strong>Perfil do Usuário</strong>, aqui você tem os dados da sua conta.
     </div>
     <div class="container-fluid">
+        <asp:Label ID="lblResp" runat="server" ></asp:Label>
         <asp:Panel ID="pnlDados" runat="server">
             <div class="ls-form row">
                 <fieldset>
@@ -21,7 +23,7 @@
                                 <small>Administrador</small>
                             </div>
                             <div class="col-md-3 ls-txt-right">
-                                <asp:Button ID="btn_Editar" CssClass="ls-btn-primary" Text="Atualizar Dados" runat="server" OnClick="btn_Editar_Click" />
+                                <asp:Button ID="btn_Editar" CssClass="ls-btn-primary" Text="Atualizar Dados" runat="server"  OnClick="btn_Editar_Click" />
                             </div>
                         </header>
                         <div class="ls-list-content">
@@ -67,15 +69,19 @@
                     <div class="row">
                         <label class="ls-label col-md-2">
                             <asp:Label ID="lblSenha_Editar" runat="server" meta:resourceKey="lblSenha_Editar" Text="Senha:" CssClass="ls-label-text" />
-                            <asp:TextBox ID="txt_Senha_Editar" Type="password" CssClass="ls-label-text" runat="server" required="required" />
+                            <asp:TextBox ID="txt_Senha_Editar" Type="password" CssClass="ls-label-text" required="required" runat="server"  />
+                        </label>
+                        <label class="ls-label col-md-2">
+                            <asp:Label ID="ConfirmarSenha" runat="server" meta:resourceKey="lblConfirmarSenha_Editar" Text="Confirmar Senha:" CssClass="ls-label-text" />
+                            <asp:TextBox ID="txtConfirmarSenha" Type="password" CssClass="ls-label-text" required="required" runat="server" />
                         </label>
                     </div>
                 </fieldset>
             </div>
             <div class="ls-actions-btn">
                 <br />
-                <asp:Button ID="btn_Gravar_Perfil" CssClass="ls-btn-primary" Text="Gravar" runat="server" OnClick="btn_Gravar_Perfil_Click" />
-                <asp:Button ID="btnVoltar_Perfil" runat="server" Text="Voltar" CssClass="ls-btn-sucess" OnClick="btnVoltar_Perfil_Click" />
+                <asp:Button ID="btn_Gravar_Perfil" CssClass="ls-btn-primary" Text="Gravar" runat="server"  OnClick="btn_Gravar_Perfil_Click" />
+                <asp:Button ID="btnVoltar_Perfil" runat="server" Text="Voltar" CssClass="ls-btn-sucess" OnClientClick="voltar();" OnClick="btnVoltar_Perfil_Click" />
             </div>
         </asp:Panel>
     </div>

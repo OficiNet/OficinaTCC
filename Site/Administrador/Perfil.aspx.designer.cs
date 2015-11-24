@@ -13,6 +13,15 @@ namespace Site.Administrador {
     public partial class Perfil {
         
         /// <summary>
+        /// lblResp control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblResp;
+        
+        /// <summary>
         /// pnlDados control.
         /// </summary>
         /// <remarks>
@@ -146,6 +155,24 @@ namespace Site.Administrador {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_Senha_Editar;
+        
+        /// <summary>
+        /// ConfirmarSenha control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label ConfirmarSenha;
+        
+        /// <summary>
+        /// txtConfirmarSenha control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtConfirmarSenha;
         
         /// <summary>
         /// btn_Gravar_Perfil control.
