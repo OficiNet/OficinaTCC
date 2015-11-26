@@ -30,7 +30,6 @@
                         <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
                         <input id="txtEmail" name="txtEmail" runat="server" type="text" class="form-control" placeholder="Digite seu e-mail de Usuário" aria-describedby="basic-addon1" autofocus />
                     </div>
-                    
                 </div>
                 <div>
                     <asp:Button ID="btn_Recuperar_Senha" class="btn btn-success btn-block" runat="server" OnClick="btn_Recuperar_Senha_Click" Text="Continuar" />

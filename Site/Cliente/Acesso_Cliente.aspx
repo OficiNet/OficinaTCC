@@ -10,19 +10,17 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h1>Área do Cliente</h1>
     <hr />
-    <div class="container">
-        <div class="col-md-6 col-md-offset-3">
-            <div class="input-group has-success">
-                <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-user"></span></span>
-                <asp:TextBox ID="CPFCNPJ" class="form-control" runat="server" placeholder="Digite o CPF ou o CNPJ (Somente Números)" autofocus required></asp:TextBox>
-                <span class="input-group-btn">
-                    <button id="btnPesquisar" type="button" class="btn btn-md btn-success" runat="server" text="Pesquisar">
-                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-                    </button>
-                </span>
-                <asp:RequiredFieldValidator ID="UserNameRequired" runat="server" ControlToValidate="CPFCNPJ"></asp:RequiredFieldValidator>
-            </div>
+    <div class="col-md-4">
+        <div class="input-group has-success">
+            <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-user"></span></span>
+            <asp:TextBox ID="CPFCNPJ" class="form-control" runat="server" placeholder="Digite o CPF ou o CNPJ (Somente Números)" autofocus required></asp:TextBox>
+            <span class="input-group-btn">
+                <button id="btnPesquisar" type="button" class="btn btn-md btn-success" runat="server" text="Pesquisar">
+                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                </button>
+            </span>
+            <asp:RequiredFieldValidator ID="UserNameRequired" runat="server" ControlToValidate="CPFCNPJ"></asp:RequiredFieldValidator>
         </div>
-        <%--<asp:Button ID="btnPesquisar" type="button" class="btn btn-md btn-success" runat="server" Text="Pesquisar" />--%>
     </div>
+    <%--<asp:Button ID="btnPesquisar" type="button" class="btn btn-md btn-success" runat="server" Text="Pesquisar" />--%>
 </asp:Content>
