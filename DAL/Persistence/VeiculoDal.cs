@@ -110,6 +110,7 @@ namespace DAL.Persistence
                 Cmd.Parameters.AddWithValue("@Modelo", veiculo.Modelo);
                 Cmd.Parameters.AddWithValue("@Marca", veiculo.Marca);
                 Cmd.Parameters.AddWithValue("@Ano", veiculo.Ano);
+                Cmd.Parameters.AddWithValue("@FK_Id_Cliente", veiculo.Cliente.Id_Cliente);
                 Cmd.Parameters.AddWithValue("@Id_Veiculo", veiculo.Id_Veiculo);
                 Cmd.ExecuteNonQuery();
             }

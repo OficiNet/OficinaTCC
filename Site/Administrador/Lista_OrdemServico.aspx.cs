@@ -106,8 +106,9 @@ namespace Site.Administrador
                 {
                     protocolo = ordem_ServicoDal.AddProtocolo();
                     txt_Protocolo.Text = protocolo.ToString();
-                    txt_DataCadastro.Text = DateTime.Now.ToString();
+                    txt_DataCadastro.Text = DateTime.Now.ToString("dd/MM/yyyy");
                     MostarPainelCadastro();
+                    lblResp.CssClass = "ls-color-danger";
                     lblResp.Text = "Selecione Um Cliente e Veiculo.";
                 }
                 else
@@ -117,6 +118,7 @@ namespace Site.Administrador
                     ordem_ServicoDal.SalvarOrdem_Servico(ordem_Servico);
                     carregarOrdemServico();
                     MostarGrid();
+                    lblResp.CssClass = "ls-color-success";
                     lblResp.Text = "Cadastrado Com Sucesso.";
                     painelVeiculos.Visible = false;
                 }
@@ -134,7 +136,7 @@ namespace Site.Administrador
                 Ordem_ServicoDal ordem_ServicoDal = new Ordem_ServicoDal();
                 int protocolo = ordem_ServicoDal.AddProtocolo();
                 txt_Protocolo.Text = protocolo.ToString();
-                txt_DataCadastro.Text = DateTime.Now.ToString();
+                txt_DataCadastro.Text = DateTime.Now.ToString("dd/MM/yyyy");
                 MostarPainelCadastro();
                 txtValor.Text = String.Empty;
                 txt_Obs.Text = String.Empty;

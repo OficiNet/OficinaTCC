@@ -82,7 +82,7 @@
             <div class="ls-actions-btn">
                 <br />
                 <asp:Button ID="btn_Gravar_Perfil" CssClass="ls-btn-primary" Text="Gravar" runat="server" OnClick="btn_Gravar_Perfil_Click" />
-                <asp:Button ID="btnVoltar_Perfil" runat="server" Text="Voltar" CssClass="ls-btn-sucess" OnClientClick="voltar();" OnClick="btnVoltar_Perfil_Click" />
+                <asp:Button ID="btnVoltar_Perfil" runat="server" Text="Voltar" CssClass="ls-btn-sucess"  OnClick="btnVoltar_Perfil_Click" />
             </div>
         </asp:Panel>
     </div>

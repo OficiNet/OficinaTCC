@@ -137,6 +137,9 @@ namespace Site.Administrador
                 v.Modelo = txt_Modelo.Text;
                 v.Placa = txt_Placa.Text;
                 v.Ano = txt_Ano.Text;
+                v.Cliente = new DAL.Entity.Cliente();
+                string idCliente = ddlClientes.SelectedValue.ToString();
+                v.Cliente.Id_Cliente =  Convert.ToInt32(idCliente);
                 d.EditarVeiculo(v);
                 lblResp.Text = "Editado com sucesso";
                 painelCadastro.Visible = false;
@@ -179,11 +182,11 @@ namespace Site.Administrador
                 txt_Id_Veiculo.Text = Convert.ToString(id);
                 ClienteDal cd = new ClienteDal();
                 v.Cliente = new DAL.Entity.Cliente();
-                ddlClientes.DataSource = cd.ListarClientesPossueVeiculo();
+                ddlClientes.DataSource = cd.ListarClientesPossueVeiculo(nome);
                 ddlClientes.DataTextField = "Nome"; //texto mostrado no campo
                 ddlClientes.DataValueField = "Id_Cliente"; //valor marcado no campo
                 ddlClientes.DataBind();
-                ddlClientes.Items.Insert(0, new ListItem(nome));
+              //  ddlClientes.Items.Insert(0, new ListItem(nome));
                 carregarVeiculos();
             }
             catch (Exception ex)
