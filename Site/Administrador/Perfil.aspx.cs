@@ -35,8 +35,6 @@ namespace Site.Administrador
             txtConfirmarSenha.Text = u.Senha.ToString();
         }
 
-
-
         private bool verificarSenha()
         {
             try
@@ -71,7 +69,6 @@ namespace Site.Administrador
                 throw;
             }
         }
-
 
         protected void btn_Gravar_Perfil_Click(object sender, EventArgs e)
         {
