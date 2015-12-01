@@ -31,7 +31,6 @@
                     <Columns>
                         <asp:BoundField DataField="Nome" HeaderText="Nome do Cliente" />
                         <asp:BoundField DataField="Telefone" HeaderText="Telefone" />
-                        <asp:BoundField DataField="Tipo_Pessoa" HeaderText="Tipo de Pessoa" />
                         <asp:BoundField DataField="CPF" HeaderText="CPF" />
                         <asp:BoundField DataField="CNPJ" HeaderText="CNPJ" />
                         <asp:BoundField DataField="Endereco.Bairro" HeaderText="Bairro" />
@@ -84,8 +83,8 @@
                                 </asp:RadioButtonList>
                             </label>
                             <label class="ls-label-text col-xs-3">
-                                <strong><asp:Label ID="lblTipoPessoa" runat="server" meta:resourceKey="lblTipoPessoa" CellSpacing="15" Text="Tipo Pessoa:" CssClass="ls-label-text" /></strong>
-                                <asp:RadioButtonList ID="radioCpf_Cnpj" runat="server" RepeatDirection="Horizontal" CssClass="ls-field-radio">
+                                <strong><asp:Label ID="lblTipoPessoa" runat="server" meta:resourceKey="lblTipoPessoa" Text="Tipo Pessoa:" CssClass="ls-label-text" /></strong>
+                                <asp:RadioButtonList ID="radioCpf_Cnpj" runat="server" RepeatDirection="Horizontal" CellSpacing="15" CssClass="ls-field-radio">
                                     <asp:ListItem Text="CPF" Value="cpf" Selected="True"></asp:ListItem>
                                     <asp:ListItem Text="CNPJ" Value="cnpj"></asp:ListItem>
                                 </asp:RadioButtonList>

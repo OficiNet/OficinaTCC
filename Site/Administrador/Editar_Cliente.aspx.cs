@@ -26,13 +26,9 @@ namespace Site.Administrador
             DAL.Entity.Cliente c = d.BuscarPorId(id);
             txt_Nome_Editar.Text = c.Nome.ToString();
             txt_Telefone_Editar.Text = c.Telefone.ToString();
-            if (c.Sexo == "M")
+            if (!String.IsNullOrEmpty(c.Sexo.ToString()))
             {
-                radioSexo.SelectedIndex = 0;
-            }
-            else {
-                radioSexo.SelectedIndex = 1;
-            
+                radioSexo.SelectedValue = c.Sexo;
             }
             if (c.CPF == null)
             {

@@ -13,18 +13,24 @@
 </head>
 <body>
     <div id="header-wrapper">
-        <div id="header" class="container">
-            <div id="logo">
-                <%--<span class="icon icon-cog"></span>--%>
-                <h1><a href="#">OficiNet</a></h1>
-                <span>Acesso ao sistema</span>
-                <br />
-                <br />
-                <a class="button" href="/Pages/Login.aspx" accesskey="1" title="">Administrador</a>
-                <br />
-                <br />
-                <a class="button" href="/Cliente/Acesso_Cliente.aspx" accesskey="2" title="">Cliente</a>
+        <div id="header">
+            <div class="container">
+                <%--<div id="logo">--%>
+                <div class="col-xs-5 col-md-10 col-lg-12">
+                    <div class="text-center">
+                        <h1 style="color: #FFF;">OficiNet</h1>
+                        <span style="color: #FFF;">Acesso ao sistema</span>
+                        <br />
+                        <br />
+                        <a class="button" href="/Pages/Login.aspx" accesskey="1" title="">Administrador</a>
+                        <br />
+                        <br />
+                        <a class="button" href="/Cliente/Acesso_Cliente.aspx" accesskey="2" title="">Cliente</a>
+                    </div>
+                </div>
+                <%--</div>--%>
             </div>
+            <br />
             <div id="triangle-up"></div>
         </div>
     </div>

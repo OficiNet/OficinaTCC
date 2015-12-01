@@ -73,7 +73,7 @@ namespace Site.Pages
                     lblMensagem.Text = "E-mail enviado com sucesso!";
                     lblMensagem.CssClass = "text-success";
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     lblMensagem.Text = "Ocorreram problemas no envio do e-mail. Tente novamente mais tarde.";
                     lblMensagem.CssClass = "text-danger";
