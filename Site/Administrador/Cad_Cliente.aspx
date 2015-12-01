@@ -50,17 +50,19 @@
         </div>
         <div id="painelcpfcnpj" style="display: none;">
             <fieldset>
-                        <div class="row">
-                            <label class="ls-label col-xs-12">
-                                <asp:Label ID="lblVerificarCpfCnpj" runat="server" meta:resourceKey="lblVerificarCpfCnpj" Text="CPF || CNPJ:" CssClass="ls-label-text" />
-                                <input id="txtValidarCpfCnpj" name='txtValidarCpfCnpj' class="ls-label-text" runat="server" maxlength="18" onkeyup="mascaraMutuario(this,cpfCnpj);" onblur='clearTimeout();' onkeypress=''  required="required" />
-                                <div style="display:none;">
-                                    <asp:Label ID="lblValida_cpf_cnpj" runat="server" CssClass="ls-label-text" />
-                                </div>
-                                <asp:Button ID="btnValidar" Text="Validar" runat="server"  OnClientClick="return carregarformv();" OnClick="btnValidar_Click" CssClass="ls-btn-primary" />
-                                <asp:Button ID="btnVoltar"  CssClass="ls-btn-logout"  Text="Voltar" runat="server" OnClientClick="return voltar();" OnClick="btnVoltar_Click" />  
-                            </label>
+                <div class="row">
+                    <label class="ls-label col-xs-12">
+                        <asp:Label ID="lblVerificarCpfCnpj" runat="server" meta:resourceKey="lblVerificarCpfCnpj" Text="Digite seu CPF ou CNPJ:" CssClass="ls-label-text" />
+                        <input id="txtValidarCpfCnpj" name='txtValidarCpfCnpj' class="ls-label-text" runat="server" maxlength="18" onkeyup="mascaraMutuario(this,cpfCnpj);" onblur='clearTimeout();' onkeypress='' required="required" />
+                        <br />
+                        <div style="display: none;">
+                            <asp:Label ID="lblValida_cpf_cnpj" runat="server" CssClass="ls-label-text" />
                         </div>
+                        <br />
+                        <asp:Button ID="btnValidar" Text="Validar" runat="server" OnClientClick="return carregarformv();" OnClick="btnValidar_Click" CssClass="ls-btn-primary" />
+                        <asp:Button ID="btnVoltar" CssClass="ls-btn-logout" Text="Voltar" runat="server" OnClientClick="return voltar();" OnClick="btnVoltar_Click" />
+                    </label>
+                </div>
             </fieldset>
         </div>
         <div id="painelcadastro" style="display: none;">
@@ -76,14 +78,16 @@
                         </div>
                         <div class="row">
                             <label class="ls-label-text col-xs-3">
-                                <strong><asp:Label ID="lblSexo" runat="server" meta:resourceKey="lblSexo" Text="Sexo:" CssClass="ls-label-text" /></strong>
+                                <strong>
+                                    <asp:Label ID="lblSexo" runat="server" meta:resourceKey="lblSexo" Text="Sexo:" CssClass="ls-label-text" /></strong>
                                 <asp:RadioButtonList ID="radioSexo" runat="server" RepeatDirection="Horizontal" CellSpacing="15" CssClass="ls-field-radio">
                                     <asp:ListItem Text="Masculino" Value="M" Selected="True"></asp:ListItem>
                                     <asp:ListItem Text="Feminino" Value="F"></asp:ListItem>
                                 </asp:RadioButtonList>
                             </label>
                             <label class="ls-label-text col-xs-3">
-                                <strong><asp:Label ID="lblTipoPessoa" runat="server" meta:resourceKey="lblTipoPessoa" Text="Tipo Pessoa:" CssClass="ls-label-text" /></strong>
+                                <strong>
+                                    <asp:Label ID="lblTipoPessoa" runat="server" meta:resourceKey="lblTipoPessoa" Text="Tipo Pessoa:" CssClass="ls-label-text" /></strong>
                                 <asp:RadioButtonList ID="radioCpf_Cnpj" runat="server" RepeatDirection="Horizontal" CellSpacing="15" CssClass="ls-field-radio">
                                     <asp:ListItem Text="CPF" Value="cpf" Selected="True"></asp:ListItem>
                                     <asp:ListItem Text="CNPJ" Value="cnpj"></asp:ListItem>
@@ -111,7 +115,7 @@
                         <div class="row">
                             <label class="ls-label col-xs-3">
                                 <asp:Label ID="lblBairro" runat="server" meta:resourceKey="lblBairro" Text="Bairro:" CssClass="ls-label-text" />
-                                <asp:TextBox ID="txt_Bairro" CssClass="ls-label-text" runat="server" required="required"  />
+                                <asp:TextBox ID="txt_Bairro" CssClass="ls-label-text" runat="server" required="required" />
                             </label>
                             <label class="ls-label col-xs-3">
                                 <asp:Label ID="lblCidade" runat="server" meta:resourceKey="lblCidade" Text="Cidade:" CssClass="ls-label-text" />
@@ -127,8 +131,8 @@
                             </label>
                         </div>
                         <div class="ls-actions-btn">
-                            <asp:Button ID="btn_Cadastrar_Cliente" Text="Cadastrar" runat="server"  OnClientClick="return validacadastro();" OnClick="btn_Cadastrar_Cliente_Click" CssClass="ls-btn-primary" />
-                               <asp:Button ID="Button1" CssClass="ls-btn-logout" Text="Voltar" runat="server" OnClientClick="return voltar();" OnClick="btnVoltar_Click" />
+                            <asp:Button ID="btn_Cadastrar_Cliente" Text="Cadastrar" runat="server" OnClientClick="return validacadastro();" OnClick="btn_Cadastrar_Cliente_Click" CssClass="ls-btn-primary" />
+                            <asp:Button ID="Button1" CssClass="ls-btn-logout" Text="Voltar" runat="server" OnClientClick="return voltar();" OnClick="btnVoltar_Click" />
                         </div>
                     </fieldset>
                 </div>

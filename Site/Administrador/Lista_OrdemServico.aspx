@@ -11,13 +11,17 @@
         <span class="ls-ico-info"></span>Você está na <strong>Listagem de Ordem de Serviço</strong>, aqui você visualiza todas as Ordens de Serviço.
     </div>
     <div class="container-fluid">
-        <asp:Button ID="btnNovaOrdemServico" runat="server" Text="Add" OnClick="NovaOrdemServico_Click" />
-        <asp:Button ID="btnVoltar" runat="server" Text="Voltar" OnClientClick="voltar();" OnClick="btnVoltar_Click" />
-        <br /><br />
+        <div class="ls-actions-btn">
+            <asp:Button ID="btnNovaOrdemServico" runat="server" Text="Add" OnClick="NovaOrdemServico_Click" />
+            <asp:Button ID="btnVoltar" runat="server" Text="Voltar" OnClientClick="voltar();" OnClick="btnVoltar_Click" />
+        </div>
+        <br />
+        <br />
         <asp:Label ID="lblResp" runat="server" />
-        <br /><br />
+        <br />
+        <br />
         <asp:Panel ID="painelGrid" runat="server">
-            <asp:GridView ID="gridOrdemServico" runat="server"></asp:GridView>
+            <asp:GridView ID="gridOrdemServico" runat="server" CssClass="ls-table ls-table-striped"></asp:GridView>
         </asp:Panel>
         <asp:Panel ID="painelCadastro" runat="server">
             <div class="ls-form ls-form-horizontal row">
@@ -47,11 +51,11 @@
                                         </strong>
                                         <br />
                                         <div class="ls-custom-select">
-                                            <asp:DropDownList ID="ddlClientes" runat="server" AutoPostBack="true" required="required" OnSelectedIndexChanged="ddlClientes_SelectedIndexChanged" ></asp:DropDownList>  
+                                            <asp:DropDownList ID="ddlClientes" runat="server" AutoPostBack="true" required="required" OnSelectedIndexChanged="ddlClientes_SelectedIndexChanged"></asp:DropDownList>
                                         </div>
                                     </label>
                                 </div>
-                                <asp:Panel ID="painelVeiculos" runat="server">   
+                                <asp:Panel ID="painelVeiculos" runat="server">
                                     <div id="divVeiculo">
                                         <label class="ls-label col-xs-6">
                                             <strong>
@@ -59,11 +63,11 @@
                                             </strong>
                                             <br />
                                             <div class="ls-custom-select">
-                                                <asp:DropDownList ID="ddlVeiculo" runat="server" CssClass="ls-select"></asp:DropDownList>   
+                                                <asp:DropDownList ID="ddlVeiculo" runat="server" CssClass="ls-select"></asp:DropDownList>
                                             </div>
                                         </label>
                                     </div>
-                                </asp:Panel>            
+                                </asp:Panel>
                             </ContentTemplate>
                         </asp:UpdatePanel>
                     </div>
@@ -83,7 +87,10 @@
                             </label>
                         </div>
                     </div>
-                    <asp:Button runat="server" ID="btnCadastrarOrdemServico" Text="Gravar" OnClick="btnCadastrarOrdemServico_Click" />               
+                    <div class="ls-actions-btn">
+                        <asp:Button runat="server" ID="btnCadastrarOrdemServico" Text="Gravar" CssClass="ls-btn-primary" OnClick="btnCadastrarOrdemServico_Click" />
+                        <asp:Button ID="Button1" runat="server" Text="Voltar" CssClass="ls-btn" OnClientClick="voltar();" OnClick="btnVoltar_Click" />
+                    </div>
                 </fieldset>
             </div>
         </asp:Panel>
