@@ -92,7 +92,7 @@ function alerta() {
         return true;
     }
     else {
-        alert('Cliente ' + nome + ' Atualizado Com Sucesso.');
+        toastr['info']('Cliente ' + nome + ' Atualizado Com Sucesso.', 'OficiNet');
         return true;
     }
 }
@@ -111,7 +111,7 @@ function validacadastro() {
     // alert(nome.length);
     if (nome.length == 0) {
         document.getElementById('ContentPlaceHolder1_txt_Nome_Editar').value = '';
-        alert('Campo Inválido!');
+        toastr['info']('Campo inválido', 'OficiNet');
         flag = 'false';
         return true;
     }
@@ -131,7 +131,7 @@ function validacadastro() {
     }
     if (msg) {
         document.getElementById('ContentPlaceHolder1_txt_Nome_Editar').focus();
-        alert(msg);
+        toastr['info'](msg, 'OficiNet');
         nome.value = nome;
         return false;
 
@@ -159,7 +159,7 @@ function validacadastro() {
     }
     if (msg) {
         document.getElementById('ContentPlaceHolder1_txt_Logradouro_Editar').focus();
-        alert(msg);
+        toastr['info'](msg, 'OficiNet');
         logradouro.value = logradouro;
         return false;
     }
@@ -185,7 +185,7 @@ function validacadastro() {
     }
     if (msg) {
         document.getElementById('ContentPlaceHolder1_txt_Complemento_Editar').focus();
-        alert(msg);
+        toastr['info'](msg, 'OficiNet');
         complemento.value = complemento;
         return false;
     }
@@ -212,7 +212,7 @@ function validacadastro() {
     }
     if (msg) {
         document.getElementById('ContentPlaceHolder1_txt_Numero_Editar').focus();
-        alert(msg);
+        toastr['info'](msg, 'OficiNet');
         numero.value = numero;
         return false;
     }
@@ -238,7 +238,7 @@ function validacadastro() {
     }
     if (msg) {
         document.getElementById('ContentPlaceHolder1_txt_Bairro_Editar').focus();
-        alert(msg);
+        toastr['info'](msg, 'OficiNet');
         bairro.value = bairro;
         return false;
     }
@@ -264,7 +264,7 @@ function validacadastro() {
     }
     if (msg) {
         document.getElementById('ContentPlaceHolder1_txt_Cidade_Editar').focus();
-        alert(msg);
+        toastr['info'](msg, 'OficiNet');
         cidade.value = cidade;
         return false;
     }
@@ -295,7 +295,7 @@ function validacadastro() {
     }
     if (msg) {
         document.getElementById('ContentPlaceHolder1_txt_Estado_Editar').focus();
-        alert(msg);
+        toastr['info'](msg, 'OficiNet');
         estado.value = estado;
         return false;
     }
@@ -304,7 +304,7 @@ function validacadastro() {
     var telefone = document.getElementById('ContentPlaceHolder1_txt_Telefone_Editar').value;
     telefone = telefone.replace(/[^a-zA-Z0-9\\s]/gi, "");
     if (telefone.length == 0) {
-        alert('Campo Telefone Invalido!');
+        toastr['info']('Campo Telefone inválido', 'OficiNet');
         document.getElementById('ContentPlaceHolder1_txt_Telefone_Editar').focus();
         flag = 'false';
         return false;
@@ -316,13 +316,13 @@ function validacadastro() {
         }
         if (msg) {
             document.getElementById('ContentPlaceHolder1_txt_Telefone_Editar').focus();
-            alert(msg);
+            toastr['info'](msg, 'OficiNet');
             telefone.value = telefone;
             return false;
         }
     }
     if (flag == 'true') {
-        alert('Cliente ' + nome + ' Atualizado Com Sucesso.');
+        toastr['info']('Cliente ' + nome + ' Atualizado Com Sucesso.', 'OficiNet');
     }
     return true;
 }

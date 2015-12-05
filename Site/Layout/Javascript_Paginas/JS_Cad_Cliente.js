@@ -197,7 +197,7 @@ function validacadastro() {
     //  alert(nome.length);
     if (nome.length == 0) {
         document.getElementById('ContentPlaceHolder1_txt_Nome').value = '';
-        alert('Campo Inválido!');
+        toastr["info"]('Campo inválido', 'OficiNet');
         flag = 'false';
         return true;
     }
@@ -217,7 +217,7 @@ function validacadastro() {
     }
     if (msg) {
         document.getElementById('ContentPlaceHolder1_txt_Nome').focus();
-        alert(msg);
+        toastr["info"](msg, 'OficiNet');
         nome.value = nome;
         return false;
 
@@ -245,7 +245,7 @@ function validacadastro() {
     }
     if (msg) {
         document.getElementById('ContentPlaceHolder1_txt_logradouro').focus();
-        alert(msg);
+        toastr["info"](msg, 'OficiNet');
         logradouro.value = logradouro;
         return false;
     }
@@ -271,7 +271,7 @@ function validacadastro() {
     }
     if (msg) {
         document.getElementById('ContentPlaceHolder1_txt_Complemento').focus();
-        alert(msg);
+        toastr["error"](msg, 'OficiNet');
         complemento.value = complemento;
         return false;
     }
@@ -298,7 +298,7 @@ function validacadastro() {
     }
     if (msg) {
         document.getElementById('ContentPlaceHolder1_txt_Numero').focus();
-        alert(msg);
+        toastr["info"](msg, 'OficiNet');
         numero.value = numero;
         return false;
     }
@@ -324,7 +324,7 @@ function validacadastro() {
     }
     if (msg) {
         document.getElementById('ContentPlaceHolder1_txt_Bairro').focus();
-        alert(msg);
+        toastr["info"](msg, 'OficiNet');
         bairro.value = bairro;
         return false;
     }
@@ -350,7 +350,7 @@ function validacadastro() {
     }
     if (msg) {
         document.getElementById('ContentPlaceHolder1_txt_Cidade').focus();
-        alert(msg);
+        toastr["info"](msg, 'OficiNet');
         cidade.value = cidade;
         return false;
     }
@@ -381,7 +381,7 @@ function validacadastro() {
     }
     if (msg) {
         document.getElementById('ContentPlaceHolder1_txt_Estado').focus();
-        alert(msg);
+        toastr["info"](msg, 'OficiNet');
         estado.value = estado;
         return false;
     }
@@ -390,7 +390,7 @@ function validacadastro() {
     var telefone = document.getElementById('ContentPlaceHolder1_txt_Telefone').value;
     telefone = telefone.replace(/[^a-zA-Z0-9\\s]/gi, "");
     if (telefone.length == 0) {
-        alert('Campo Telefone Invalido!');
+        toastr["info"]('Campo Telefone inválido.', 'OficiNet');
         document.getElementById('ContentPlaceHolder1_txt_Telefone').focus();
         flag = 'false';
         return false;
@@ -402,13 +402,13 @@ function validacadastro() {
         }
         if (msg) {
             document.getElementById('ContentPlaceHolder1_txt_Telefone').focus();
-            alert(msg);
+            toastr["info"](msg, 'OficiNet');
             telefone.value = telefone;
             return false;
         }
     }
     if (flag == 'true') {
-        alert('Cliente ' + nome + ' Cadstrado Com Sucesso.');
+        toastr["info"]('Cliente ' + nome + 'Cadstrado Com Sucesso.', 'OficiNet');
     }
     return true;
 }
@@ -416,8 +416,7 @@ function validacadastro() {
 function validarcnpjcpf() {
     var validar = document.getElementById('ContentPlaceHolder1_lblValida_cpf_cnpj').textContent;
     if (validar == 'true') {
-
-        alert('CPF || CNPJ já Existe!');
+        toastr['info']('CPF ou CNPJ já Existe.', 'OficiNet');
     }
     else if (validar == 'false') {
         carregarformv();
@@ -429,7 +428,7 @@ function validarcnpjcpf() {
     else if (validar == 'invalido') {
         newcliente();
         document.getElementById('ContentPlaceHolder1_txtValidarCpfCnpj').focus();
-        alert('CPF ou CNPJ Inválido!');
+        toastr['info']('CPF ou CNPJ inválido.', 'OficiNet');
     }
 }
 
