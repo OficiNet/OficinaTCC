@@ -32,6 +32,11 @@ namespace Site.Pages
                     Session.Add("UsuarioSessao", usuario);  
                 }
                 e.Authenticated = d.Autenticar(u);
+                
+                if (!d.Autenticar(u))
+                {
+                    lblResposta.Text = "Login e/ou senha inválido!";  
+                }
             }
             catch (Exception ex)
             {

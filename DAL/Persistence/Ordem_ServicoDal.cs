@@ -111,7 +111,7 @@ namespace DAL.Persistence
             try
             {
                 AbrirConexao();
-                Cmd = new SqlCommand("select c.Id_Cliente, c.Nome from Tb_Cliente as c inner join Tb_Veiculo as v on c.Id_Cliente = v.FK_Id_Cliente", Con);
+                Cmd = new SqlCommand("select distinct c.Id_Cliente, c.Nome from Tb_Cliente as c inner join Tb_Veiculo as v on c.Id_Cliente = v.FK_Id_Cliente", Con);
                 Dr = Cmd.ExecuteReader();
                 List<Cliente> lista = new List<Cliente>();
                 while (Dr.Read())
