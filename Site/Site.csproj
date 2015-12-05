@@ -63,11 +63,12 @@
     <Content Include="Administrador\Home.aspx" />
     <Content Include="Administrador\Lista_OrdemServico.aspx" />
     <Content Include="Administrador\Lst_Cliente.aspx" />
-    <Content Include="Administrador\Lst_Veiculo.aspx" />
     <Content Include="Administrador\Perfil.aspx" />
     <Content Include="Administrador\Principal.aspx" />
     <Content Include="Cliente\Acesso_Cliente.aspx" />
     <Content Include="Cliente\Lista_OS_Cliente.aspx" />
+    <Content Include="content\toastr.css" />
+    <Content Include="content\toastr.min.css" />
     <Content Include="Default.aspx" />
     <Content Include="Layout\css\bootstrap-theme.css" />
     <Content Include="Layout\css\bootstrap-theme.min.css" />
@@ -118,6 +119,14 @@
     <Content Include="Layout\locawebstyle\stylesheets\locastyle.css" />
     <Content Include="Pages\Login.aspx" />
     <Content Include="Pages\Recuperar_Senha.aspx" />
+    <Content Include="packages.config" />
+    <Content Include="content\toastr.scss" />
+    <Content Include="content\toastr.less" />
+    <None Include="Scripts\jquery-1.6.3-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.6.3.js" />
+    <Content Include="Scripts\jquery-1.6.3.min.js" />
+    <Content Include="Scripts\toastr.js" />
+    <Content Include="Scripts\toastr.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -162,13 +171,6 @@
     </Compile>
     <Compile Include="Administrador\Lst_Cliente.aspx.designer.cs">
       <DependentUpon>Lst_Cliente.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Administrador\Lst_Veiculo.aspx.cs">
-      <DependentUpon>Lst_Veiculo.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Administrador\Lst_Veiculo.aspx.designer.cs">
-      <DependentUpon>Lst_Veiculo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Administrador\Perfil.aspx.cs">
       <DependentUpon>Perfil.aspx</DependentUpon>
