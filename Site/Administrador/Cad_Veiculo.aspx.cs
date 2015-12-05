@@ -62,7 +62,6 @@ namespace Site.Administrador
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
@@ -83,11 +82,11 @@ namespace Site.Administrador
                     }
                 }
                 carregarVeiculos();
-                lblResp.Text = " Excluido Com Sucesso ";
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "toastr_message", "toastr.success('Excluido Com Sucesso.'), 'OficiNet')", true);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                lblResp.Text = " Erro ao Excluir Veiculo " + ex.InnerException;
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "toastr_message", "toastr.error('Erro ao Excluir Veiculo.'), 'OficiNet')", true);
             }
         }
 
@@ -107,7 +106,7 @@ namespace Site.Administrador
                 string placa = txt_Placa.Text;;
                 if (d.BuscarPelaPlaca(txt_Placa.Text))
                 {
-                    lblResposta.Text = "Placa "+ placa +" já existe.";
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "toastr_message", "toastr.info('Placa " + placa + " já existe.'), 'OficiNet')", true);
                     txt_Placa.Text = string.Empty; 
                     txt_Placa.Focus();
                 }
@@ -117,7 +116,7 @@ namespace Site.Administrador
                     carregarVeiculos();
                     painelCadastro.Visible = false;
                     painelGrid.Visible = true;
-                    lblResp.Text = "Veiculo cadastrado com sucesso.";
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "toastr_message", "toastr.success('Veiculo cadastrado com sucesso.', 'OficiNet')", true);
                 } 
             }
             catch (Exception)
@@ -141,14 +140,14 @@ namespace Site.Administrador
                 string idCliente = ddlClientes.SelectedValue.ToString();
                 v.Cliente.Id_Cliente =  Convert.ToInt32(idCliente);
                 d.EditarVeiculo(v);
-                lblResp.Text = "Editado com sucesso";
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "toastr_message", "toastr.success('Cliente editado com sucesso.', 'OficiNet')", true);
                 painelCadastro.Visible = false;
                 painelGrid.Visible = true;
                 carregarVeiculos();
             }
             catch (Exception ex)
             {
-                lblResp.Text = " Erro ao carregar tela de atualizar" + ex.Message;
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "toastr_message", "toastr.error('Erro ao carregar a tela de atualizar.', 'OficiNet')", true);
             }
         }
 
@@ -186,13 +185,11 @@ namespace Site.Administrador
                 ddlClientes.DataTextField = "Nome"; //texto mostrado no campo
                 ddlClientes.DataValueField = "Id_Cliente"; //valor marcado no campo
                 ddlClientes.DataBind();
-              //  ddlClientes.Items.Insert(0, new ListItem(nome));
                 carregarVeiculos();
             }
             catch (Exception ex)
             {
-
-                lblResp.Text = " Erro ao carregar tela de atualizar" + ex.Message;
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "toastr_message", "toastr.error('Erro ao carregar a tela de atualização.', 'OficiNet')", true);
             }
         }
 
@@ -201,7 +198,6 @@ namespace Site.Administrador
             try
             {
                 lblResposta.Text = string.Empty;
-                lblResp.Text = string.Empty;
                 painelGrid.Visible = true;
                 painelCadastro.Visible = false;
                 carregarClientes();
@@ -217,7 +213,6 @@ namespace Site.Administrador
             try
             {
                 carregarClientes();
-                lblResp.Text = string.Empty;
                 txt_Ano.Text = string.Empty;
                 txt_Marca.Text = string.Empty;
                 txt_Placa.Text = string.Empty;
@@ -230,8 +225,7 @@ namespace Site.Administrador
             }
             catch (Exception ex)
             {
-
-                lblResp.Text = ex.InnerException.ToString();
+                throw;
             }
         }
 

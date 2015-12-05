@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Administrador/Sistema.Master" AutoEventWireup="true" CodeBehind="Lista_OrdemServico.aspx.cs" Inherits="Site.Administrador.Lista_OrdemServico" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link href="../content/toastr.css" rel="stylesheet" />
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -14,8 +15,6 @@
         <div class="ls-actions-btn">
             <asp:Button ID="btnNovaOrdemServico" CssClass="ls-btn-primary" runat="server" Text="Criar Ordem de Serviço" OnClick="NovaOrdemServico_Click" />
         </div>
-        <br />
-        <asp:Label ID="lblResp" runat="server" />
         <asp:Panel ID="painelGrid" runat="server">
             <asp:GridView ID="gridOrdemServico" runat="server" CssClass="ls-table ls-table-striped"></asp:GridView>
         </asp:Panel>
@@ -95,4 +94,7 @@
             </div>
         </asp:Panel>
     </div>
+
+    <script src="../Scripts/jquery-1.6.3.js"></script>
+    <script src="../Scripts/toastr.js"></script>
 </asp:Content>

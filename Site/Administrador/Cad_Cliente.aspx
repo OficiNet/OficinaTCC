@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Administrador/Sistema.Master" AutoEventWireup="true" CodeBehind="Cad_Cliente.aspx.cs" Inherits="Site.Administrador.Cad_Cliente" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link href="../content/toastr.css" rel="stylesheet" />
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -25,7 +26,6 @@
                         </div>
                     </fieldset>
                 </div>
-                <asp:Label ID="lblResp" runat="server" />
                 <br />
                 <asp:GridView ID="gridClientes" runat="server" AllowPaging="True" EnableModelValidation="True" PageSize="7" OnPageIndexChanging="gridClientes_PageIndexChanging" CssClass="ls-table ls-table-striped" AutoGenerateColumns="false">
                     <Columns>
@@ -131,7 +131,7 @@
                             </label>
                         </div>
                         <div class="ls-actions-btn">
-                            <asp:Button ID="btn_Cadastrar_Cliente" Text="Cadastrar" runat="server" OnClientClick="return validacadastro();" OnClick="btn_Cadastrar_Cliente_Click" CssClass="ls-btn-primary" />
+                            <asp:Button ID="btn_Cadastrar_Cliente" Text="Gravar" runat="server" OnClientClick="return validacadastro();" OnClick="btn_Cadastrar_Cliente_Click" CssClass="ls-btn-primary" />
                             <asp:Button ID="Button1" CssClass="ls-btn-logout" Text="Voltar" runat="server" OnClientClick="return voltar();" OnClick="btnVoltar_Click" />
                         </div>
                     </fieldset>
@@ -139,4 +139,7 @@
             </asp:Panel>
         </div>
     </div>
+
+    <script src="../Scripts/jquery-1.6.3.js"></script>
+    <script src="../Scripts/toastr.js"></script>
 </asp:Content>

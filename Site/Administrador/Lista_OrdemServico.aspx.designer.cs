@@ -22,15 +22,6 @@ namespace Site.Administrador {
         protected global::System.Web.UI.WebControls.Button btnNovaOrdemServico;
         
         /// <summary>
-        /// lblResp control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblResp;
-        
-        /// <summary>
         /// painelGrid control.
         /// </summary>
         /// <remarks>

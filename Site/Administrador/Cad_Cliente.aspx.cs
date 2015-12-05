@@ -24,7 +24,6 @@ namespace Site.Administrador
         {
             try
             {
-                lblResp.Text = string.Empty;
                 string strWhere = "Nome like '%{0}%'";
                 strWhere = String.Format(strWhere, txtPesquisa.Text.ToString().Trim());
                 ClienteDal d = new ClienteDal();
@@ -33,8 +32,7 @@ namespace Site.Administrador
 
                 if (gridClientes.Rows.Count == 0)
                 {
-                    lblResp.Text = "Não Possui Cliente Cadastrado.";
-
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "toastr_message", "toastr.info('Cliente não encontrado.', 'OficiNet')", true);
                 }
                 else
                 {
@@ -63,16 +61,6 @@ namespace Site.Administrador
             }
         }
 
-        //protected void gridClientes_RowCommand(object sender, GridViewCommandEventArgs e)
-        //{
-        //    if (e.CommandName.Equals("Editar"))
-        //    {
-        //        string idCliente = e.CommandArgument.ToString();
-        //        if (!String.IsNullOrEmpty(idCliente))
-        //            this.Response.Redirect("Principal.aspx");
-        //    }
-        //}
-
         protected void gridClientes_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             try
@@ -92,17 +80,6 @@ namespace Site.Administrador
 
             try
             {
-                //painelEditar.Visible = true;
-                //painelGrid.Visible = false;
-                //painelCadastro.Visible = false;
-
-                ////if (btnAtualizar.Equals(sender))
-                ////{
-                ////    int id = Convert.ToInt32(lblIdTarefa.Text);
-                ////    ClienteDal d = new ClienteDal();
-                ////    d.Excluir(id);
-                ////}
-
                 foreach (GridViewRow linha in gridClientes.Rows)
                 {
                     Button btnAtualizar = linha.FindControl("btnAtualizar") as Button;
@@ -116,8 +93,7 @@ namespace Site.Administrador
             }
             catch (Exception ex)
             {
-
-                lblResp.Text = " Erro ao carregar tela de atualizar" + ex.Message;
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "toastr_message", "toastr.danger('Erro ao abrir a tela de atualizar.', 'OficiNet')", true);
             }
         }
 
@@ -138,12 +114,11 @@ namespace Site.Administrador
                     }
                 }
                 CarregarClientes();
-                lblResp.Text = " Excluido Com Sucesso ";
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "toastr_message", "toastr.success('Cliente excluido com sucesso.', 'OficiNet')", true);
             }
             catch (Exception ex)
             {
-
-                lblResp.Text = " Erro ao Excluir Tarefa " + ex.Message;
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "toastr_message", "toastr.danger('Erro ao excluir cliente.', 'OficiNet')", true);
             }
         }
 
@@ -285,26 +260,7 @@ namespace Site.Administrador
                 }
                 else
                 {
-                    string message = "CPF || CNPJ Inválido!";
-                    System.Text.StringBuilder sb = new System.Text.StringBuilder();
-                    sb.Append("<script type = 'text/javascript'>" +
-                                    "window.onload=function(){" +
-                                        "document.getElementById('ContentPlaceHolder1_txt_Cpf_Cnpj').value = '';" +
-                                        "exibirpainelcadastro();" +
-                        //"document.getElementById('exibirpaineleditar').style.display = 'none';"+
-                        // "document.getElementById('painelgrid').style.display = 'none';"+
-                                        "document.getElementById('ContentPlaceHolder1_txt_Cpf_Cnpj').focus();" +
-                                        "alert('" + message + "')" +
-                                    "}" +
-                               "</script>" +
-                               "<style>" +
-                                   ".input:focus {" +
-                                       "color: white;" +
-                                       "border-color: red;" +
-                                       "background-color: #e91d1d;" +
-                                   "};" +
-                               "</style>");
-                    ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", sb.ToString());
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "toastr_message", "toastr.danger('CPF ou CNPJ inválido.', 'OficiNet')", true);
                     txt_Cpf_Cnpj.Focus();
                 }
             }
@@ -314,27 +270,10 @@ namespace Site.Administrador
             }
         }
 
-        public void Refresh(string msg, string script)
-        {
-            System.Text.StringBuilder sb = new System.Text.StringBuilder();
-            sb.Append("<script type = 'text/javascript'>" +
-                            "window.onload=function(){" +
-                                "alert('teste');" +
-                //  "window.location.reload();"+
-
-                            "}" +
-                       "</script>");
-            ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", sb.ToString());
-
-
-            lblResp.Text = msg;
-        }
-
         protected void btnNovoCliente_Click(object sender, EventArgs e)
         {
             try
             {
-                lblResp.Text = string.Empty;
                 painelCadastro.Visible = true;
                 painelGrid.Visible = false;
             }
@@ -343,42 +282,6 @@ namespace Site.Administrador
                 throw;
             }
         }
-
-        //protected void btnVoltar_Click(object sender, EventArgs e)
-        // {
-        //     try
-        //     {
-        // lblResp.Text = string.Empty;
-        // painelGrid.Visible = true;
-        // painelCadastro.Visible = false;
-        //// painelEditar.Visible = false;
-        // painelCadastro.Visible = false;
-
-        // txt_Nome.Text = string.Empty;
-        // txt_Telefone.Text = string.Empty;
-        // txt_Complemento.Text = string.Empty;
-        // txt_Numero.Text = string.Empty;
-        // txt_Bairro.Text = string.Empty;
-        // txt_Cidade.Text = string.Empty;
-        // txt_Estado.Text = string.Empty;
-        // txt_logradouro.Text = string.Empty;
-
-        // //txt_Nome_Editar.Text = string.Empty;
-        // //txt_Telefone_Editar.Text = string.Empty;
-        // //txt_tipoPessoa.Text = string.Empty;
-        // //txt_Cpf_Cnpj.Text = string.Empty;
-        // //txt_Numero_Editar.Text = string.Empty;
-        // //txt_Complemento_Editar.Text = string.Empty;
-        // //txt_Bairro_Editar.Text = string.Empty;
-        // //txt_Cidade_Editar.Text = string.Empty;
-        // //txt_Estado_Editar.Text = string.Empty;
-
-        //    }
-        //    catch (Exception)
-        //    {
-        //        throw;
-        //    }
-        //}
 
         protected void btnValidar_Click(object sender, EventArgs e)
         {
@@ -404,9 +307,9 @@ namespace Site.Administrador
                     lblValida_cpf_cnpj.Text = "invalido";
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                lblResp.Text = ex.InnerException.ToString();
+                throw;
             }
         }
 

@@ -108,8 +108,7 @@ namespace Site.Administrador
                     txt_Protocolo.Text = protocolo.ToString();
                     txt_DataCadastro.Text = DateTime.Now.ToString("dd/MM/yyyy");
                     MostarPainelCadastro();
-                    lblResp.CssClass = "ls-color-danger";
-                    lblResp.Text = "Selecione Um Cliente e Veiculo.";
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "toastr_message", "toastr.danger('Selecione Um Cliente e Veiculo.', 'OficiNet')", true);
                 }
                 else
                 {
@@ -118,9 +117,8 @@ namespace Site.Administrador
                     ordem_ServicoDal.SalvarOrdem_Servico(ordem_Servico);
                     carregarOrdemServico();
                     MostarGrid();
-                    lblResp.CssClass = "ls-color-success";
-                    lblResp.Text = "Cadastrado Com Sucesso.";
                     painelVeiculos.Visible = false;
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "toastr_message", "toastr.success('Ordem de Serviço cadastrada com sucesso.', 'OficiNet')", true);
                 }
             }
             catch (Exception)
@@ -154,7 +152,6 @@ namespace Site.Administrador
             painelCadastro.Visible = false;
             painelGrid.Visible = true;
             btnNovaOrdemServico.Visible = true;
-            lblResp.Text = string.Empty;
             ddlVeiculo.Enabled = false;
         }
 
@@ -164,7 +161,6 @@ namespace Site.Administrador
             painelCadastro.Visible = true;
             painelGrid.Visible = false;
             btnNovaOrdemServico.Visible = false;
-            lblResp.Text = string.Empty;
         }
 
         protected void btnVoltar_Click(object sender, EventArgs e)
@@ -174,7 +170,6 @@ namespace Site.Administrador
                 painelGrid.Visible = true;
                 painelCadastro.Visible = false;
                 btnNovaOrdemServico.Visible = true;
-                lblResp.Text = string.Empty;
                 ddlVeiculo.Enabled = false;
                 painelVeiculos.Visible = false;
             }

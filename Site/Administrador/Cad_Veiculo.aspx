@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Administrador/Sistema.Master" AutoEventWireup="true" CodeBehind="Cad_Veiculo.aspx.cs" Inherits="Site.Administrador.Cad_Veiculo" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link href="../content/toastr.css" rel="stylesheet" />
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -13,16 +14,7 @@
     <div class="container-fluid">
         <strong><asp:Label ID="lblResposta" runat="server" ForeColor="Red" /></strong>
         <asp:Panel ID="painelGrid" runat="server">
-            <%--<asp:Button ID="btnListarClientes" OnClick="ListarClientes" runat="server" Text="Pesquisar" CssClass="ls-btn-primary" />--%>
-            <br />
-           <%-- <strong>
-                <asp:Label ID="lblPesqNomeCliente" runat="server" meta:resourceKey="lblPesqNomeCliente" Text="Nome do Cliente:" />
-            </strong>--%>
-            <br />
-            <%--<asp:TextBox ID="txtPesquisa" runat="server" meta:resourceKey="txtPesquisa" CssClass="col-md-6"></asp:TextBox>&nbsp;
-            <asp:Button ID="btnListarClientes" runat="server" Text="Pesquisar" CssClass="ls-btn-primary" />--%>
             <asp:Button ID="btnNovoVeiculo" runat="server" Text="Novo Veiculo" CssClass="ls-btn-sucess" OnClick="btnNovoVeiculo_Click" />
-           <strong><asp:Label ID="lblResp" runat="server" /></strong>
             <br />
             <asp:GridView ID="gridVeiculos" runat="server" AllowPaging="True" EnableModelValidation="True" PageSize="10" OnPageIndexChanging="gridVeiculos_PageIndexChanging" CssClass="ls-table ls-table-striped" AutoGenerateColumns="false">
                 <Columns>
@@ -94,4 +86,7 @@
             </div>
         </asp:Panel>
     </div>
+
+    <script src="../Scripts/jquery-1.6.3.js"></script>
+    <script src="../Scripts/toastr.js"></script>
 </asp:Content>
