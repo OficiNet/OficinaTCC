@@ -408,7 +408,7 @@ function validacadastro() {
         }
     }
     if (flag == 'true') {
-        toastr["info"]('Cliente ' + nome + 'Cadstrado Com Sucesso.', 'OficiNet');
+        toastr["info"]('Cliente cadstrado com sucesso.', 'OficiNet');
     }
     return true;
 }
