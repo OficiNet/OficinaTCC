@@ -12,6 +12,7 @@
     <meta name="description" content="OficiNet." />
 
     <link href="../Layout/locawebstyle/stylesheets/locastyle.css" rel="stylesheet" />
+    <link href="../content/toastr.css" rel="stylesheet" />
     <link rel="icon" sizes="192x192" href="/Layout/locawebstyle/assets/images/ico-boilerplate.png" />
     <link rel="apple-touch-icon" href="/Layout/locawebstyle/assets/images/ico-boilerplate.png" />
 
@@ -77,5 +78,6 @@
     </form>
     <script src="../Layout/jquery-1.8.1.min.js"></script>
     <script src="../Layout/locawebstyle/javascripts/locastyle.js"></script>
+    <script src="../Scripts/toastr.js"></script>
 </body>
 </html>

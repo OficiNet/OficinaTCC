@@ -12,14 +12,10 @@
     </div>
     <div class="container-fluid">
         <div class="ls-actions-btn">
-            <asp:Button ID="btnNovaOrdemServico" runat="server" Text="Add" OnClick="NovaOrdemServico_Click" />
-            <asp:Button ID="btnVoltar" runat="server" Text="Voltar" OnClientClick="voltar();" OnClick="btnVoltar_Click" />
+            <asp:Button ID="btnNovaOrdemServico" CssClass="ls-btn-primary" runat="server" Text="Criar Ordem de Serviço" OnClick="NovaOrdemServico_Click" />
         </div>
         <br />
-        <br />
         <asp:Label ID="lblResp" runat="server" />
-        <br />
-        <br />
         <asp:Panel ID="painelGrid" runat="server">
             <asp:GridView ID="gridOrdemServico" runat="server" CssClass="ls-table ls-table-striped"></asp:GridView>
         </asp:Panel>
@@ -71,12 +67,6 @@
                             </ContentTemplate>
                         </asp:UpdatePanel>
                     </div>
-                    <div id="divValor">
-                        <label class="ls-label col-xs-2">
-                            <asp:Label ID="lblValor" runat="server" meta:resourceKey="lblValor" Text="Valor:" CssClass="ls-label-text" />
-                            <asp:TextBox ID="txtValor" CssClass="ls-label-text" runat="server" required="required" />
-                        </label>
-                    </div>
                     <div class="row">
                         <div id="divObservacao">
                             <label class="ls-label col-xs-12">
@@ -87,10 +77,20 @@
                             </label>
                         </div>
                     </div>
+                    <div class="row">
+                        <div id="divValor">
+                            <label class="ls-label col-xs-2">
+                                <strong>
+                                    <asp:Label ID="lblValor" runat="server" meta:resourceKey="lblValor" Text="Valor:" CssClass="ls-label-text" /></strong>
+                                <asp:TextBox ID="txtValor" CssClass="ls-label-text" runat="server" required="required" />
+                            </label>
+                        </div>
+                    </div>
                     <div class="ls-actions-btn">
                         <asp:Button runat="server" ID="btnCadastrarOrdemServico" Text="Gravar" CssClass="ls-btn-primary" OnClick="btnCadastrarOrdemServico_Click" />
                         <asp:Button ID="Button1" runat="server" Text="Voltar" CssClass="ls-btn" OnClientClick="voltar();" OnClick="btnVoltar_Click" />
                     </div>
+                    <br />
                 </fieldset>
             </div>
         </asp:Panel>

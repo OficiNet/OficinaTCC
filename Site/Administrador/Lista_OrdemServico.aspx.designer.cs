@@ -22,15 +22,6 @@ namespace Site.Administrador {
         protected global::System.Web.UI.WebControls.Button btnNovaOrdemServico;
         
         /// <summary>
-        /// btnVoltar control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnVoltar;
-        
-        /// <summary>
         /// lblResp control.
         /// </summary>
         /// <remarks>
@@ -166,24 +157,6 @@ namespace Site.Administrador {
         protected global::System.Web.UI.WebControls.DropDownList ddlVeiculo;
         
         /// <summary>
-        /// lblValor control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblValor;
-        
-        /// <summary>
-        /// txtValor control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtValor;
-        
-        /// <summary>
         /// lblObs control.
         /// </summary>
         /// <remarks>
@@ -200,6 +173,24 @@ namespace Site.Administrador {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_Obs;
+        
+        /// <summary>
+        /// lblValor control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblValor;
+        
+        /// <summary>
+        /// txtValor control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtValor;
         
         /// <summary>
         /// btnCadastrarOrdemServico control.

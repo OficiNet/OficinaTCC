@@ -153,7 +153,6 @@ namespace Site.Administrador
             carregarOrdemServico();
             painelCadastro.Visible = false;
             painelGrid.Visible = true;
-            btnVoltar.Visible = false;
             btnNovaOrdemServico.Visible = true;
             lblResp.Text = string.Empty;
             ddlVeiculo.Enabled = false;
@@ -166,7 +165,6 @@ namespace Site.Administrador
             painelGrid.Visible = false;
             btnNovaOrdemServico.Visible = false;
             lblResp.Text = string.Empty;
-            btnVoltar.Visible = true;
         }
 
         protected void btnVoltar_Click(object sender, EventArgs e)
@@ -176,7 +174,6 @@ namespace Site.Administrador
                 painelGrid.Visible = true;
                 painelCadastro.Visible = false;
                 btnNovaOrdemServico.Visible = true;
-                btnVoltar.Visible = false;
                 lblResp.Text = string.Empty;
                 ddlVeiculo.Enabled = false;
                 painelVeiculos.Visible = false;
