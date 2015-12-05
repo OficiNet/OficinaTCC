@@ -13,13 +13,22 @@ namespace Site.Cliente {
     public partial class Acesso_Cliente {
         
         /// <summary>
-        /// CPFCNPJ control.
+        /// painelCPFCNPJ control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox CPFCNPJ;
+        protected global::System.Web.UI.WebControls.Panel painelCPFCNPJ;
+        
+        /// <summary>
+        /// txtCPFCNPJ control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCPFCNPJ;
         
         /// <summary>
         /// btnPesquisar control.
@@ -31,12 +40,39 @@ namespace Site.Cliente {
         protected global::System.Web.UI.HtmlControls.HtmlButton btnPesquisar;
         
         /// <summary>
-        /// UserNameRequired control.
+        /// btnVoltar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator UserNameRequired;
+        protected global::System.Web.UI.WebControls.Button btnVoltar;
+        
+        /// <summary>
+        /// painelOrdemServico control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel painelOrdemServico;
+        
+        /// <summary>
+        /// lblResp control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblResp;
+        
+        /// <summary>
+        /// gridOrdemServico control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gridOrdemServico;
     }
 }
