@@ -281,5 +281,32 @@ namespace DAL.Persistence
                 FecharConexao();
             }
         }
+
+        public List<Cliente> ListarClientesOrdemServico()
+        {
+            try
+            {
+                AbrirConexao();
+                Cmd = new SqlCommand("select distinct c.Id_Cliente, c.Nome from Tb_Cliente as c inner join Tb_Veiculo as v on c.Id_Cliente = v.FK_Id_Cliente", Con);
+                Dr = Cmd.ExecuteReader();
+                List<Cliente> lista = new List<Cliente>();
+                while (Dr.Read())
+                {
+                    Cliente c = new Cliente();
+                    c.Id_Cliente = Convert.ToInt32(Dr["Id_Cliente"]);
+                    c.Nome = Convert.ToString(Dr["Nome"]);
+                    lista.Add(c);
+                }
+                return lista;
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Erro: Ordem_ServicoDal: ListarTodos() => " + e.Message);
+            }
+            finally
+            {
+                FecharConexao();
+            }
+        }
     }
 }

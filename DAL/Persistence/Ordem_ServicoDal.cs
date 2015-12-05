@@ -106,26 +106,36 @@ namespace DAL.Persistence
             }
         }
 
-        public List<Cliente> ListarClientesOrdemServico()
+        public List<Ordem_Servico> ListarOrdemServicoPorCpf_Cnpj(string cpf_cnpj)
         {
             try
             {
                 AbrirConexao();
-                Cmd = new SqlCommand("select distinct c.Id_Cliente, c.Nome from Tb_Cliente as c inner join Tb_Veiculo as v on c.Id_Cliente = v.FK_Id_Cliente", Con);
+                Cmd = new SqlCommand("select os.Protocolo, c.Nome, os.Observacoes, os.Valor, v.Modelo, v.Placa, os._Status as Status  from Tb_Ordem_Servico as os inner join Tb_Cliente as c on c.Id_Cliente = os.FK_Id_Cliente inner join Tb_Veiculo as v on os.FK_Id_Veiculo = v.Id_Veiculo where c.CPF =@cpf_cnpj or c.CNPJ=@cpf_cnpj", Con);
+                Cmd.Parameters.AddWithValue("@cpf_cnpj", cpf_cnpj);
                 Dr = Cmd.ExecuteReader();
-                List<Cliente> lista = new List<Cliente>();
+                List<Ordem_Servico> listaOrdemServico = new List<Ordem_Servico>();
                 while (Dr.Read())
                 {
-                    Cliente c = new Cliente();
-                    c.Id_Cliente = Convert.ToInt32(Dr["Id_Cliente"]);
-                    c.Nome = Convert.ToString(Dr["Nome"]);
-                    lista.Add(c);
+                    Ordem_Servico ordem_Servico = new Ordem_Servico();
+                    ordem_Servico.Protocolo = Convert.ToInt32(Dr["Protocolo"]);
+                    ordem_Servico.Cliente = new Cliente();
+                    ordem_Servico.Cliente.Nome = Convert.ToString(Dr["Nome"]);
+                    ordem_Servico.Observacoes = Convert.ToString(Dr["Observacoes"]);
+                    ordem_Servico.Valor = Convert.ToDecimal(Dr["Valor"]);
+                    ordem_Servico.Veiculo = new Veiculo();
+                    ordem_Servico.Veiculo.Modelo = Convert.ToString(Dr["Modelo"]);
+                    ordem_Servico.Veiculo.Placa = Convert.ToString(Dr["Placa"]);
+                    ordem_Servico.Status = Convert.ToString(Dr["Status"]);
+                    ordem_Servico.Veiculo.Placa = Convert.ToString(Dr["Placa"]);
+                   
+                    listaOrdemServico.Add(ordem_Servico);
                 }
-                return lista;
+                return listaOrdemServico;
             }
             catch (Exception e)
             {
-                throw new Exception("Erro: Ordem_ServicoDal: ListarTodos() => " + e.Message);
+                throw new Exception("Erro: Ordem_ServicoDal: ListarOrdemServicoPorCpf_Cnpj(string cpf, string cnpj) => " + e.Message);
             }
             finally
             {

@@ -65,7 +65,7 @@ namespace Site.Administrador
         {
             try
             {
-                Ordem_ServicoDal d = new Ordem_ServicoDal();
+                ClienteDal d = new ClienteDal();
                 ddlClientes.DataSource = d.ListarClientesOrdemServico();
                 ddlClientes.DataTextField = "Nome"; //texto mostrado no campo
                 ddlClientes.DataValueField = "Id_Cliente"; //valor marcado no campo
