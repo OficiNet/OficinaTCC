@@ -78,15 +78,24 @@ namespace Site.Administrador
                     {
                         int id = Convert.ToInt32(lblIdVeiculo.Text);
                         VeiculoDal d = new VeiculoDal();
-                        d.Excluir(id);
+                        Ordem_ServicoDal osd = new Ordem_ServicoDal();
+                        if (osd.ExisteOrdemServico(id))
+                        {
+                            d.Excluir(id);
+                        }
+                        else
+                        {
+                            Page.ClientScript.RegisterStartupScript(this.GetType(), "toastr_message", "toastr.info('Voçê não pode excluir um cliente com ordem de Serviço vinculado.', 'OficiNet')", true);
+                        }
+                       
                     }
                 }
                 carregarVeiculos();
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "toastr_message", "toastr.success('Excluido Com Sucesso.'), 'OficiNet')", true);
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "toastr_message", "toastr.success('Excluido Com Sucesso.', 'OficiNet')", true);
             }
             catch (Exception)
             {
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "toastr_message", "toastr.error('Erro ao Excluir Veiculo.'), 'OficiNet')", true);
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "toastr_message", "toastr.error('Erro ao Excluir Veiculo.', 'OficiNet')", true);
             }
         }
 

@@ -17,3 +17,4 @@ C:\Users\Douglas_Laptop\Documents\SourceTreeOficiNet\OficiNet\OficinaTCC\DAL\bin
 C:\Users\Douglas_Laptop\Documents\SourceTreeOficiNet\OficiNet\OficinaTCC\DAL\bin\Debug\DAL.pdb
 C:\Users\Douglas_Laptop\Documents\SourceTreeOficiNet\OficiNet\OficinaTCC\DAL\obj\Debug\DAL.dll
 C:\Users\Douglas_Laptop\Documents\SourceTreeOficiNet\OficiNet\OficinaTCC\DAL\obj\Debug\DAL.pdb
+C:\Users\Douglas_Laptop\Documents\SourceTreeOficiNet\OficiNet\OficinaTCC\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache

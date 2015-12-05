@@ -142,5 +142,43 @@ namespace DAL.Persistence
                 FecharConexao();
             }
         }
+
+
+        public bool ExisteOrdemServico(int idVeiculo)
+        {
+            try
+            {
+                AbrirConexao();
+                Cmd = new SqlCommand("select os.Protocolo from Tb_Ordem_Servico as os inner join Tb_Veiculo as v on os.FK_Id_Veiculo = v.Id_Veiculo where v.Id_Veiculo = @idVeiculo", Con);
+                Cmd.Parameters.AddWithValue("@idVeiculo", idVeiculo);
+                Dr = Cmd.ExecuteReader();
+                List<Ordem_Servico> listaOrdemServico = new List<Ordem_Servico>();
+                while (Dr.Read())
+                {
+                    Ordem_Servico ordem_Servico = new Ordem_Servico();
+                    ordem_Servico.Protocolo = Convert.ToInt32(Dr["Protocolo"]);
+                    listaOrdemServico.Add(ordem_Servico);
+                }
+                if (listaOrdemServico.Count == 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+                
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Erro: Ordem_ServicoDal: ListarOrdemServicoPorCpf_Cnpj(string cpf, string cnpj) => " + e.Message);
+            }
+            finally
+            {
+                FecharConexao();
+            }
+        }
+
+
     }
 }
