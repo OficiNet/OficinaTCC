@@ -42,7 +42,7 @@ namespace DAL.Persistence
             try
             {
                 AbrirConexao();
-                Cmd = new SqlCommand("select MAX(Protocolo) as Protocolo from Tb_Ordem_Servico ", Con);
+                Cmd = new SqlCommand("select Id_Ordem_Servico, Protocolo from Tb_Ordem_Servico", Con);
                 Dr = Cmd.ExecuteReader();
                 int protocolo = 0;
                 while (Dr.Read())
@@ -54,6 +54,7 @@ namespace DAL.Persistence
                     else
                     {
                         protocolo = Convert.ToInt32(Dr["Protocolo"]);
+                        protocolo =+ Convert.ToInt32(Dr["Id_Ordem_Servico"]) + 1000;
                     }
                     protocolo++;
                 }
