@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using DAL.Entity;
 using DAL.Persistence;
-using System.Text.RegularExpressions;
 
 namespace Site.Administrador
 {
@@ -29,15 +25,16 @@ namespace Site.Administrador
                 ClienteDal d = new ClienteDal();
 
                 gridClientes.DataSource = d.ListarCliente(strWhere);
+                gridClientes.DataBind();
 
                 if (gridClientes.Rows.Count == 0)
                 {
                     Page.ClientScript.RegisterStartupScript(this.GetType(), "toastr_message", "toastr.info('Cliente não encontrado.', 'OficiNet')", true);
                 }
-                else
-                {
-                    gridClientes.DataBind();
-                }
+                //else
+                //{
+                //    gridClientes.DataBind();
+                //}
             }
             catch (Exception)
             {
@@ -93,13 +90,12 @@ namespace Site.Administrador
             }
             catch (Exception ex)
             {
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "toastr_message", "toastr.danger('Erro ao abrir a tela de atualizar.', 'OficiNet')", true);
+                throw;
             }
         }
 
         protected void Excluir_Click(object sender, EventArgs e)
         {
-
             try
             {
                 foreach (GridViewRow linha in gridClientes.Rows)

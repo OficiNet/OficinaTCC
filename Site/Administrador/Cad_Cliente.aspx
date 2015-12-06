@@ -27,7 +27,7 @@
                     </fieldset>
                 </div>
                 <br />
-                <asp:GridView ID="gridClientes" runat="server" AllowPaging="True" EnableModelValidation="True" PageSize="7" OnPageIndexChanging="gridClientes_PageIndexChanging" CssClass="ls-table ls-table-striped" AutoGenerateColumns="false">
+                <asp:GridView ID="gridClientes" runat="server" AllowPaging="True" EnableModelValidation="True" PageSize="7" OnPageIndexChanging="gridClientes_PageIndexChanging" CssClass="ls-table ls-table-striped" AutoGenerateColumns="false" EmptyDataText="Não existem registros a serem exibidos.">
                     <Columns>
                         <asp:BoundField DataField="Nome" HeaderText="Nome do Cliente" />
                         <asp:BoundField DataField="Telefone" HeaderText="Telefone" />

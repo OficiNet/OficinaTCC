@@ -167,12 +167,20 @@ function carregarformv() {
 
 function excluir() {
     carregarform();
-    document.getElementById('ContentPlaceHolder1_lblResp').innerHTML = ''
-    var r = confirm('Deseja realmente excluir ?');
+    var r = confirm('Deseja realmente excluir este cliente?');
     if (r == true) {
         return true;
     } else {
         return false;
+    }
+}
+
+function sleep(milliseconds) {
+    var start = new Date().getTime();
+    for (var i = 0; i < 1e7; i++) {
+        if ((new Date().getTime() - start) > milliseconds) {
+            break;
+        }
     }
 }
 
@@ -184,10 +192,10 @@ function validacadastro() {
     var cpf = document.getElementById('ContentPlaceHolder1_txt_Cpf_Cnpj').value;
     cpf = cpf.replace('.', '').replace('.', '').replace('-', '').replace('/', '');
     if (cpf.length == 11) {
-        document.getElementById('ContentPlaceHolder1_radioCpf_Cnpj_0').value = 'cpf';
+        document.getElementById('ContentPlaceHolder1_radioCpf_Cnpj_0').value = 'F';
     }
     else if (cpf.length == 14) {
-        document.getElementById('ContentPlaceHolder1_radioCpf_Cnpj_0').value = 'cnpj';
+        document.getElementById('ContentPlaceHolder1_radioCpf_Cnpj_0').value = 'J';
     }
 
     // VALIDA CAMPO NOME
@@ -197,7 +205,7 @@ function validacadastro() {
     //  alert(nome.length);
     if (nome.length == 0) {
         document.getElementById('ContentPlaceHolder1_txt_Nome').value = '';
-        toastr["info"]('Campo inválido', 'OficiNet');
+        toastr["info"]('Campo Nome inválido', 'OficiNet');
         flag = 'false';
         return true;
     }
@@ -212,7 +220,7 @@ function validacadastro() {
         nome = nome.replace(/\s+$/, "");
     }
     if (nome.search(/[^a-zA-Z0-9\s]/i) != -1) {
-        msg += 'Não é permitido caracteres especiais\n';
+        msg += 'Não é permitido caracteres especiais no campo Nome\n';
         nome = nome.replace(/[^a-zA-Z0-9\\s]/gi, "");
     }
     if (msg) {
@@ -408,7 +416,7 @@ function validacadastro() {
         }
     }
     if (flag == 'true') {
-        toastr["info"]('Cliente cadstrado com sucesso.', 'OficiNet');
+        toastr["success"]('Cliente cadastrado com sucesso.', 'OficiNet');
     }
     return true;
 }
@@ -416,7 +424,7 @@ function validacadastro() {
 function validarcnpjcpf() {
     var validar = document.getElementById('ContentPlaceHolder1_lblValida_cpf_cnpj').textContent;
     if (validar == 'true') {
-        toastr['info']('CPF ou CNPJ já Existe.', 'OficiNet');
+        toastr['info']('O CPF ou CNPJ já existe.', 'OficiNet');
     }
     else if (validar == 'false') {
         carregarformv();

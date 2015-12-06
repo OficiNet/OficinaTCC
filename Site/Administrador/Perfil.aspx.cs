@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 using DAL.Entity;
 using DAL.Persistence;
 using DAL.Utilidades;
@@ -44,13 +40,11 @@ namespace Site.Administrador
                 {
                     if (txt_Senha_Editar.Text == txtConfirmarSenha.Text)
                     {
-                        
                         return true;
                     }
                     else
                     {
-                        lblResp.CssClass = "ls-color-danger";
-                        lblResp.Text = "As senhas não correspondem!";
+                        Page.ClientScript.RegisterStartupScript(this.GetType(), "toastr_message", "toastr.info('As senhas não correspondem.', 'OficiNet')", true);
                         txt_Senha_Editar.Text = string.Empty;
                         txtConfirmarSenha.Text = string.Empty;
                         txt_Senha_Editar.Focus();
@@ -59,8 +53,7 @@ namespace Site.Administrador
                 }
                 else
                 {
-                    lblResp.CssClass = "ls-color-warning";
-                    lblResp.Text = "Campo Senha e/ou Confirmar Senha Vazio";
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "toastr_message", "toastr.info('Campo Senha ou Confirmar Senha vazio, preencha e tente novamente.', 'OficiNet')", true);
                     return false;
                 }
             }
@@ -97,8 +90,7 @@ namespace Site.Administrador
                     lblEmail.Text = u.Email;
                     lblNomeUsuario.Text = u.Nome_Usuario;
                     d.Editar(u);
-                    lblResp.CssClass = "ls-color-success";
-                    lblResp.Text = "Usuario " + u.Nome_Usuario + " Editado Com Sucesso.";
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "toastr_message", "toastr.success('Usuário atualizado com sucesso.', 'OficiNet')", true);
                     Session.Add("UsuarioSessao", u); 
                     carregarUsuario();
                     pnlDados.Visible = true;
@@ -115,14 +107,12 @@ namespace Site.Administrador
         {
             pnlDados.Visible = true;
             pnlEdicao.Visible = false;
-            lblResp.Text = string.Empty;
         }
 
         protected void btn_Editar_Click(object sender, EventArgs e)
         {
             pnlDados.Visible = false;
             pnlEdicao.Visible = true;
-            lblResp.Text = string.Empty;
         }
     }
 }

@@ -62,13 +62,13 @@ function validar() {
     }
     if (placa.search(/[a-z]{3}-?\d{4}/gim) != -1) { }
     else {
-        toastr['info']('Placa inválida.', 'OficiNet');
+        alert('Placa Inválida !');
         document.getElementById('ContentPlaceHolder1_txt_Placa').focus();
         return false;
     }
     if (msg) {
         document.getElementById('ContentPlaceHolder1_txt_Placa').focus();
-        toastr['info'](msg, 'OficiNet');
+        alert(msg);
         placa.value = placa;
         return false;
     }
@@ -91,7 +91,7 @@ function validar() {
     }
     if (msg) {
         document.getElementById('ContentPlaceHolder1_txt_Modelo').focus();
-        toastr['info'](msg, 'OficiNet');
+        alert(msg);
         modelo.value = modelo;
         return false;
     }
@@ -114,7 +114,7 @@ function validar() {
     }
     if (msg) {
         document.getElementById('ContentPlaceHolder1_txt_Marca').focus();
-        toastr['info'](msg, 'OficiNet');
+        alert(msg);
         marca.value = marca;
         return false;
     }
@@ -127,14 +127,15 @@ function validar() {
         return true;
     }
     else if (ano.length == 1 || ano.length == 2 || ano.length == 3) {
-        toastr['info']('Campo Ano inválido', 'OficiNet');
+        alert('Campo Ano Inválido!');
         document.getElementById('ContentPlaceHolder1_txt_Ano').focus();
         return false;
     }
 
     var ddlclientes = document.getElementById('ContentPlaceHolder1_ddlClientes').value;
     if (ddlclientes == '- Selecione -') {
-        toastr['info']('Por favor, selecione um Cliente', 'OficiNet');
+
+        alert('Por Favor, Selecione Um Cliente.');
         return false;
     }
     return true;

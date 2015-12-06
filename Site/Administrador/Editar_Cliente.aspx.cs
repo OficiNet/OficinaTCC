@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 using DAL.Entity;
 using DAL.Persistence;
+using System.Threading;
 
 namespace Site.Administrador
 {
@@ -30,13 +26,15 @@ namespace Site.Administrador
             {
                 radioSexo.SelectedValue = c.Sexo;
             }
-            if (c.CPF == null)
+            if (String.IsNullOrEmpty(c.CPF.ToString().Trim()))
             {
                 txt_Cpf_Cnpj_Editar.Text = c.CNPJ;
+                radioCpf_Cnpj.SelectedValue = "J";
             }
             else
             {
-                txt_Cpf_Cnpj_Editar.Text = c.CPF ;
+                txt_Cpf_Cnpj_Editar.Text = c.CPF;
+                radioCpf_Cnpj.SelectedValue = "F";
             }
             txt_Numero_Editar.Text = c.Endereco.Numero ;
             txt_Complemento_Editar.Text = c.Endereco.Complemento;
@@ -66,6 +64,7 @@ namespace Site.Administrador
                 cliente.Endereco.Estado = txt_Estado_Editar.Text.Trim();
                 cliente.Endereco.Logradouro = txt_Logradouro_Editar.Text.Trim();
                 d.EditarCliente(cliente);
+                Thread.Sleep(1000);
                 Response.Redirect("Cad_Cliente.aspx");
             }
             catch (Exception)

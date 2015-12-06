@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Administrador/Sistema.Master" AutoEventWireup="true" CodeBehind="Perfil.aspx.cs" Inherits="Site.Administrador.Perfil" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link href="../content/toastr.css" rel="stylesheet" />
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -11,7 +12,6 @@
         <span class="ls-ico-info"></span>Você está no <strong>Perfil do Usuário</strong>, aqui você tem os dados da sua conta.
     </div>
     <div class="container-fluid">
-        <asp:Label ID="lblResp" runat="server"></asp:Label>
         <br />
         <asp:Panel ID="pnlDados" runat="server">
             <div class="ls-form row">
@@ -86,4 +86,7 @@
             </div>
         </asp:Panel>
     </div>
+
+    <script src="../Scripts/jquery-1.6.3.js"></script>
+    <script src="../Scripts/toastr.js"></script>
 </asp:Content>

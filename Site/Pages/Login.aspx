@@ -10,6 +10,7 @@
     <link href="../Layout/css/default.css" rel="stylesheet" />
     <link href="../Layout/css/fonts.css" rel="stylesheet" type="text/css" media="all" />
     <link href="../Layout/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="../content/toastr.css" rel="stylesheet" />
 </head>
 <body>
     <script>
@@ -20,7 +21,6 @@
 
     <form id="form1" runat="server">
         <asp:Panel ID="pnlLogin" runat="server">
-            <asp:Label ID="lblResposta" runat="server" />   
             <asp:Login ID="txtLogin" runat="server" OnAuthenticate="txtLogin_Authenticate" TitleText="" UserNameLabelText="Login:" PasswordLabelText="Senha:" LoginButtonText="Entrar" FailureText="Acesso Negado!" RememberMeText="Lembrar Senha" DestinationPageUrl="~/Administrador/Principal.aspx">
                 <LayoutTemplate>
                     <div class="col-md-4 col-md-offset-4">
@@ -60,5 +60,6 @@
 
     <script src="../Layout/jquery-1.8.1.min.js"></script>
     <script src="../Layout/js/bootstrap.min.js"></script>
+    <script src="../Scripts/toastr.js"></script>
 </body>
 </html>

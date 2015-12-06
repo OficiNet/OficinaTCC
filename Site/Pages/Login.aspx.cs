@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using DAL.Entity;
 using DAL.Utilidades;
 using DAL.Persistence;
-using System.Net.Mail;
 
 namespace Site.Pages
 {
@@ -35,7 +31,8 @@ namespace Site.Pages
                 
                 if (!d.Autenticar(u))
                 {
-                    lblResposta.Text = "Login e/ou senha inválido!";  
+                    //Page.ClientScript.RegisterStartupScript(this.GetType(), "toastr_message", "toastr.danger('Login ou Senha incorretos', 'OficiNet')", true);
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "toastr_message", "alert('Login ou Senha incorretos, verifique e tente novamente.')", true);
                 }
             }
             catch (Exception ex)

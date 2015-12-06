@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using DAL.Entity;
@@ -85,17 +82,17 @@ namespace Site.Administrador
                         }
                         else
                         {
-                            Page.ClientScript.RegisterStartupScript(this.GetType(), "toastr_message", "toastr.info('Voçê não pode excluir um cliente com ordem de Serviço vinculado.', 'OficiNet')", true);
+                            Page.ClientScript.RegisterStartupScript(this.GetType(), "toastr_message", "toastr.info('Você não pode excluir o veículo de um cliente que possui ordem de Serviço.', 'OficiNet')", true);
                         }
                        
                     }
                 }
                 carregarVeiculos();
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "toastr_message", "toastr.success('Excluido Com Sucesso.', 'OficiNet')", true);
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "toastr_message", "toastr.success('Veículo excluido com sucesso.', 'OficiNet')", true);
             }
             catch (Exception)
             {
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "toastr_message", "toastr.error('Erro ao Excluir Veiculo.', 'OficiNet')", true);
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "toastr_message", "toastr.error('Erro ao excluir veiculo.', 'OficiNet')", true);
             }
         }
 
@@ -103,7 +100,6 @@ namespace Site.Administrador
         {
             try
             {
-                lblResposta.Text = string.Empty;
                 DAL.Entity.Veiculo v = new DAL.Entity.Veiculo();
                 v.Marca = txt_Marca.Text;
                 v.Modelo = txt_Modelo.Text;
@@ -112,12 +108,17 @@ namespace Site.Administrador
                 v.Cliente = new DAL.Entity.Cliente();
                 v.Cliente.Id_Cliente = Convert.ToInt32(ddlClientes.SelectedValue);
                 VeiculoDal d = new VeiculoDal();
-                string placa = txt_Placa.Text;;
-                if (d.BuscarPelaPlaca(txt_Placa.Text))
+                string placa = txt_Placa.Text;
+                if (placa.Length < 7)
                 {
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "toastr_message", "toastr.info('Placa " + placa + " já existe.'), 'OficiNet')", true);
+                    txt_Placa.Focus();
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "toastr_message", "toastr.info('A Placa precisa conter 3 letras e 4 números.', 'OficiNet')", true);
+                }
+                else if (d.BuscarPelaPlaca(txt_Placa.Text))
+                {
                     txt_Placa.Text = string.Empty; 
                     txt_Placa.Focus();
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "toastr_message", "toastr.info('Esta placa já existe em outro cadastro.', 'OficiNet')", true);
                 }
                 else
                 {
@@ -143,16 +144,27 @@ namespace Site.Administrador
                 v.Id_Veiculo = Convert.ToInt32(txt_Id_Veiculo.Text);
                 v.Marca = txt_Marca.Text;
                 v.Modelo = txt_Modelo.Text;
-                v.Placa = txt_Placa.Text;
                 v.Ano = txt_Ano.Text;
                 v.Cliente = new DAL.Entity.Cliente();
                 string idCliente = ddlClientes.SelectedValue.ToString();
-                v.Cliente.Id_Cliente =  Convert.ToInt32(idCliente);
-                d.EditarVeiculo(v);
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "toastr_message", "toastr.success('Cliente editado com sucesso.', 'OficiNet')", true);
-                painelCadastro.Visible = false;
-                painelGrid.Visible = true;
-                carregarVeiculos();
+                v.Cliente.Id_Cliente = Convert.ToInt32(idCliente);
+                v.Placa = txt_Placa.Text;
+                if (d.BuscarPelaPlaca(txt_Placa.Text))
+                {
+                    v.Placa = String.Empty;
+                    txt_Placa.Text = string.Empty;
+                    txt_Placa.Focus();
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "toastr_message", "toastr.info('Esta placa já existe em outro cadastro.', 'OficiNet')", true);
+                }
+                else
+                {
+                    v.Placa = txt_Placa.Text;
+                    d.EditarVeiculo(v);
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "toastr_message", "toastr.success('Veículo atualizado com sucesso.', 'OficiNet')", true);
+                    painelCadastro.Visible = false;
+                    painelGrid.Visible = true;
+                    carregarVeiculos();
+                }
             }
             catch (Exception ex)
             {
@@ -206,7 +218,6 @@ namespace Site.Administrador
         {
             try
             {
-                lblResposta.Text = string.Empty;
                 painelGrid.Visible = true;
                 painelCadastro.Visible = false;
                 carregarClientes();

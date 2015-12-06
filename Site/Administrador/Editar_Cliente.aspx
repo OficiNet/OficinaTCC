@@ -3,8 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <script src="../Layout/Javascript_Paginas/JS_Editar_Cliente.js"></script>
-    <div class="container">
+    <div class="container-fluid">
         <div class="ls-form ls-form-horizontal row">
             <fieldset>
                 <asp:TextBox ID="txt_Id_Cliente_Editar" runat="server" Visible="false" />
@@ -25,12 +24,12 @@
                             <asp:ListItem Text="Feminino" Value="F"></asp:ListItem>
                         </asp:RadioButtonList>
                     </label>
-                    <label class="ls-label-text col-xs-3">
+                    <label class="ls-label-text col-xs-3 ls-form-disable">
                         <strong>
                             <asp:Label ID="lblTipoPessoa" runat="server" meta:resourceKey="lblTipoPessoa" Text="Tipo Pessoa:" CssClass="ls-label-text" /></strong>
                         <asp:RadioButtonList ID="radioCpf_Cnpj" runat="server" RepeatDirection="Horizontal" CellSpacing="15" CssClass="ls-field-radio">
-                            <asp:ListItem Text="CPF" Value="cpf" Selected="True"></asp:ListItem>
-                            <asp:ListItem Text="CNPJ" Value="cnpj"></asp:ListItem>
+                            <asp:ListItem Text="CPF" Value="F" Selected="True"></asp:ListItem>
+                            <asp:ListItem Text="CNPJ" Value="J"></asp:ListItem>
                         </asp:RadioButtonList>
                     </label>
                     <label class="ls-label col-xs-3">
@@ -77,4 +76,7 @@
             </fieldset>
         </div>
     </div>
+
+    <script src="../Layout/jquery-1.8.1.min.js"></script>
+    <script src="../Layout/Javascript_Paginas/JS_Editar_Cliente.js"></script>
 </asp:Content>
