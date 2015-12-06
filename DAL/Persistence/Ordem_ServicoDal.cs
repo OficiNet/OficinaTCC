@@ -74,7 +74,7 @@ namespace DAL.Persistence
             try
             {
                 AbrirConexao();
-                Cmd = new SqlCommand("select * from Tb_Ordem_Servico as os inner join  Tb_Veiculo as v on os.FK_Id_Veiculo = v.Id_Veiculo inner join Tb_Cliente as c on os.FK_Id_Cliente = c.Id_Cliente", Con);
+                Cmd = new SqlCommand("select *,os._Status as Status from Tb_Ordem_Servico as os inner join  Tb_Veiculo as v on os.FK_Id_Veiculo = v.Id_Veiculo inner join Tb_Cliente as c on os.FK_Id_Cliente = c.Id_Cliente", Con);
                 Dr = Cmd.ExecuteReader();
                 List<Ordem_Servico> listaOrdemServico = new List<Ordem_Servico>();
                 while (Dr.Read())
@@ -91,7 +91,7 @@ namespace DAL.Persistence
                     ordem_Servico.Cliente.Nome = Convert.ToString(Dr["Nome"]);
                     ordem_Servico.Veiculo = new Veiculo();
                     ordem_Servico.Veiculo.Placa = Convert.ToString(Dr["Placa"]);
-                    ordem_Servico.Veiculo.Marca = Convert.ToString(Dr["Marca"]);
+                    ordem_Servico.Veiculo.Modelo = Convert.ToString(Dr["Modelo"]);
                     listaOrdemServico.Add(ordem_Servico);
                 }
                 return listaOrdemServico;

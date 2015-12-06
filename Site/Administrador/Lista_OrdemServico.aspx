@@ -16,7 +16,30 @@
             <asp:Button ID="btnNovaOrdemServico" CssClass="ls-btn-primary" runat="server" Text="Criar Ordem de Serviço" OnClick="NovaOrdemServico_Click" />
         </div>
         <asp:Panel ID="painelGrid" runat="server">
-            <asp:GridView ID="gridOrdemServico" runat="server" CssClass="ls-table ls-table-striped"></asp:GridView>
+            <asp:GridView ID="gridOrdemServico" runat="server" AllowPaging="True" EnableModelValidation="True" PageSize="7" OnPageIndexChanging="gridOrdemServico_PageIndexChanging" CssClass="ls-table ls-table-striped" AutoGenerateColumns="false">
+                    <Columns>
+                        <asp:BoundField DataField="Protocolo" HeaderText="Protocolo" />
+                        <asp:TemplateField HeaderText="Data do Cadastro">
+                            <ItemTemplate>
+                                <%# Eval("DataCadastro", "{0:dd/MM/yyyy}") %>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:BoundField DataField="Cliente.Nome" HeaderText="Nome" />
+                        <asp:BoundField DataField="Veiculo.Placa" HeaderText="Placa" />
+                        <asp:BoundField DataField="Veiculo.Modelo" HeaderText="Modelo" />
+                        <asp:BoundField DataField="Valor" HeaderText="Valor" />
+                        <asp:BoundField DataField="Status" HeaderText="Status" />
+                        <%--<asp:TemplateField HeaderText="">
+                            <ItemTemplate>
+                                <center>
+                                    <asp:Button CssClass="ls-btn-danger ls-btn-xs" ID="btnExcuirCampo" runat="server" Text="Excluir" OnClientClick="return excluir();" OnClick="Excluir_Click" />
+                                    <asp:Button CssClass="ls-btn-default ls-btn-xs" ID="btnAtualizar" runat="server" Text="Atualizar" OnClientClick="return carregarform();" OnClick="btnGridAtualizar_Click" />
+                                    <asp:Label ID="lblIdCliente"  runat="server" Text='<%# Eval("Id_Cliente") %>' Visible="false" />
+                                </center>
+                            </ItemTemplate>
+                        </asp:TemplateField>--%>
+                    </Columns>
+                </asp:GridView>
         </asp:Panel>
         <asp:Panel ID="painelCadastro" runat="server">
             <div class="ls-form ls-form-horizontal row">

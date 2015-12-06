@@ -34,6 +34,20 @@ namespace Site.Administrador
             }
         }
 
+        protected void gridOrdemServico_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            try
+            {
+                gridOrdemServico.PageIndex = e.NewPageIndex;
+                carregarOrdemServico();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         private void carregarVeiculos()
         {
             try
