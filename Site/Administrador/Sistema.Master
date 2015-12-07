@@ -52,7 +52,7 @@
         <aside class="ls-sidebar">
             <!-- Defails of user account -->
             <div data-ls-module="dropdown" class="ls-dropdown ls-user-account">
-                <a href="#" class="ls-ico-user">Bem Vindo <small>(Usuário)</small></a>
+                <a href="#" class="ls-ico-user">Bem Vindo <small><asp:Label ID="lblNomeUsuario2" runat="server" /></small></a>
                 <nav class="ls-dropdown-nav ls-user-menu">
                         <ul>
                             <li><a href="Perfil.aspx">Conta</a></li>

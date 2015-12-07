@@ -13,7 +13,8 @@ namespace Site.Administrador
                 Usuario u = ((Usuario)Session["UsuarioSessao"]);
                 if (u != null)
                 {
-                    lblNomeUsuario.Text = u.Nome_Usuario;    
+                    lblNomeUsuario.Text = u.Nome_Usuario;
+                    lblNomeUsuario2.Text = u.Nome_Usuario;
                 }  
             }
         }

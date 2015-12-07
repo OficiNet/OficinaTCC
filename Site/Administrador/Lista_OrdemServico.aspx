@@ -5,7 +5,6 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <script src="../Layout/Javascript_Paginas/JS_Lista_OrdemServico.js"></script>
     <h1 class="ls-title-intro ls-ico-windows">Listagem de Ordem de Serviços</h1>
     <div class="ls-alert-box-success ls-alert-success ls-dismissable ls-sm-space">
         <span data-ls-module="dismiss" class="ls-dismiss">&times;</span>
@@ -120,4 +119,5 @@
 
     <script src="../Scripts/jquery-1.6.3.js"></script>
     <script src="../Scripts/toastr.js"></script>
+    <script src="../Layout/Javascript_Paginas/JS_Lista_OrdemServico.js"></script>
 </asp:Content>

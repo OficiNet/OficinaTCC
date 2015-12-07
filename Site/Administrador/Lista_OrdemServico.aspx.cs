@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using DAL.Persistence;
@@ -43,7 +40,6 @@ namespace Site.Administrador
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
@@ -122,7 +118,7 @@ namespace Site.Administrador
                     txt_Protocolo.Text = protocolo.ToString();
                     txt_DataCadastro.Text = DateTime.Now.ToString("dd/MM/yyyy");
                     MostarPainelCadastro();
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "toastr_message", "toastr.danger('Selecione Um Cliente e Veiculo.', 'OficiNet')", true);
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "toastr_message", "toastr.info('Selecione o Cliente e o Veiculo.', 'OficiNet')", true);
                 }
                 else
                 {
