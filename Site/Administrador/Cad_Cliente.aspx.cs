@@ -247,7 +247,7 @@ namespace Site.Administrador
                         cliente.Endereco.Logradouro = txt_logradouro.Text.Trim();
                         d.SalvarCliente(cliente);
                         Page.ClientScript.RegisterStartupScript(this.GetType(), "toastr_message", "toastr.info('Cadastrado com sucesso.', 'OficiNet')", true);
-                        Thread.Sleep(1000);
+                        Thread.Sleep(2000);
                         painelCadastro.Visible = false;
                         CarregarClientes();
                         painel_Grid.Visible = true;
