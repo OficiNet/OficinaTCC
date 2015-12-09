@@ -13,13 +13,13 @@ namespace Site.Administrador {
     public partial class Cad_Cliente {
         
         /// <summary>
-        /// painelGrid control.
+        /// painel_Grid control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel painelGrid;
+        protected global::System.Web.UI.WebControls.Panel painel_Grid;
         
         /// <summary>
         /// lblPesqNomeCliente control.
@@ -49,6 +49,15 @@ namespace Site.Administrador {
         protected global::System.Web.UI.WebControls.Button btnListarClientes;
         
         /// <summary>
+        /// btnNovoCliente control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnNovoCliente;
+        
+        /// <summary>
         /// gridClientes control.
         /// </summary>
         /// <remarks>
@@ -56,6 +65,33 @@ namespace Site.Administrador {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gridClientes;
+        
+        /// <summary>
+        /// lblResp control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblResp;
+        
+        /// <summary>
+        /// painel_cpf_cnpj control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel painel_cpf_cnpj;
+        
+        /// <summary>
+        /// painelcpfcnpj control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl painelcpfcnpj;
         
         /// <summary>
         /// lblVerificarCpfCnpj control.

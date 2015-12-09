@@ -12,8 +12,12 @@
         <span class="ls-ico-info"></span>Você está na àrea de <strong>Cadastro de Clientes</strong>, aqui você pode Cadastrar, Editar e Excluir seus clientes.
     </div>
     <div class="container-fluid">
+
+
+
+        <asp:Panel ID="painel_Grid" runat="server" >
         <div id="painelgrid">
-            <asp:Panel ID="painelGrid" runat="server" Visible="true">
+            
                 <div class="ls-form ls-form-inline">
                     <fieldset>
                         <label class="ls-label col-xs-6">
@@ -22,7 +26,8 @@
                         </label>
                         <div class="ls-actions-btn">
                             <asp:Button ID="btnListarClientes" OnClientClick="return carregarformpesq();" OnClick="ListarClientes" runat="server" Text="Pesquisar" CssClass="ls-btn-primary" />
-                            <button id="btnNovoCliente" class="ls-btn-sucess" onclick="javascript: newcliente();">Novo Cliente</button>
+                    
+                            <asp:Button ID="btnNovoCliente" CssClass="ls-btn-sucess" runat="server" Text="Novo Cliente" OnClientClick="newcliente();"  OnClick="btnNovoCliente_Click"/>
                         </div>
                     </fieldset>
                 </div>
@@ -46,28 +51,42 @@
                         </asp:TemplateField>
                     </Columns>
                 </asp:GridView>
+            
+        </div>
             </asp:Panel>
-        </div>
-        <div id="painelcpfcnpj" style="display: none;">
-            <fieldset>
-                <div class="row">
-                    <label class="ls-label col-xs-12">
-                        <asp:Label ID="lblVerificarCpfCnpj" runat="server" meta:resourceKey="lblVerificarCpfCnpj" Text="Digite seu CPF ou CNPJ:" CssClass="ls-label-text" />
-                        <input id="txtValidarCpfCnpj" name='txtValidarCpfCnpj' class="ls-label-text" runat="server" maxlength="18" onkeyup="mascaraMutuario(this,cpfCnpj);" onblur='clearTimeout();' onkeypress='' required="required" />
-                        <br />
-                        <div style="display: none;">
-                            <asp:Label ID="lblValida_cpf_cnpj" runat="server" CssClass="ls-label-text" />
-                        </div>
-                        <br />
-                        <asp:Button ID="btnValidar" Text="Validar" runat="server" OnClientClick="return carregarformv();" OnClick="btnValidar_Click" CssClass="ls-btn-primary" />
-                        <asp:Button ID="btnVoltar" CssClass="ls-btn-logout" Text="Voltar" runat="server" OnClientClick="return voltar();" OnClick="btnVoltar_Click" />
-                    </label>
-                </div>
-            </fieldset>
-        </div>
-        <div id="painelcadastro" style="display: none;">
+        <asp:Label ID="lblResp"  runat="server" Visible="false" />
+
+
+
+
+        <asp:Panel ID="painel_cpf_cnpj" runat="server">
+            <div id="painelcpfcnpj" runat="server" >
+                <fieldset>
+                    <div class="row">
+                        <label class="ls-label col-xs-12">
+                            <asp:Label ID="lblVerificarCpfCnpj" runat="server" meta:resourceKey="lblVerificarCpfCnpj" Text="Digite seu CPF ou CNPJ:" CssClass="ls-label-text" />
+                            <input id="txtValidarCpfCnpj" name='txtValidarCpfCnpj' class="ls-label-text" runat="server" maxlength="18" onkeyup="mascaraMutuario(this,cpfCnpj);" onblur='clearTimeout();' onkeypress=''  />
+                            <br />
+                            
+                                <asp:Label ID="lblValida_cpf_cnpj" runat="server" CssClass="ls-label-text" />
+                           
+                            <br />
+                            <asp:Button ID="btnValidar" Text="Validar" runat="server" OnClientClick="return carregarformv();" OnClick="btnValidar_Click" CssClass="ls-btn-primary" />
+                            <asp:Button ID="btnVoltar" CssClass="ls-btn-logout" Text="Voltar" runat="server" OnClientClick="return voltar();" OnClick="btnVoltar_Click" />
+                        </label>
+                    </div>
+                </fieldset>
+            </div>
+        </asp:Panel>
+
+
+
+        <div id="painelcadastro">
+
+
+
             <%-- PAINEL DE CADASTRO --%>
-            <asp:Panel ID="painelCadastro" runat="server" Visible="true">
+            <asp:Panel ID="painelCadastro" runat="server">
                 <div class="ls-form ls-form-horizontal row">
                     <fieldset>
                         <div class="row">
@@ -131,7 +150,7 @@
                             </label>
                         </div>
                         <div class="ls-actions-btn">
-                            <asp:Button ID="btn_Cadastrar_Cliente" Text="Gravar" runat="server" OnClientClick="return validacadastro();" OnClick="btn_Cadastrar_Cliente_Click" CssClass="ls-btn-primary" />
+                            <asp:Button ID="btn_Cadastrar_Cliente" Text="Gravar" runat="server" OnClientClick="validacadastro();" OnClick="btn_Cadastrar_Cliente_Click" CssClass="ls-btn-primary" />
                             <asp:Button ID="Button1" CssClass="ls-btn-logout" Text="Voltar" runat="server" OnClientClick="return voltar();" OnClick="btnVoltar_Click" />
                         </div>
                     </fieldset>

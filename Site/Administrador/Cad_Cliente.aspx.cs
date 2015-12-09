@@ -3,6 +3,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using DAL.Entity;
 using DAL.Persistence;
+using System.Threading;
 
 namespace Site.Administrador
 {
@@ -12,6 +13,8 @@ namespace Site.Administrador
         {
             if (!IsPostBack)
             {
+
+
                 CarregarClientes();
             }
         }
@@ -50,6 +53,10 @@ namespace Site.Administrador
                 ClienteDal d = new ClienteDal();
                 gridClientes.DataSource = d.ListarTodos();
                 gridClientes.DataBind();
+                painel_cpf_cnpj.Visible = false;
+                painel_Grid.Visible = true;
+                painelCadastro.Visible = false;
+
             }
             catch (Exception)
             {
@@ -199,8 +206,7 @@ namespace Site.Administrador
             return cnpj.EndsWith(digito);
         }
 
-        protected void valida_Click(object sender, EventArgs e)
-        { Response.Redirect(Request.Url.ToString()); }
+
 
         protected void btn_Cadastrar_Cliente_Click(object sender, EventArgs e)
         {
@@ -210,55 +216,92 @@ namespace Site.Administrador
                 DAL.Entity.Cliente cliente = new DAL.Entity.Cliente();
                 ClienteDal d = new ClienteDal();
                 cliente.Nome = txt_Nome.Text.Trim();
-                cliente.Telefone = txt_Telefone.Text.Trim();
-                cliente.DataCadastro = DateTime.Now;
-                cliente.Sexo = radioSexo.SelectedValue;
-
-                //validar cnpj ou cpf
-                if (validaCpf(txt_Cpf_Cnpj.Value) || validaCnpj(txt_Cpf_Cnpj.Value))
+                string telefone = txt_Telefone.Text.Trim();
+                telefone = telefone.Replace("(", "");
+                telefone = telefone.Replace(")", "");
+                telefone = telefone.Replace("-", "");
+                telefone = telefone.Replace(" ", "");
+                if (telefone.Length == 11 || telefone.Length == 10)
                 {
-                    //verificar se e pessoa fisica ou juridica
-                    if (radioCpf_Cnpj.SelectedValue.Equals("cnpj"))
+                    cliente.Telefone = txt_Telefone.Text.Trim();
+                    cliente.DataCadastro = DateTime.Now;
+                    cliente.Sexo = radioSexo.SelectedValue;
+
+                    //validar cnpj ou cpf
+                    if (validaCpf(txt_Cpf_Cnpj.Value) || validaCnpj(txt_Cpf_Cnpj.Value))
                     {
-                        cliente.CPF = "";
-                        string cnpj = txt_Cpf_Cnpj.Value;
-                        cliente.CNPJ = cnpj; ;
-                        cliente.Tipo_Pessoa = 'J';
+                        //verificar se e pessoa fisica ou juridica
+                        if (radioCpf_Cnpj.SelectedValue.Equals("cnpj"))
+                        {
+                            cliente.CPF = "";
+                            string cnpj = txt_Cpf_Cnpj.Value;
+                            cliente.CNPJ = cnpj; ;
+                            cliente.Tipo_Pessoa = 'J';
+                        }
+                        else
+                        {
+                            cliente.CNPJ = "";
+                            string cpf = txt_Cpf_Cnpj.Value;
+                            cliente.CPF = cpf;
+                            cliente.Tipo_Pessoa = 'F';
+                        }
+
+                        cliente.Endereco = new Endereco();
+                        cliente.Endereco.Complemento = txt_Complemento.Text.Trim();
+                        cliente.Endereco.Numero = txt_Numero.Text.Trim();
+                        cliente.Endereco.Bairro = txt_Bairro.Text.Trim();
+                        cliente.Endereco.Cidade = txt_Cidade.Text.Trim();
+                        cliente.Endereco.Estado = txt_Estado.Text.Trim();
+                        cliente.Endereco.Logradouro = txt_logradouro.Text.Trim();
+
+                        d.SalvarCliente(cliente);
+                        Page.ClientScript.RegisterStartupScript(this.GetType(), "toastr_message", "toastr.info('Cadastrado com sucesso.', 'OficiNet')", true);
+
+                        Thread.Sleep(1000);
+                        painelCadastro.Visible = false;
+                        CarregarClientes();
+                        painel_Grid.Visible = true;
+
+                        txt_Numero.Text = string.Empty;
+                        txt_Bairro.Text = string.Empty;
+                        txt_Cidade.Text = string.Empty;
+                        txt_Estado.Text = string.Empty;
+                        txt_Nome.Text = string.Empty;
+                        txt_Telefone.Text = string.Empty;
+
+
+
+                        painel_cpf_cnpj.Visible = false;
+
+                        //lblResp.Text = "return alert('teste')";
+                        // Response.Redirect(Request.Url.ToString());
+
+
+
+
                     }
                     else
                     {
-                        cliente.CNPJ = "";
-                        string cpf = txt_Cpf_Cnpj.Value;
-                        cliente.CPF = cpf;
-                        cliente.Tipo_Pessoa = 'F';
+                        //Page.ClientScript.RegisterStartupScript(this.GetType(), "toastr_message", "toastr.danger('CPF ou CNPJ inválido.', 'OficiNet')", true);
+                        //Response.Redirect(Request.Url.ToString());
+                        Page.ClientScript.RegisterStartupScript(this.GetType(), "toastr_message", "toastr.info('O CPF ou CNPJ já existe.', 'OficiNet')", true); Page.ClientScript.RegisterStartupScript(this.GetType(), "toastr_message", "toastr.info('Cadastrado com sucesso.', 'OficiNet')", true);
+                        Thread.Sleep(1000);
+                        txt_Telefone.Focus();
                     }
-
-                    cliente.Endereco = new Endereco();
-                    cliente.Endereco.Complemento = txt_Complemento.Text.Trim();
-                    cliente.Endereco.Numero = txt_Numero.Text.Trim();
-                    cliente.Endereco.Bairro = txt_Bairro.Text.Trim();
-                    cliente.Endereco.Cidade = txt_Cidade.Text.Trim();
-                    cliente.Endereco.Estado = txt_Estado.Text.Trim();
-                    cliente.Endereco.Logradouro = txt_logradouro.Text.Trim();
-
-                    d.SalvarCliente(cliente);
-                    painelCadastro.Visible = false;
-                    CarregarClientes();
-                    painelGrid.Visible = true;
-
-                    txt_Numero.Text = string.Empty;
-                    txt_Bairro.Text = string.Empty;
-                    txt_Cidade.Text = string.Empty;
-                    txt_Estado.Text = string.Empty;
-                    txt_Nome.Text = string.Empty;
-                    txt_Telefone.Text = string.Empty;
-                    Response.Redirect(Request.Url.ToString());
                 }
                 else
                 {
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "toastr_message", "toastr.danger('CPF ou CNPJ inválido.', 'OficiNet')", true);
-                    txt_Cpf_Cnpj.Focus();
+                    //Page.ClientScript.RegisterStartupScript(this.GetType(), "toastr_message", "toastr.info('Telefone Inválido', 'OficiNet')", true);
+                   
+                    txt_Telefone.Text = string.Empty;
+                    txt_Telefone.Focus();
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "toastr_message", "toastr.info('O CPF ou CNPJ já existe.', 'OficiNet')", true);
+                    Thread.Sleep(1000);
+                    
                 }
+
+
+                
             }
             catch (Exception)
             {
@@ -266,18 +309,7 @@ namespace Site.Administrador
             }
         }
 
-        protected void btnNovoCliente_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                painelCadastro.Visible = true;
-                painelGrid.Visible = false;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
+
 
         protected void btnValidar_Click(object sender, EventArgs e)
         {
@@ -285,22 +317,42 @@ namespace Site.Administrador
             {
                 ClienteDal d = new ClienteDal();
 
-
                 if (validaCpf(txtValidarCpfCnpj.Value) || validaCnpj(txtValidarCpfCnpj.Value))
                 {
 
                     if (!d.Verificar_Cpf_Cnpj(txtValidarCpfCnpj.Value))
                     {
-                        lblValida_cpf_cnpj.Text = "true";
+                        // lblValida_cpf_cnpj.Visible = false;
+                        //  lblValida_cpf_cnpj.Text = "true";
+
+                        //Page.ClientScript.RegisterStartupScript(this.GetType(), "toastr_message", "toastr.danger('O CPF ou CNPJ já existe.', 'OficiNet')", true);
+                        Page.ClientScript.RegisterStartupScript(this.GetType(), "toastr_message", "toastr.info('O CPF ou CNPJ já existe.', 'OficiNet')", true);
+                        Thread.Sleep(1000);
                     }
                     else
                     {
-                        lblValida_cpf_cnpj.Text = "false";
+                        // lblValida_cpf_cnpj.Text = "false";
+
+                        painelCadastro.Visible = true;
+                        painel_Grid.Visible = false;
+                        painel_cpf_cnpj.Visible = false;
+                        txt_Cpf_Cnpj.Value = txtValidarCpfCnpj.Value;
+                        txt_Numero.Text = string.Empty;
+                        txt_Bairro.Text = string.Empty;
+                        txt_Cidade.Text = string.Empty;
+                        txt_Estado.Text = string.Empty;
+                        txt_Nome.Text = string.Empty;
+                        txt_Telefone.Text = string.Empty;
+                        txt_logradouro.Text = string.Empty;
+                        txt_Complemento.Text = string.Empty;
                     }
                 }
                 else
                 {
-                    lblValida_cpf_cnpj.Text = "invalido";
+                    // lblValida_cpf_cnpj.Text = "invalido";
+                    //Page.ClientScript.RegisterStartupScript(this.GetType(), "toastr_message", "toastr.danger('CPF ou CNPJ inválido.', 'OficiNet')", true);
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "toastr_message", "toastr.info('CPF ou CNPJ inválido.', 'OficiNet')", true);
+                    Thread.Sleep(1000);
                 }
             }
             catch (Exception)
@@ -313,13 +365,31 @@ namespace Site.Administrador
         {
             try
             {
-                lblVerificarCpfCnpj.Text = "";
-                Response.Redirect(Request.Url.ToString());
+                CarregarClientes();
+                painelCadastro.Visible = false;
+                painel_Grid.Visible = true;
+                painel_cpf_cnpj.Visible = false;
+                txtValidarCpfCnpj.Value = string.Empty;
+                txt_Numero.Text = string.Empty;
+                txt_Bairro.Text = string.Empty;
+                txt_Cidade.Text = string.Empty;
+                txt_Estado.Text = string.Empty;
+                txt_Nome.Text = string.Empty;
+                txt_Telefone.Text = string.Empty;
+                txt_logradouro.Text = string.Empty;
+                txt_Complemento.Text = string.Empty;
             }
             catch (Exception)
             {
                 throw;
             }
+        }
+
+        protected void btnNovoCliente_Click(object sender, EventArgs e)
+        {
+            painelCadastro.Visible = false;
+            painel_Grid.Visible = false;
+            painel_cpf_cnpj.Visible = true;
         }
     }
 }

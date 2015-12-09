@@ -62,40 +62,73 @@ function cpfCnpj(v) {
 /* -----  FIM VALIDA CPF CNPJ ----- */
 
 function voltar() {
-    document.getElementById('ContentPlaceHolder1_txt_Nome').value = 'a';
-    document.getElementById('ContentPlaceHolder1_txt_Telefone').value = '(22)23234-3435';
-    document.getElementById('ContentPlaceHolder1_txt_Cpf_Cnpj').value = '85.419.246/0001-55';
-    document.getElementById('ContentPlaceHolder1_txt_Complemento').value = 'a';
-    document.getElementById('ContentPlaceHolder1_txt_Numero').value = 'a';
-    document.getElementById('ContentPlaceHolder1_txt_Bairro').value = 'a';
-    document.getElementById('ContentPlaceHolder1_txt_Cidade').value = 'a';
-    document.getElementById('ContentPlaceHolder1_txt_Estado').value = 'a';
-    document.getElementById('ContentPlaceHolder1_txt_logradouro').value = 'a';
-    document.getElementById('ContentPlaceHolder1_txtValidarCpfCnpj').value = '85.419.246/0001-55';
-    document.getElementById('ContentPlaceHolder1_lblValida_cpf_cnpj').innerHTML = '';
-    r = document.getElementById('ContentPlaceHolder1_lblValida_cpf_cnpj').innerHTML;
-    document.getElementById('painelcadastro').style.display = 'none';
-    document.getElementById('painelcpfcnpj').style.display = 'none';
-    document.getElementById('painelgrid').style.display = 'block';
+   
+    //document.getElementById('ContentPlaceHolder1_txt_Nome').value = 'a';
+    document.getElementById('ContentPlaceHolder1_txt_Nome').value = ' ';
+   // document.getElementById('ContentPlaceHolder1_txt_Telefone').value = '(22)23234-3435';
+    document.getElementById('ContentPlaceHolder1_txt_Telefone').value = ' ';
+    //document.getElementById('ContentPlaceHolder1_txt_Cpf_Cnpj').value = '85.419.246/0001-55';
+    document.getElementById('ContentPlaceHolder1_txt_Cpf_Cnpj').value = ' ';
+    //document.getElementById('ContentPlaceHolder1_txt_Complemento').value = 'a';
+    document.getElementById('ContentPlaceHolder1_txt_Complemento').value = ' ';
+    document.getElementById('ContentPlaceHolder1_txt_Numero').value = ' ';
+    document.getElementById('ContentPlaceHolder1_txt_Bairro').value = ' ';
+    document.getElementById('ContentPlaceHolder1_txt_Cidade').value = ' ';
+    document.getElementById('ContentPlaceHolder1_txt_Estado').value = ' ';
+    document.getElementById('ContentPlaceHolder1_txt_logradouro').value = ' ';
+    //document.getElementById('ContentPlaceHolder1_txtValidarCpfCnpj').value = '85.419.246/0001-55';
+    document.getElementById('ContentPlaceHolder1_txtValidarCpfCnpj').value = ' ';
+    document.getElementById('ContentPlaceHolder1_txtValidarCpfCnpj').value = ' ';
+   //document.getElementById('ContentPlaceHolder1_lblValida_cpf_cnpj').innerHTML = ' ';
+   // r = document.getElementById('ContentPlaceHolder1_lblValida_cpf_cnpj').innerHTML;
+    //document.getElementById('painelcadastro').style.display = 'none';
+    //document.getElementById('painelcpfcnpj').style.display = 'none';
+    //document.getElementById('painelgrid').style.display = 'block';
+    alert('teste');
     return true;
 
 }
 
 function newcliente() {
-    document.getElementById('painelcpfcnpj').style.display = 'block';
-    document.getElementById('ContentPlaceHolder1_txt_Nome').value = '';
-    document.getElementById('ContentPlaceHolder1_txt_Telefone').value = '';
-    document.getElementById('ContentPlaceHolder1_txt_Cpf_Cnpj').value = '';
-    document.getElementById('ContentPlaceHolder1_txt_Complemento').value = '';
-    document.getElementById('ContentPlaceHolder1_txt_Numero').value = '';
-    document.getElementById('ContentPlaceHolder1_txt_Bairro').value = '';
-    document.getElementById('ContentPlaceHolder1_txt_Cidade').value = '';
-    document.getElementById('ContentPlaceHolder1_txt_Estado').value = '';
-    document.getElementById('ContentPlaceHolder1_txt_logradouro').value = '';
+   
+
+   // document.getElementById('painelcpfcnpj').style.display = 'block';
+    
+    
+    document.getElementById('ContentPlaceHolder1_txt_Nome').value = ' ';
+   
+    document.getElementById('ContentPlaceHolder1_txt_Telefone').value = ' ';
+    
+    document.getElementById('ContentPlaceHolder1_txt_Cpf_Cnpj').value = ' ';
+ 
+    document.getElementById('ContentPlaceHolder1_txt_Complemento').value = ' ';
+    
+    document.getElementById('ContentPlaceHolder1_txt_Numero').value = ' ';
+   
+    document.getElementById('ContentPlaceHolder1_txt_Bairro').value = ' ';
+
+    document.getElementById('ContentPlaceHolder1_txt_Cidade').value = ' ';
+  
+    document.getElementById('ContentPlaceHolder1_txt_Estado').value = ' ';
+
+    document.getElementById('ContentPlaceHolder1_txt_logradouro').value = ' ';
+    
     document.getElementById('ContentPlaceHolder1_radioSexo').value = 'F';
-    document.getElementById('ContentPlaceHolder1_txtValidarCpfCnpj').value = '';
-    document.getElementById('painelcadastro').style.display = 'none';
-    document.getElementById('painelgrid').style.display = 'none';
+    document.getElementById('ContentPlaceHolder1_txtValidarCpfCnpj').value = ' ';
+
+    
+    
+   // document.getElementById('ContentPlaceHolder1_txtValidarCpfCnpj').value = '';
+    
+    
+ 
+   //document.getElementById('painelcadastro').style.display = 'none';
+   
+   // document.getElementById('painelgrid').style.display = 'none';
+
+  // alert('teste');
+   
+    return true;
 }
 
 function validacpfcnpj() {
@@ -109,15 +142,15 @@ function validacpfcnpj() {
     document.getElementById('ContentPlaceHolder1_txt_Estado').value = '';
     document.getElementById('ContentPlaceHolder1_txt_logradouro').value = '';
     document.getElementById('ContentPlaceHolder1_radioSexo').value = 'F';
-    document.getElementById('painelcadastro').style.display = 'block';
-    document.getElementById('painelgrid').style.display = 'none';
-    document.getElementById('paineleditar').style.display = 'none';
+    //document.getElementById('painelcadastro').style.display = 'block';
+    //document.getElementById('painelgrid').style.display = 'none';
+    //document.getElementById('paineleditar').style.display = 'none';
 }
 
-function exibirpainelcadastro() {
-    document.getElementById('painelgrid').style.display = 'none';
-    document.getElementById('painelcadastro').style.display = 'block';
-}
+//function exibirpainelcadastro() {
+//    document.getElementById('painelgrid').style.display = 'none';
+//    document.getElementById('painelcadastro').style.display = 'block';
+//}
 
 function carregarform() {
     document.getElementById('ContentPlaceHolder1_txt_Nome').value = 'a';
@@ -145,9 +178,10 @@ function carregarformpesq() {
     document.getElementById('ContentPlaceHolder1_txt_Estado').value = ' ';
     document.getElementById('ContentPlaceHolder1_txt_logradouro').value = ' ';
     document.getElementById('ContentPlaceHolder1_txtValidarCpfCnpj').value = '85.419.246/0001-55';
-    document.getElementById('painelgrid').style.display = 'block';
-    document.getElementById('painelcadastro').style.display = 'none';
-    document.getElementById('painelcpfcnpj').style.display = 'none';
+    
+    //document.getElementById('painelgrid').style.display = 'block';
+    //document.getElementById('painelcadastro').style.display = 'none';
+    //document.getElementById('painelcpfcnpj').style.display = 'none';
     return true;
 }
 
@@ -185,9 +219,12 @@ function sleep(milliseconds) {
 }
 
 function validacadastro() {
+
     var msg = "";
     var flag = 'true';
+
     document.getElementById('ContentPlaceHolder1_txtValidarCpfCnpj').value = ' ';
+    alert('teste');
 
     var cpf = document.getElementById('ContentPlaceHolder1_txt_Cpf_Cnpj').value;
     cpf = cpf.replace('.', '').replace('.', '').replace('-', '').replace('/', '');
@@ -197,7 +234,7 @@ function validacadastro() {
     else if (cpf.length == 14) {
         document.getElementById('ContentPlaceHolder1_radioCpf_Cnpj_0').value = 'J';
     }
-
+   
     // VALIDA CAMPO NOME
     var nome = document.getElementById('ContentPlaceHolder1_txt_Nome').value;
     nome = nome.replace(/^\s+/, "");
@@ -205,7 +242,7 @@ function validacadastro() {
     //  alert(nome.length);
     if (nome.length == 0) {
         document.getElementById('ContentPlaceHolder1_txt_Nome').value = '';
-        toastr["info"]('Campo Nome inválido', 'OficiNet');
+      // toastr["info"]('Campo Nome inválido', 'OficiNet');
         flag = 'false';
         return true;
     }
@@ -228,9 +265,8 @@ function validacadastro() {
         toastr["info"](msg, 'OficiNet');
         nome.value = nome;
         return false;
-
     }
-
+    
     // VALIDA CAMPO ENDEREÇO
     var logradouro = document.getElementById('ContentPlaceHolder1_txt_logradouro').value;
     logradouro = logradouro.replace(/^\s+/, "");
@@ -336,7 +372,7 @@ function validacadastro() {
         bairro.value = bairro;
         return false;
     }
-
+   
     // VALIDA CAMPO CIDADE
     var cidade = document.getElementById('ContentPlaceHolder1_txt_Cidade').value;
     cidade = cidade.replace(/^\s+/, "");
@@ -394,6 +430,8 @@ function validacadastro() {
         return false;
     }
 
+  
+   
     // VALIDA CAMPO TELEFONE
     var telefone = document.getElementById('ContentPlaceHolder1_txt_Telefone').value;
     telefone = telefone.replace(/[^a-zA-Z0-9\\s]/gi, "");
@@ -418,26 +456,27 @@ function validacadastro() {
     if (flag == 'true') {
         toastr["success"]('Cliente cadastrado com sucesso.', 'OficiNet');
     }
+    
     return true;
 }
 
-function validarcnpjcpf() {
-    var validar = document.getElementById('ContentPlaceHolder1_lblValida_cpf_cnpj').textContent;
-    if (validar == 'true') {
-        toastr['info']('O CPF ou CNPJ já existe.', 'OficiNet');
-    }
-    else if (validar == 'false') {
-        carregarformv();
-        exibirpainelcadastro();
-        var c = document.getElementById('ContentPlaceHolder1_txtValidarCpfCnpj').value;
-        var t = cpfCnpj(c);
-        document.getElementById('ContentPlaceHolder1_txt_Cpf_Cnpj').value = t;
-    }
-    else if (validar == 'invalido') {
-        newcliente();
-        document.getElementById('ContentPlaceHolder1_txtValidarCpfCnpj').focus();
-        toastr['info']('CPF ou CNPJ inválido.', 'OficiNet');
-    }
-}
+//function validarcnpjcpf() {
+//    var validar = document.getElementById('ContentPlaceHolder1_lblValida_cpf_cnpj').textContent;
+//    if (validar == 'true') {
+//        toastr['info']('O CPF ou CNPJ já existe.', 'OficiNet');
+//    }
+//    else if (validar == 'false') {
+//        carregarformv();
+//        exibirpainelcadastro();
+//        var c = document.getElementById('ContentPlaceHolder1_txtValidarCpfCnpj').value;
+//        var t = cpfCnpj(c);
+//        document.getElementById('ContentPlaceHolder1_txt_Cpf_Cnpj').value = t;
+//    }
+//    else if (validar == 'invalido') {
+//        newcliente();
+//        document.getElementById('ContentPlaceHolder1_txtValidarCpfCnpj').focus();
+//        toastr['info']('CPF ou CNPJ inválido.', 'OficiNet');
+//    }
+//}
 
-window.setTimeout('validarcnpjcpf()', 1);
+//window.setTimeout('validarcnpjcpf()', 1);
