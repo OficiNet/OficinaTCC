@@ -246,7 +246,7 @@ namespace Site.Administrador
                         cliente.Endereco.Estado = txt_Estado.Text.Trim();
                         cliente.Endereco.Logradouro = txt_logradouro.Text.Trim();
                         d.SalvarCliente(cliente);
-                        Page.ClientScript.RegisterStartupScript(this.GetType(), "toastr_message", "toastr.info('Cadastrado com sucesso.', 'OficiNet')", true);
+                        Page.ClientScript.RegisterStartupScript(this.GetType(), "toastr_message", "toastr.success('Cadastrado com sucesso.', 'OficiNet')", true);
                         Thread.Sleep(2000);
                         painelCadastro.Visible = false;
                         CarregarClientes();
@@ -258,6 +258,8 @@ namespace Site.Administrador
                         txt_Nome.Text = string.Empty;
                         txt_Telefone.Text = string.Empty;
                         painel_cpf_cnpj.Visible = false;
+                        lblTel.Text = string.Empty;
+                        lblTel.Visible = false;
                     }
                     else
                     {
@@ -268,10 +270,16 @@ namespace Site.Administrador
                 }
                 else
                 {
-                    txt_Telefone.Text = string.Empty;
-                    txt_Telefone.Focus();
+                    
                     Page.ClientScript.RegisterStartupScript(this.GetType(), "toastr_message", "toastr.info('O CPF ou CNPJ já existe.', 'OficiNet')", true);
                     Thread.Sleep(1000);
+                    txt_Telefone.Text = string.Empty;
+                    txt_Telefone.Focus();
+                    //lblTel.CssClass = "";
+                    lblTel.Visible = true;
+                    lblTel.Text = "Telefone Invalido!";
+                    
+                    
                 }
             }
             catch (Exception)
@@ -326,6 +334,8 @@ namespace Site.Administrador
         {
             try
             {
+                lblTel.Visible = false;
+                lblTel.Text = string.Empty;
                 CarregarClientes();
                 painelCadastro.Visible = false;
                 painel_Grid.Visible = true;
@@ -352,6 +362,8 @@ namespace Site.Administrador
             painel_Grid.Visible = false;
             painel_cpf_cnpj.Visible = true;
             txtValidarCpfCnpj.Focus();
+            lblTel.Text = string.Empty;
+            lblTel.Visible = false;
 
         }
     }

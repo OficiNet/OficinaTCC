@@ -146,6 +146,7 @@
                             </label>
                             <label class="ls-label col-xs-3">
                                 <asp:Label ID="lblTelefoneCliente" runat="server" meta:resourceKey="lblTelefoneCliente" Text="Telefone:" CssClass="ls-label-text" />
+                                <asp:Label ID="lblTel" runat="server" CssClass="ls-tag-danger" Text=" " Visible="false" />
                                 <asp:TextBox ID="txt_Telefone" CssClass="ls-label-text" runat="server" MaxLength="15" onkeyup="mascara(this, mtel);" required="required" />
                             </label>
                         </div>

@@ -337,6 +337,15 @@ namespace Site.Administrador {
         protected global::System.Web.UI.WebControls.Label lblTelefoneCliente;
         
         /// <summary>
+        /// lblTel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTel;
+        
+        /// <summary>
         /// txt_Telefone control.
         /// </summary>
         /// <remarks>
