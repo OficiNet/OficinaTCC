@@ -84,7 +84,6 @@ namespace Site.Administrador
                         {
                             Page.ClientScript.RegisterStartupScript(this.GetType(), "toastr_message", "toastr.info('Você não pode excluir o veículo de um cliente que possui ordem de Serviço.', 'OficiNet')", true);
                         }
-                       
                     }
                 }
                 carregarVeiculos();

@@ -13,8 +13,6 @@ namespace Site.Administrador
         {
             if (!IsPostBack)
             {
-
-
                 CarregarClientes();
             }
         }
@@ -26,7 +24,6 @@ namespace Site.Administrador
                 string strWhere = "Nome like '%{0}%'";
                 strWhere = String.Format(strWhere, txtPesquisa.Text.ToString().Trim());
                 ClienteDal d = new ClienteDal();
-
                 gridClientes.DataSource = d.ListarCliente(strWhere);
                 gridClientes.DataBind();
 
@@ -34,10 +31,6 @@ namespace Site.Administrador
                 {
                     Page.ClientScript.RegisterStartupScript(this.GetType(), "toastr_message", "toastr.info('Cliente não encontrado.', 'OficiNet')", true);
                 }
-                //else
-                //{
-                //    gridClientes.DataBind();
-                //}
             }
             catch (Exception)
             {
@@ -245,7 +238,6 @@ namespace Site.Administrador
                             cliente.CPF = cpf;
                             cliente.Tipo_Pessoa = 'F';
                         }
-
                         cliente.Endereco = new Endereco();
                         cliente.Endereco.Complemento = txt_Complemento.Text.Trim();
                         cliente.Endereco.Numero = txt_Numero.Text.Trim();
@@ -253,37 +245,22 @@ namespace Site.Administrador
                         cliente.Endereco.Cidade = txt_Cidade.Text.Trim();
                         cliente.Endereco.Estado = txt_Estado.Text.Trim();
                         cliente.Endereco.Logradouro = txt_logradouro.Text.Trim();
-
                         d.SalvarCliente(cliente);
                         Page.ClientScript.RegisterStartupScript(this.GetType(), "toastr_message", "toastr.info('Cadastrado com sucesso.', 'OficiNet')", true);
-
                         Thread.Sleep(1000);
                         painelCadastro.Visible = false;
                         CarregarClientes();
                         painel_Grid.Visible = true;
-
                         txt_Numero.Text = string.Empty;
                         txt_Bairro.Text = string.Empty;
                         txt_Cidade.Text = string.Empty;
                         txt_Estado.Text = string.Empty;
                         txt_Nome.Text = string.Empty;
                         txt_Telefone.Text = string.Empty;
-
-
-
                         painel_cpf_cnpj.Visible = false;
-
-                        //lblResp.Text = "return alert('teste')";
-                        // Response.Redirect(Request.Url.ToString());
-
-
-
-
                     }
                     else
                     {
-                        //Page.ClientScript.RegisterStartupScript(this.GetType(), "toastr_message", "toastr.danger('CPF ou CNPJ inválido.', 'OficiNet')", true);
-                        //Response.Redirect(Request.Url.ToString());
                         Page.ClientScript.RegisterStartupScript(this.GetType(), "toastr_message", "toastr.info('O CPF ou CNPJ já existe.', 'OficiNet')", true); Page.ClientScript.RegisterStartupScript(this.GetType(), "toastr_message", "toastr.info('Cadastrado com sucesso.', 'OficiNet')", true);
                         Thread.Sleep(1000);
                         txt_Telefone.Focus();
@@ -291,17 +268,11 @@ namespace Site.Administrador
                 }
                 else
                 {
-                    //Page.ClientScript.RegisterStartupScript(this.GetType(), "toastr_message", "toastr.info('Telefone Inválido', 'OficiNet')", true);
-                   
                     txt_Telefone.Text = string.Empty;
                     txt_Telefone.Focus();
                     Page.ClientScript.RegisterStartupScript(this.GetType(), "toastr_message", "toastr.info('O CPF ou CNPJ já existe.', 'OficiNet')", true);
                     Thread.Sleep(1000);
-                    
                 }
-
-
-                
             }
             catch (Exception)
             {
@@ -316,23 +287,15 @@ namespace Site.Administrador
             try
             {
                 ClienteDal d = new ClienteDal();
-
                 if (validaCpf(txtValidarCpfCnpj.Value) || validaCnpj(txtValidarCpfCnpj.Value))
                 {
-
                     if (!d.Verificar_Cpf_Cnpj(txtValidarCpfCnpj.Value))
                     {
-                        // lblValida_cpf_cnpj.Visible = false;
-                        //  lblValida_cpf_cnpj.Text = "true";
-
-                        //Page.ClientScript.RegisterStartupScript(this.GetType(), "toastr_message", "toastr.danger('O CPF ou CNPJ já existe.', 'OficiNet')", true);
                         Page.ClientScript.RegisterStartupScript(this.GetType(), "toastr_message", "toastr.info('O CPF ou CNPJ já existe.', 'OficiNet')", true);
                         Thread.Sleep(1000);
                     }
                     else
                     {
-                        // lblValida_cpf_cnpj.Text = "false";
-
                         painelCadastro.Visible = true;
                         painel_Grid.Visible = false;
                         painel_cpf_cnpj.Visible = false;
@@ -349,8 +312,6 @@ namespace Site.Administrador
                 }
                 else
                 {
-                    // lblValida_cpf_cnpj.Text = "invalido";
-                    //Page.ClientScript.RegisterStartupScript(this.GetType(), "toastr_message", "toastr.danger('CPF ou CNPJ inválido.', 'OficiNet')", true);
                     Page.ClientScript.RegisterStartupScript(this.GetType(), "toastr_message", "toastr.info('CPF ou CNPJ inválido.', 'OficiNet')", true);
                     Thread.Sleep(1000);
                 }
@@ -390,6 +351,8 @@ namespace Site.Administrador
             painelCadastro.Visible = false;
             painel_Grid.Visible = false;
             painel_cpf_cnpj.Visible = true;
+            txtValidarCpfCnpj.Focus();
+
         }
     }
 }

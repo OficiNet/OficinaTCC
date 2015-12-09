@@ -84,50 +84,28 @@ function voltar() {
     //document.getElementById('painelcadastro').style.display = 'none';
     //document.getElementById('painelcpfcnpj').style.display = 'none';
     //document.getElementById('painelgrid').style.display = 'block';
-    alert('teste');
+    //alert('teste');
     return true;
 
 }
 
 function newcliente() {
-   
-
    // document.getElementById('painelcpfcnpj').style.display = 'block';
-    
-    
     document.getElementById('ContentPlaceHolder1_txt_Nome').value = ' ';
-   
     document.getElementById('ContentPlaceHolder1_txt_Telefone').value = ' ';
-    
     document.getElementById('ContentPlaceHolder1_txt_Cpf_Cnpj').value = ' ';
- 
     document.getElementById('ContentPlaceHolder1_txt_Complemento').value = ' ';
-    
     document.getElementById('ContentPlaceHolder1_txt_Numero').value = ' ';
-   
     document.getElementById('ContentPlaceHolder1_txt_Bairro').value = ' ';
-
     document.getElementById('ContentPlaceHolder1_txt_Cidade').value = ' ';
-  
     document.getElementById('ContentPlaceHolder1_txt_Estado').value = ' ';
-
     document.getElementById('ContentPlaceHolder1_txt_logradouro').value = ' ';
-    
     document.getElementById('ContentPlaceHolder1_radioSexo').value = 'F';
     document.getElementById('ContentPlaceHolder1_txtValidarCpfCnpj').value = ' ';
-
-    
-    
    // document.getElementById('ContentPlaceHolder1_txtValidarCpfCnpj').value = '';
-    
-    
- 
    //document.getElementById('painelcadastro').style.display = 'none';
-   
    // document.getElementById('painelgrid').style.display = 'none';
-
   // alert('teste');
-   
     return true;
 }
 
