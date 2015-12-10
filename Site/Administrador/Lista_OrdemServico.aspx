@@ -26,7 +26,13 @@
                         <asp:BoundField DataField="Cliente.Nome" HeaderText="Nome" />
                         <asp:BoundField DataField="Veiculo.Placa" HeaderText="Placa" />
                         <asp:BoundField DataField="Veiculo.Modelo" HeaderText="Modelo" />
-                        <asp:BoundField DataField="Valor" HeaderText="Valor" />
+                        <asp:TemplateField HeaderText="Valor">
+                            <ItemTemplate>
+                                <%# Eval("Valor","{0:C}") %>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+
+                        <%--<asp:BoundField DataField="R$ "+"Valor" HeaderText="Valor" />--%>
                         <asp:BoundField DataField="Status" HeaderText="Status" />
                         <%--<asp:TemplateField HeaderText="">
                             <ItemTemplate>
