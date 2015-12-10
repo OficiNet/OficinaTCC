@@ -180,6 +180,24 @@ namespace DAL.Persistence
             }
         }
 
-
+        public int QuantidadeOS()
+        {
+            try
+            {
+                AbrirConexao();
+                Cmd = new SqlCommand("SELECT COUNT(os.Protocolo) AS qtd FROM Tb_Ordem_Servico AS os", Con);
+                int qtdOS = 0;
+                Dr = Cmd.ExecuteReader();
+                while (Dr.Read())
+                {
+                    qtdOS = Convert.ToInt32(Dr["qtd"]);
+                }
+                return Convert.ToInt32(qtdOS);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

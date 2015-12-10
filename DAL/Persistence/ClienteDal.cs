@@ -308,5 +308,26 @@ namespace DAL.Persistence
                 FecharConexao();
             }
         }
+
+        public int QuantidadeClientes()
+        {
+            try
+            {
+                AbrirConexao();
+                Cmd = new SqlCommand("SELECT COUNT(c.Id_Cliente) AS qtd FROM Tb_Cliente AS c", Con);
+                int qtdClientes = 0;
+                Dr = Cmd.ExecuteReader();
+                while (Dr.Read())
+                {
+                    qtdClientes = Convert.ToInt32(Dr["qtd"]);
+                }
+                return qtdClientes;
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

@@ -200,5 +200,25 @@ namespace DAL.Persistence
                 FecharConexao();
             }
         }
+
+        public int QuantidadeVeiculo()
+        {
+            try
+            {
+                AbrirConexao();
+                Cmd = new SqlCommand("SELECT COUNT(v.Id_Veiculo) AS qtd FROM Tb_Veiculo AS v", Con);
+                int qtdVeiculos = 0;
+                Dr = Cmd.ExecuteReader();
+                if (Dr.Read())
+                {
+                    qtdVeiculos = Convert.ToInt32(Dr["qtd"]);
+                }
+                return qtdVeiculos;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }
