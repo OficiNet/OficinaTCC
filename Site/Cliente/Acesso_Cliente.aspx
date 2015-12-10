@@ -8,58 +8,40 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <h1>Área do Cliente</h1>
-    <hr />
+    <div class="container-fluid">
+        <h1>Área do Cliente</h1>
+        <hr />
 
-    <asp:Panel ID="painelCPFCNPJ" runat="server">
-        <div class="col-md-4">
-            <div class="input-group has-success">
-                <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-user"></span></span>
-                <asp:TextBox ID="txtCPFCNPJ" class="form-control" runat="server" placeholder="Digite o CPF ou o CNPJ (Somente Números)" autofocus onkeyup="mascaraMutuario(this,cpfCnpj);" onblur='clearTimeout();' onkeypress=''></asp:TextBox>
-                <span class="input-group-btn">
-                    <button id="btnPesquisar" type="button" class="btn btn-md btn-success" runat="server" text="Pesquisar" onserverclick="btnPesquisa_Click">
-                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-                    </button>
-                </span>
+        <asp:Panel ID="painelCPFCNPJ" runat="server">
+            <div class="col-md-4">
+                <div class="input-group has-success">
+                    <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-user"></span></span>
+                    <asp:TextBox ID="txtCPFCNPJ" class="form-control" runat="server" placeholder="Digite o CPF ou o CNPJ (Somente Números)" autofocus onkeyup="mascaraMutuario(this,cpfCnpj);" onblur='clearTimeout();' onkeypress=''></asp:TextBox>
+                    <span class="input-group-btn">
+                        <button id="btnPesquisar" type="button" class="btn btn-md btn-success" runat="server" text="Pesquisar" onserverclick="btnPesquisa_Click">
+                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                        </button>
+                    </span>
+                </div>
             </div>
-        </div>
-    </asp:Panel>
-    <asp:Button ID="btnVoltar" OnClick="btnVoltar_Click" runat="server" Text="sair" />
-    <asp:Panel ID="painelOrdemServico" runat="server" Visible="false">
-
-
-        <asp:Label ID="lblResp" runat="server" />
-
-
-
-        <asp:GridView ID="gridOrdemServico" runat="server" CssClass="ls-table ls-table-striped" AutoGenerateColumns="false">
-            <Columns>
-                <asp:BoundField DataField="Protocolo" HeaderText="Protocolo" />
-                <asp:BoundField DataField="Cliente.Nome" HeaderText="Nome" />
-                <asp:BoundField DataField="Observacoes" HeaderText="Observações" />
-                <asp:BoundField DataField="Valor" HeaderText="Valor" />
-                <asp:BoundField DataField="Veiculo.Modelo" HeaderText="Modelo" />
-                <asp:BoundField DataField="Veiculo.Placa" HeaderText="Placa" />
-                <asp:BoundField DataField="Status" HeaderText="Status" />
-            </Columns>
-        </asp:GridView>
-
-
-
-
-    </asp:Panel>
-
-
-
+        </asp:Panel>
+        <asp:Button ID="btnVoltar" CssClass="btn btn-md btn-success" OnClick="btnVoltar_Click" runat="server" Text="Voltar" />
+        <asp:Panel ID="painelOrdemServico" runat="server" Visible="false">
+            <asp:Label ID="lblResp" runat="server" />
+            <asp:GridView ID="gridOrdemServico" runat="server" CssClass="ls-table ls-bg-header" AutoGenerateColumns="false">
+                <Columns>
+                    <asp:BoundField DataField="Protocolo" HeaderText="Protocolo" />
+                    <asp:BoundField DataField="Cliente.Nome" HeaderText="Nome" />
+                    <asp:BoundField DataField="Observacoes" HeaderText="Observações" />
+                    <asp:BoundField DataField="Valor" HeaderText="Valor" />
+                    <asp:BoundField DataField="Veiculo.Modelo" HeaderText="Modelo" />
+                    <asp:BoundField DataField="Veiculo.Placa" HeaderText="Placa" />
+                    <asp:BoundField DataField="Status" HeaderText="Status" />
+                </Columns>
+            </asp:GridView>
+        </asp:Panel>
+    </div>
     <script type="text/javascript">
-
-        //function add() {
-        //    alert('teste');
-        //    document.getElementById('ContentPlaceHolder1_txtCPFCNPJ') = ' ';
-        //    return true;
-        //}
-
-
         function mascaraMutuario(o, f) {
             v_obj = o
             v_fun = f
@@ -101,7 +83,5 @@
             }
             return v
         }
-
-
     </script>
 </asp:Content>
