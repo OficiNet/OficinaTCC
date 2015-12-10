@@ -71,6 +71,31 @@ namespace Site.Administrador
             }
         }
 
+        protected void btnGridAtualizar_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                foreach (GridViewRow linha in gridOrdemServico.Rows)
+                {
+                    Button btnAtualizar = linha.FindControl("btnAtualizar") as Button;
+                    Label lblIdCliente = linha.FindControl("lblIdCliente") as Label;
+                    if (btnAtualizar.Equals(sender))
+                    {
+                        int id = Convert.ToInt32(lblIdCliente.Text);
+                        Ordem_ServicoDal d = new Ordem_ServicoDal();
+                        d.FecharOS(id);
+                        carregarOrdemServico();
+                       // Response.Redirect("Editar_Cliente.aspx?id=" + id.ToString());
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
         private void carregarClientes()
         {
             try

@@ -44,7 +44,7 @@ namespace DAL.Persistence
                 AbrirConexao();
                 Cmd = new SqlCommand("select Id_Ordem_Servico, Protocolo from Tb_Ordem_Servico", Con);
                 Dr = Cmd.ExecuteReader();
-                int protocolo = 0;
+                int protocolo = 1;
                 while (Dr.Read())
                 {
                     if (String.IsNullOrEmpty(Convert.ToString(Dr["Protocolo"])))
@@ -75,7 +75,7 @@ namespace DAL.Persistence
             try
             {
                 AbrirConexao();
-                Cmd = new SqlCommand("select *,os._Status as Status from Tb_Ordem_Servico as os inner join  Tb_Veiculo as v on os.FK_Id_Veiculo = v.Id_Veiculo inner join Tb_Cliente as c on os.FK_Id_Cliente = c.Id_Cliente", Con);
+                Cmd = new SqlCommand("select *,os._Status as Status from Tb_Ordem_Servico as os inner join  Tb_Veiculo as v on os.FK_Id_Veiculo = v.Id_Veiculo inner join Tb_Cliente as c on os.FK_Id_Cliente = c.Id_Cliente  order by os._Status ASC", Con);
                 Dr = Cmd.ExecuteReader();
                 List<Ordem_Servico> listaOrdemServico = new List<Ordem_Servico>();
                 while (Dr.Read())
@@ -144,6 +144,24 @@ namespace DAL.Persistence
             }
         }
 
+        public void FecharOS(int id)
+        {
+            try
+            {
+                AbrirConexao();
+                Cmd = new SqlCommand("update Tb_Ordem_Servico set _Status='Fechado' where Id_Ordem_Servico = @id", Con);
+                Cmd.Parameters.AddWithValue("@id",id);
+                Dr = Cmd.ExecuteReader();
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Erro: Ordem_ServicoDal: AddProtocolo() => " + e.Message);
+            }
+            finally
+            {
+                FecharConexao();
+            }
+        }
 
         public bool ExisteOrdemServico(int idVeiculo)
         {

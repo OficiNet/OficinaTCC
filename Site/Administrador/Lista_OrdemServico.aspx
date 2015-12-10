@@ -31,18 +31,16 @@
                                 <%# Eval("Valor","{0:C}") %>
                             </ItemTemplate>
                         </asp:TemplateField>
-
-                        <%--<asp:BoundField DataField="R$ "+"Valor" HeaderText="Valor" />--%>
                         <asp:BoundField DataField="Status" HeaderText="Status" />
-                        <%--<asp:TemplateField HeaderText="">
+                        <asp:TemplateField HeaderText="Situação">
                             <ItemTemplate>
                                 <center>
-                                    <asp:Button CssClass="ls-btn-danger ls-btn-xs" ID="btnExcuirCampo" runat="server" Text="Excluir" OnClientClick="return excluir();" OnClick="Excluir_Click" />
-                                    <asp:Button CssClass="ls-btn-default ls-btn-xs" ID="btnAtualizar" runat="server" Text="Atualizar" OnClientClick="return carregarform();" OnClick="btnGridAtualizar_Click" />
-                                    <asp:Label ID="lblIdCliente"  runat="server" Text='<%# Eval("Id_Cliente") %>' Visible="false" />
+                                    <%--<asp:Button CssClass="ls-btn-danger ls-btn-xs" ID="btnExcuirCampo" runat="server" Text="Excluir" OnClientClick="return excluir();" OnClick="Excluir_Click" />--%>
+                                    <asp:Button CssClass="ls-btn-danger ls-btn-xs" ID="btnAtualizar" runat="server" Text="Fechar" OnClick="btnGridAtualizar_Click" />
+                                    <asp:Label ID="lblIdCliente"  runat="server" Text='<%# Eval("Id_Ordem_Servico") %>' Visible="false" />
                                 </center>
                             </ItemTemplate>
-                        </asp:TemplateField>--%>
+                        </asp:TemplateField>
                     </Columns>
                 </asp:GridView>
         </asp:Panel>
@@ -109,7 +107,7 @@
                             <label class="ls-label col-xs-2">
                                 <strong>
                                     <asp:Label ID="lblValor" runat="server" meta:resourceKey="lblValor" Text="Valor:" CssClass="ls-label-text" /></strong>
-                                <asp:TextBox ID="txtValor" CssClass="ls-label-text" runat="server" required="required" />
+                                <asp:TextBox ID="txtValor" CssClass="ls-label-text" onkeyup="mascara(this, mtel);" MaxLength="5" runat="server" required="required" />
                             </label>
                         </div>
                     </div>
