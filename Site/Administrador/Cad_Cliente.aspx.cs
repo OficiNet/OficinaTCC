@@ -199,8 +199,6 @@ namespace Site.Administrador
             return cnpj.EndsWith(digito);
         }
 
-
-
         protected void btn_Cadastrar_Cliente_Click(object sender, EventArgs e)
         {
             try
@@ -223,8 +221,9 @@ namespace Site.Administrador
                     //validar cnpj ou cpf
                     if (validaCpf(txt_Cpf_Cnpj.Value) || validaCnpj(txt_Cpf_Cnpj.Value))
                     {
+                        string cpf_cnpj = txt_Cpf_Cnpj.Value.ToString();
                         //verificar se e pessoa fisica ou juridica
-                        if (radioCpf_Cnpj.SelectedValue.Equals("cnpj"))
+                        if (/*radioCpf_Cnpj.SelectedValue.Equals("cnpj") || */cpf_cnpj.Length == 18)
                         {
                             cliente.CPF = "";
                             string cnpj = txt_Cpf_Cnpj.Value;
@@ -358,6 +357,7 @@ namespace Site.Administrador
 
         protected void btnNovoCliente_Click(object sender, EventArgs e)
         {
+            txtValidarCpfCnpj.Value = string.Empty;
             painelCadastro.Visible = false;
             painel_Grid.Visible = false;
             painel_cpf_cnpj.Visible = true;

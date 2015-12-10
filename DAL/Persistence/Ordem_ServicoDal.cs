@@ -44,7 +44,7 @@ namespace DAL.Persistence
                 AbrirConexao();
                 Cmd = new SqlCommand("select Id_Ordem_Servico, Protocolo from Tb_Ordem_Servico", Con);
                 Dr = Cmd.ExecuteReader();
-                int protocolo = 1;
+                int protocolo = 1000;
                 while (Dr.Read())
                 {
                     if (String.IsNullOrEmpty(Convert.ToString(Dr["Protocolo"])))
